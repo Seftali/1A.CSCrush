@@ -1,10 +1,10 @@
 # 1A.CSCrush
 Cs319 Section 1
 
-Berk Ataç 21200623
-Taner Düzceer 21300917
-Ahmet Akif Uğurtan 21400526
-Eren Aytüre 21200559
+Berk Ataç 21200623 /n
+Taner Düzceer 21300917 /n
+Ahmet Akif Uğurtan 21400526 /n
+Eren Aytüre 21200559 /n
 
 We will create a puzzle game called CS Crush. Game will be optimized for working on desktop systems. 
 It will have similar gameplay as games such as Candy Crush, Bejeweled...

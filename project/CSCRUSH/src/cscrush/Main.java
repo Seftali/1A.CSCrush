@@ -7,15 +7,17 @@ package cscrush;
 
 /**
  *
- * @author Electricity
+ * @author Ahmet Akif Uğurtan
  */
-public class GameUIManager {
+public class Main {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        GUIManager.manager.startFrame();
     }
     
 }

@@ -59,6 +59,7 @@ public class GUIManager {
     {
         //Get dump level 
         
+        gamePlayScreenPanel.setGameTable(null);
         gameFrame.setContentPane(gamePlayScreenPanel);
         gameFrame.pack();
     }
@@ -68,6 +69,12 @@ public class GUIManager {
     {
         gameFrame.setContentPane(mainMenuPanel);
         gameFrame.pack();
+    }
+    
+    //Swap books in GameTable
+    public void swapBooks(int x1, int y1, int x2, int y2)
+    {
+        System.out.println(x1 + " " + y1 + " " + x2 + " " + y2 );
     }
     
     //Exit game

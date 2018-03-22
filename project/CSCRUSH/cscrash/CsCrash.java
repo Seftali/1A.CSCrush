@@ -23,7 +23,6 @@ public class CsCrash {
         game.displayMarked();
         System.out.println();
         game.displayType();
-        System.out.println(game.check());
         
     }
     

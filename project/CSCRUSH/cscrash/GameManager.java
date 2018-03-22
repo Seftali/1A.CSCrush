@@ -28,26 +28,23 @@ public class GameManager {
                 list[i][j] = new BookCandy();
             }
         }
-        fillBooks();
         rebuild();
     }
-    private void rebuild(){
-        traverselyMarkedBooks();
-        destroyTraversally();
-        fall(0);
-        while(numberofMarkeds != 0){
-            fillBooks();
-            traverselyMarkedBooks();
+    private void rebuild(){ 
+        fillBooks();
+        while(traverselyMarkedBooks() != 0){
             destroyTraversally();
             fall(0);
-        }        
+            fillBooks();
+        }
     }
     
     private void fillBooks(){
         int count = 10;
+        BookCandy temp = new BookCandy();
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                if( ( list[i][j].getType() ).equals( (new BookCandy()).getType()) )
+                if( ( list[i][j].getType() ).equals( temp.getType()) )
                     list[i][j] = randomBookGenerator();
                 else
                     if(--count == 0)
@@ -78,128 +75,49 @@ public class GameManager {
         }
         return randomBook;
     }
-    private void markedBooks(int x, int y){
+
+    public int markedBooks(int x,int y){
         int countx = x;
+        int countxx = 1;
         int county = y;
-        int temp = 2;
-        int count = 0;
-        
-        while(true){
-            if( (countx+1 < matrixSize ) && ( list[x][y].getType().equals( list[++countx][y].getType() ) ) ){
-                count++;
-                list[countx-1][y].setMarked(true);
-                list[countx][y].setMarked(true);
-                numberofMarkeds++;
-            }
-            else
-                break;
+        int countyy = 1;
+        while(( countx+1 < matrixSize ) && (list[countx][y].getType().equals(list[++countx][y].getType())) && ( !( list[countx-1][y].getMarked() || list[countx][y].getMarked() ) ) )
+            countxx++;
+        while(( county+1 < matrixSize ) && (list[x][county].getType().equals(list[x][++county].getType())) && ( !( list[x][county-1].getMarked() || list[x][county].getMarked() ) ) ){
+            countyy++;
         }
-        if( (count < 2 ) && ( x != matrixSize-1 ) ){
-            list[x][y].setMarked(false);
-            list[x+1][y].setMarked(false);
-            numberofMarkeds--;
+        int result = 0;   
+        if(countxx > 2){
+            result = countxx-1;
+            for(int i = 0; i < countxx; i++)
+                list[x+i][y].setMarked(true);
         }
-        else
-            numberofMarkeds++;
-            
-        count = 0;
-        countx = x;
-        while(true){
-            if( ( countx-1 >= 0 ) && ( list[x][y].getType().equals( list[--countx][y].getType() ) ) ){
-                count++;
-                list[countx][y].setMarked(true);
-                list[countx+1][y].setMarked(true);
-                numberofMarkeds++;
-            }
-            else 
-                break;
+        if(countyy > 2){
+            result = countyy-1;
+            for(int i = 0; i < countyy; i++)
+                list[x][y+i].setMarked(true);
         }
-        if( (count < 2 ) && ( x != 0 ) ){
-            list[x][y].setMarked(false);
-            list[x-1][y].setMarked(false);
-            numberofMarkeds--;
-        }
-        else
-            numberofMarkeds++;
-        count = 0;
-        county = y;
-        while(true){
-            if(  ( county+1 < matrixSize ) && list[x][y].getType().equals( list[x][++county].getType() ) ){
-                count++;
-                list[x][county-1].setMarked(true);
-                list[x][county].setMarked(true);
-                numberofMarkeds++;
-            }
-            else
-                break;
-        }
-        if( (count < 2 ) && ( y != matrixSize-1 ) ){
-            list[x][y+1].setMarked(false);
-            list[x][y].setMarked(false);
-            numberofMarkeds--;
-        }
-        else
-            numberofMarkeds++;
-        count = 0;
-        county = y;
-        while(true){
-            if(  ( county-1 >= 0 ) && ( list[x][y].getType().equals( list[x][--county].getType() ) ) ){
-                count++;
-                list[x][county+1].setMarked(true);
-                list[x][county].setMarked(true);
-                numberofMarkeds++;
-            }
-            else 
-                break;
-        }
-        if( (count < 2 ) && ( y != 0 ) ){
-            list[x][y-1].setMarked(false);
-            list[x][y].setMarked(false);
-            numberofMarkeds--;
-        }
-        else
-            numberofMarkeds++;
+        return result;
     }
-    private void traverselyMarkedBooks(){
+    
+    private int traverselyMarkedBooks(){
+        int sum = 0;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                if(list[i][j].getMarked())
-                    markedBooks(i,j);
-                if(list[j][i].getMarked())
-                    markedBooks(j,i);
+                if(!(list[i][j].getMarked()))
+                    sum += markedBooks(i,j);
             }
         }
+        return sum;
     }
-    private void destroySpecificly(int x,int y){
-        int temp = x;    
-        while((list[temp++][y].getMarked()) && (temp <= matrixSize) ){
-            list[temp-1][y] = new BookCandy();
-            numberofMarkeds--;
-            score = score+5;
-        }
-        temp = x;
-        while((list[temp--][y].getMarked()) && (temp >= -1) ){
-            list[temp+1][y] = new BookCandy();
-            numberofMarkeds--;
-            score = score+5;
-        }
-        temp = y;
-        while((list[x][temp++].getMarked()) && (temp <= matrixSize) ){
-            list[x][temp-1] = new BookCandy();
-            numberofMarkeds--;
-            score = score+5;
-        }
-        temp = y;
-        while((list[x][temp--].getMarked()) && (temp >= -1) ){
-            list[x][temp+1] = new BookCandy();
-            numberofMarkeds--;
-            score = score+5;
-        }
-    }
+    
     private void destroyTraversally(){
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                destroySpecificly(i,j);
+                if(list[i][j].getMarked()){
+                    list[i][j] = new BookCandy();
+                    score = score+5;
+                }
             }
         }
     }
@@ -318,22 +236,7 @@ public class GameManager {
             System.out.println("\n");
         }
     }
-    public boolean check(){
-        boolean r = true;
-        for(int i = 0; i < matrixSize-2; i++){
-            for(int j = 0; j < matrixSize-2; j++){
-                if( (list[i][j].getTypeBar().equals("normal"))&& (list[i][j+1].getTypeBar().equals("normal"))&& (list[i][j+2].getTypeBar().equals("normal"))&&((list[i][j].getType() == list[i+1][j].getType())&&(list[i][j].getType() == list[i+1][j].getType() ))){
-                    r = false;
-                    break;
-                }
-                else if((list[j][i].getType() == list[j][i+1].getType())&&(list[j][i+1].getType() == list[j][i+2].getType() ) && (list[j][i].getTypeBar().equals("normal"))&& (list[j][i+1].getTypeBar().equals("normal"))&& (list[j][i+2].getTypeBar().equals("normal"))){
-                    r = false;
-                    break;
-                }
-            }
-        }
-        return r;
-    }
+    
     public int getScore(){
         return score;
     }

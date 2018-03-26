@@ -34,8 +34,9 @@ public class GameManager {
     private void rebuild(){ 
         fillBooks();
         while(traverselyMarkedBooks() != 0){
-            fall(0);
+   
             destroyTraversally();
+            fall(0);
             fillBooks();
         }
     }

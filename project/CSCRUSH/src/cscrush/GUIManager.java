@@ -109,6 +109,12 @@ public class GUIManager {
         gameFrame.setContentPane(mainMenuPanel);
         gameFrame.pack();
     }
+    
+    public void backToLoginPanel()
+    {
+        gameFrame.setContentPane(loginPanel);
+        gameFrame.pack();
+    }
 
     
     //Swap books in GameTable

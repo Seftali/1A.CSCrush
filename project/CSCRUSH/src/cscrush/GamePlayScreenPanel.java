@@ -51,6 +51,9 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         currentPoint = new javax.swing.JLabel();
         boosters = new javax.swing.JPanel();
         table = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +76,14 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
 
         currentPoint.setText("15000");
 
-        boosters.setPreferredSize(new java.awt.Dimension(60, 300));
+        boosters.setPreferredSize(new java.awt.Dimension(50, 250));
         boosters.setLayout(new java.awt.GridLayout(1, 0));
 
         table.setPreferredSize(new java.awt.Dimension(500, 500));
         table.setLayout(new java.awt.GridLayout(1, 0));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setText("Level 1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -107,34 +113,40 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
                             .addComponent(targetPoint)
                             .addComponent(currentPoint))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addComponent(jLabel4)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(remainedMovePoint)
+                                .addGap(57, 57, 57)
+                                .addComponent(boosters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(backButton)
+                            .addComponent(settingsButton))
+                        .addContainerGap(44, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(15, 15, 15)
                         .addComponent(targetPoint)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(8, 8, 8)
-                                .addComponent(currentPoint))
-                            .addComponent(table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(backButton)
-                            .addComponent(settingsButton)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(remainedMovePoint)
-                        .addGap(57, 57, 57)
-                        .addComponent(boosters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                        .addComponent(jLabel3)
+                        .addGap(8, 8, 8)
+                        .addComponent(currentPoint)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -151,6 +163,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel remainedMovePoint;
     private javax.swing.JButton settingsButton;
     private javax.swing.JPanel table;

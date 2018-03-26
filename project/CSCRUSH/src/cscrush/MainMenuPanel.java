@@ -34,6 +34,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
         creditsButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
 
         playGameButton.setText("Play Game");

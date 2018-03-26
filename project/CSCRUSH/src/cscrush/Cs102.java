@@ -25,10 +25,8 @@ public class Cs102 extends BookCandy
     public Cs102()
     {
         this.type = "Cs102";
-      //  this.bookImage = Image.
-     // this.positionMatrixX = 
+     //  this.bookImage = Image()
       this.marked = false;
-      //this.typeBar
     }
 
     @Override

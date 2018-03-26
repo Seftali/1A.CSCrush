@@ -31,7 +31,7 @@ public class GameManager {
         }
         rebuild();
     }
-    private void rebuild(){ 
+    public void rebuild(){ 
         fillBooks();
         while(traverselyMarkedBooks() != 0){
             fall(0);
@@ -77,7 +77,7 @@ public class GameManager {
         return randomBook;
     }
 
-    public int markedBooks(int x,int y){
+    private int markedBooks(int x,int y){
         int countx = x;
         int countxx = 1;
         int county = y;
@@ -152,17 +152,20 @@ public class GameManager {
                 count++;
             i--;
         }
-        i = matrixSize;
-        int counTemp = i;
-        int count2 =1;
-        while((i >= count-1) && (count != 0) ){
-            while( ( count2 != count ) && ( counTemp!= count ) ){
-                if(list[counTemp][y].getMarked()){
-                    BookCandy temp = list[i][y];
-                    list[counTemp][y] = list[--counTemp][y];
-                    list[counTemp+1][y] = temp;  
+        int countCounter = 0;
+        i = matrixSize-1;
+        int counTemp = 0;
+        while( ( count != 0 ) && ( countCounter != count) && (i >= 0)  ){
+            countCounter = 0;
+            if(list[i][y].getMarked()){
+                counTemp = i;
+                while((counTemp != countCounter) && (counTemp != 0)){
+                    BookCandy temp = list[counTemp][y];
+                    list[counTemp][y] = list[counTemp-1][y];
+                    list[counTemp-1][y] = temp;
+                    counTemp--;
                 }
-            count++;
+                countCounter++;
             }
             i--;
         }
@@ -176,7 +179,7 @@ public class GameManager {
             return;
         if(this.level.getMovement()!= 0){
             BookCandy temp = list[x1][y1];
-            list[x2][y2] = list[x1][y1];
+            list[x1][y1] = list[x2][y2];
             list[x2][y2] = temp;
             rebuild();
             level.setMovement(level.getMovement()-1);

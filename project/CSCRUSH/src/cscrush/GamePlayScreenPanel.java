@@ -52,7 +52,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         boosters = new javax.swing.JPanel();
         table = new javax.swing.JPanel();
 
-        backButton.setText("Back");
+        backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -74,10 +74,10 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         currentPoint.setText("15000");
 
         boosters.setPreferredSize(new java.awt.Dimension(60, 300));
-        boosters.setLayout(new java.awt.GridLayout());
+        boosters.setLayout(new java.awt.GridLayout(1, 0));
 
         table.setPreferredSize(new java.awt.Dimension(500, 500));
-        table.setLayout(new java.awt.GridLayout());
+        table.setLayout(new java.awt.GridLayout(1, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

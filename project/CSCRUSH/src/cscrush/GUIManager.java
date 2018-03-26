@@ -18,6 +18,13 @@ public class GUIManager {
     private LoginPanel loginPanel;
     private MainMenuPanel mainMenuPanel;
     private GamePlayScreenPanel gamePlayScreenPanel;
+    private SettingsPanel settingsPanel;
+    private InfoHelPanel infoHelPanel;
+    private CreditsPanel creditsPanel;
+    private HighScorePanel highScorePanel;
+    private LevelPanel levelPanel;
+    
+    
     
     GUIManager()
     {
@@ -25,6 +32,11 @@ public class GUIManager {
         loginPanel = new LoginPanel();
         mainMenuPanel = new MainMenuPanel();
         gamePlayScreenPanel = new GamePlayScreenPanel();
+        settingsPanel = new SettingsPanel();
+        creditsPanel = new CreditsPanel();
+        levelPanel = new LevelPanel();
+        infoHelPanel = new InfoHelPanel();
+        highScorePanel = new HighScorePanel();
     }
     
     //Start with login panel
@@ -47,13 +59,34 @@ public class GUIManager {
         gameFrame.setContentPane(mainMenuPanel);
         gameFrame.pack();
     }
-    
+    //Display settings by clicking settings button from main menu
+    public void displaySettings()
+    {
+        gameFrame.setContentPane(settingsPanel);
+        gameFrame.pack();
+    }
+    //Display credits by clicking credits button from main menu
+    public void displayCredits()
+    {
+        gameFrame.setContentPane(creditsPanel);
+        gameFrame.pack();
+    }
     //Display levels by clicking play button from main menu
     public void displayLevels()
     {
-        openLevel();
+        gameFrame.setContentPane(levelPanel);
+        gameFrame.pack();
     }
-    
+    public void displayHelp()
+    {
+        gameFrame.setContentPane(infoHelPanel);
+        gameFrame.pack();
+    }
+    public void displayHighScores()
+    {
+        gameFrame.setContentPane(highScorePanel);
+        gameFrame.pack();   
+    }
     //Opening choosed level
     public void openLevel()
     {
@@ -67,9 +100,15 @@ public class GUIManager {
     //Back from game screen play
     public void backFromGameScreenPlay()
     {
+        gameFrame.setContentPane(levelPanel);
+        gameFrame.pack();
+    }
+    public void backToMainMenuPanel()
+    {
         gameFrame.setContentPane(mainMenuPanel);
         gameFrame.pack();
     }
+
     
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)

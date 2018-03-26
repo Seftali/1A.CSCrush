@@ -27,7 +27,7 @@ public class BoostersPanel extends javax.swing.JPanel {
     public BoostersPanel() {
         initComponents();
         try {
-            dump = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\img\\robin.jpg"));
+            dump = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\robin.jpg"));
         } catch (IOException ex) {
             Logger.getLogger(BoostersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }

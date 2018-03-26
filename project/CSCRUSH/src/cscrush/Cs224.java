@@ -15,11 +15,11 @@ public class Cs224 extends BookCandy {
     public Cs224(){
         super();
         if(getTypeBar().equals("normal"))
-            setImage("img\\cs224.jpeg");
+            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224.jpg");
         else if (getTypeBar().equals("vertical"))
-            setImage("img\\cs224Vertical.jpeg");
+            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Vertical.jpg");
         else
-            setImage("c,img\\cs224Horizontal.jpeg");
+            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Horizontal.jpg");
     }
     @Override
     public void setTypeBarDirectly(){
@@ -33,8 +33,8 @@ public class Cs224 extends BookCandy {
                 break;
         }
         if(typeBar == "vertical")
-            setImage("img\\cs224Vertical.jpg");
+            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Vertical.jpg");
         if(typeBar == "vertical")
-            setImage("img\\cs224Horizontal.jpg");
+            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Horizontal.jpg");
     }
 }

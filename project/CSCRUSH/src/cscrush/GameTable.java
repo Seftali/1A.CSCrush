@@ -24,18 +24,12 @@ import javax.imageio.ImageIO;
 public class GameTable extends javax.swing.JPanel {
 
     private BookCandy[][] tableObjects;
-    private BufferedImage dump;
     private int pressedX, pressedY;
     /**
      * Creates new form GameTable
      */
     public GameTable() {
         initComponents();
-        try {
-            dump = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\img\\robin.jpg"));
-        } catch (IOException ex) {
-            Logger.getLogger(GameTable.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     @Override
@@ -45,7 +39,7 @@ public class GameTable extends javax.swing.JPanel {
         for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
         {  
-            g.drawImage(dump.getScaledInstance(50, 50, Image.SCALE_DEFAULT),i*50,j*50,null);
+            g.drawImage(tableObjects[i][j].getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT),i*50,j*50,null);
         }
         
     }
@@ -53,6 +47,7 @@ public class GameTable extends javax.swing.JPanel {
     public void setTableObjects(BookCandy[][] tableObjects)
     {
         this.tableObjects = tableObjects;
+        repaint();
     }
     
     /**

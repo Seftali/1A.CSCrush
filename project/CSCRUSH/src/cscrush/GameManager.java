@@ -13,6 +13,7 @@ package cscrush;
  * @author Eren Ayture
  */
 public class GameManager {
+    
     BookCandy[][] list;
     Level level;
     final int matrixSize = 10;

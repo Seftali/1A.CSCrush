@@ -23,6 +23,7 @@ public class GUIManager {
     private CreditsPanel creditsPanel;
     private HighScorePanel highScorePanel;
     private LevelPanel levelPanel;
+    private GameManager currentLevel;
     
     
     
@@ -91,8 +92,8 @@ public class GUIManager {
     public void openLevel()
     {
         //Get dump level 
-        
-        gamePlayScreenPanel.setGameTable(null);
+        currentLevel = new GameManager(1);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gameFrame.setContentPane(gamePlayScreenPanel);
         gameFrame.pack();
     }
@@ -113,7 +114,8 @@ public class GUIManager {
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
-        System.out.println(x1 + " " + y1 + " " + x2 + " " + y2 );
+        currentLevel.swap(x1, y1, x2, y2);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
     }
     
     //Exit game

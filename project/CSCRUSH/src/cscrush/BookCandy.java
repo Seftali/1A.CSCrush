@@ -13,6 +13,7 @@ package cscrush;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.lang.*;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 public class BookCandy {
     private String type;
@@ -57,7 +58,14 @@ public class BookCandy {
         try {
             image = ImageIO.read(new File(directory));
         } catch (IOException e) {
+            Logger.getLogger(BoostersPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
+
     }
+    }
+    
+    public BufferedImage getImage()
+    {
+        return image;
     }
     
     private String setTypeBar(){

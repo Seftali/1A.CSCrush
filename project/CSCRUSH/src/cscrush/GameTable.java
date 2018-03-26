@@ -77,7 +77,7 @@ public class GameTable extends javax.swing.JPanel {
         for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
         {  
-            BookCandy temp = tableObjects[i][j];
+            BookCandy temp = tableObjects[j][i];
             if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
             {
                 g.drawImage(bookImages[0],i*50,j*50,null);
@@ -149,6 +149,7 @@ public class GameTable extends javax.swing.JPanel {
     public void setTableObjects(BookCandy[][] tableObjects)
     {
         this.tableObjects = tableObjects;
+        validate();
         repaint();
     }
     

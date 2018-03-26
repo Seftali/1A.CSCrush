@@ -34,9 +34,9 @@ public class GameManager {
     public void rebuild(){ 
         fillBooks();
         while(traverselyMarkedBooks() != 0){
-   
-            destroyTraversally();
+            
             fall(0);
+            destroyTraversally();
             fillBooks();
         }
     }
@@ -83,9 +83,9 @@ public class GameManager {
         int countxx = 1;
         int county = y;
         int countyy = 1;
-        while(( countx+1 < matrixSize ) && (list[countx][y].getType().equals(list[++countx][y].getType())) && ( !( list[countx-1][y].getMarked() || list[countx][y].getMarked() ) ) )
+        while(( countx+1 < matrixSize ) && (list[countx][y].getType().equals(list[++countx][y].getType())) )
             countxx++;
-        while(( county+1 < matrixSize ) && (list[x][county].getType().equals(list[x][++county].getType())) && ( !( list[x][county-1].getMarked() || list[x][county].getMarked() ) ) ){
+        while(( county+1 < matrixSize ) && (list[x][county].getType().equals(list[x][++county].getType())) ){
             countyy++;
         }
         int result = 0;   

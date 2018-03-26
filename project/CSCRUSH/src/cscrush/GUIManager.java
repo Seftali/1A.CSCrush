@@ -120,8 +120,11 @@ public class GUIManager {
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
-        currentLevel.swap(x1, y1, x2, y2);
+        currentLevel.swap(y1, x1, y2, x2);
+        System.out.println(y1 + " " +  x1 + " " + y2 + " " + x2);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        currentLevel.displayType();
+        System.out.println();
     }
     
     //Exit game

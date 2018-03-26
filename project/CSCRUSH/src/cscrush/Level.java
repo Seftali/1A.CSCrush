@@ -1,108 +1,69 @@
+package cscrush;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cscrush;
+
 /**
  *
- * @author tanerduzceer
+ * @author User
  */
-public class Level 
-{
-    int level;
-    int counter;
-    
-    Level(int level)
-    {
-        this.level = level;
+public class Level {
+    int lev;
+    int count;
+    public Level(int lev){
+        this.lev = lev;
+        count = movementCount();
+    }
+    private int movementCount(){
+        switch (lev) {
+            case 1:
+                count = 550;
+                break;
+            case 2:
+                count = 500;
+                break;
+            case 3:
+                count = 450;
+                break;
+            case 4:
+                count = 400;
+                break;
+            case 5:
+                count = 350;
+                break;
+            case 6:
+                count = 300;
+                break;
+            case 7:
+                count = 250;
+                break;
+            case 8:
+                count = 200;
+                break;
+            case 9:
+                count = 150;
+                break;
+            default:
+                count = 100;
+                break;
+        }   
+        return count;
+    }
+    public void setLevel(int updateLevel){
+        this.lev = updateLevel;
+        this.count = movementCount();
+    }
+    public int getLevel(){
+        return lev;
+    }
+    public void setMovement(int val){
+        count = val;
+    }
+    public int getMovement(){
+        return count;
     }
     
-    public int movementCount()
-    {
-        if(level == 1)
-        {
-            this.counter = 60;
-            counter--;
-            return counter;
-            
-        }
-        else if(level == 2)
-        {
-            this.counter = 55;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 3)
-        {
-            this.counter = 50;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 4)
-        {
-            this.counter = 45;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 5)
-        {
-            this.counter = 40;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 6)
-        {
-            this.counter = 45;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 7)
-        {
-            this.counter = 40;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 8)
-        {
-            this.counter = 35;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 7)
-        {
-            this.counter = 30;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 8)
-        {
-            this.counter = 25;
-            counter--;
-            return counter;
-       
-        }
-        else if(level == 9)
-        {
-            this.counter = 20;
-            counter--;
-            return counter;
-       
-        }
-        else
-        {
-            this.counter = 15;
-            counter--;
-            return counter;
-       
-        }
-    }
 }

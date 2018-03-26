@@ -14,12 +14,6 @@ package cscrush;
 public class Cs342 extends BookCandy {
     public Cs342(){
         super();
-        if(getTypeBar().equals("normal"))
-            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342.jpg");
-        else if (getTypeBar().equals("vertical"))
-            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Vertical.jpg");
-        else
-            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Horizontal.jpg");
     }
     
     @Override
@@ -33,9 +27,5 @@ public class Cs342 extends BookCandy {
                 typeBar = "horizontal";
                 break;
         }
-        if(typeBar == "vertical")
-            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Vertical.jpg");
-        if(typeBar == "vertical")
-            setImage("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Horizontal.jpg");
     }
 }

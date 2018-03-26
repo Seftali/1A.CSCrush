@@ -20,14 +20,23 @@ import javax.imageio.ImageIO;
  */
 public class BoostersPanel extends javax.swing.JPanel {
 
-    private BufferedImage dump;
+    private Image robin;
+    private Image halil;
+    private Image eray;
+    private Image ozcan;
+    private Image william;
     /**
      * Creates new form BoostersPanel
      */
     public BoostersPanel() {
         initComponents();
         try {
-            dump = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\robin.jpg"));
+            robin = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            halil = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            eray = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            ozcan = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            william = ImageIO.read(new File("C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+             
         } catch (IOException ex) {
             Logger.getLogger(BoostersPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -38,10 +47,11 @@ public class BoostersPanel extends javax.swing.JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         
-        for (int j = 0; j < 5; j++)
-        {  
-            g.drawImage(dump.getScaledInstance(50, 50, Image.SCALE_DEFAULT),0,j*50,null);
-        }
+        g.drawImage(eray,0,0,null);
+        g.drawImage(robin,0,50,null);
+        g.drawImage(halil,0,100,null);
+        g.drawImage(ozcan,0,150,null);
+        g.drawImage(william,0,200,null);
         
     }
     

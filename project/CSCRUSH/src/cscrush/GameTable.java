@@ -24,12 +24,50 @@ import javax.imageio.ImageIO;
 public class GameTable extends javax.swing.JPanel {
 
     private BookCandy[][] tableObjects;
+    private Image[] bookImages;
+    private String[] dirBookImages;
     private int pressedX, pressedY;
     /**
      * Creates new form GameTable
      */
     public GameTable() {
         initComponents();
+        bookImages = new Image[15];
+        dirBookImages = new String[15];
+        dirBookImages[0] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102.jpg";
+        dirBookImages[1] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102Vertical.jpg";
+        dirBookImages[2] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102Horizontal.jpg";
+        dirBookImages[3] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201.jpg";
+        dirBookImages[4] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201Vertical.jpg";
+        dirBookImages[5] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201Horizontal.jpg";
+        dirBookImages[6] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224.jpg";
+        dirBookImages[7] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Vertical.jpg";
+        dirBookImages[8] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Horizontal.jpg";
+        dirBookImages[9] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342.jpg";
+        dirBookImages[10] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Vertical.jpg";
+        dirBookImages[11] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Horizontal.jpg";
+        dirBookImages[12] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476.jpg";
+        dirBookImages[13] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476Vertical.jpg";
+        dirBookImages[14] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476Horizontal.jpg";
+        try {
+            bookImages[0] = ImageIO.read(new File(dirBookImages[0])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[1] = ImageIO.read(new File(dirBookImages[1])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[2] = ImageIO.read(new File(dirBookImages[2])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[3] = ImageIO.read(new File(dirBookImages[3])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[4] = ImageIO.read(new File(dirBookImages[4])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[5] = ImageIO.read(new File(dirBookImages[5])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[6] = ImageIO.read(new File(dirBookImages[6])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[7] = ImageIO.read(new File(dirBookImages[7])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[8] = ImageIO.read(new File(dirBookImages[8])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[9] = ImageIO.read(new File(dirBookImages[9])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[10] = ImageIO.read(new File(dirBookImages[10])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[11] = ImageIO.read(new File(dirBookImages[11])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[12] = ImageIO.read(new File(dirBookImages[12])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[13] = ImageIO.read(new File(dirBookImages[13])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[14] = ImageIO.read(new File(dirBookImages[14])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+        } catch (IOException ex) {
+            Logger.getLogger(GameTable.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -39,7 +77,71 @@ public class GameTable extends javax.swing.JPanel {
         for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
         {  
-            g.drawImage(tableObjects[i][j].getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT),i*50,j*50,null);
+            BookCandy temp = tableObjects[i][j];
+            if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
+            {
+                g.drawImage(bookImages[0],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
+            {
+                g.drawImage(bookImages[1],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
+            {
+                g.drawImage(bookImages[2],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
+            {
+                g.drawImage(bookImages[3],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
+            {
+                g.drawImage(bookImages[4],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
+            {
+                g.drawImage(bookImages[5],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
+            {
+                g.drawImage(bookImages[6],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
+            {
+                g.drawImage(bookImages[7],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
+            {
+                g.drawImage(bookImages[8],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
+            {
+                g.drawImage(bookImages[9],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
+            {
+                g.drawImage(bookImages[10],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
+            {
+                g.drawImage(bookImages[11],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
+            {
+                g.drawImage(bookImages[12],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
+            {
+                g.drawImage(bookImages[13],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
+            {
+                g.drawImage(bookImages[14],i*50,j*50,null);
+            }
+            else
+            {
+                g.drawImage(bookImages[14],i*50,j*50,null);
+            }
         }
         
     }

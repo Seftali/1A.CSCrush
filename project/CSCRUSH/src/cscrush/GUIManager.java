@@ -61,8 +61,9 @@ public class GUIManager {
         gameFrame.pack();
     }
     //Display settings by clicking settings button from main menu
-    public void displaySettings()
+    public void displaySettings(int flag)
     {
+        settingsPanel.flag = flag;
         gameFrame.setContentPane(settingsPanel);
         gameFrame.pack();
     }
@@ -91,9 +92,10 @@ public class GUIManager {
     //Opening choosed level
     public void openLevel()
     {
-        //Get dump level 
+        //Get current level 
         currentLevel = new GameManager(1);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
         gameFrame.setContentPane(gamePlayScreenPanel);
         gameFrame.pack();
     }
@@ -115,16 +117,21 @@ public class GUIManager {
         gameFrame.setContentPane(loginPanel);
         gameFrame.pack();
     }
+    
+    public void backToGamePlayScreen()
+    {
+        gameFrame.setContentPane(gamePlayScreenPanel);
+        gameFrame.pack();
+    }
 
     
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
         currentLevel.swap(y1, x1, y2, x2);
-        System.out.println(y1 + " " +  x1 + " " + y2 + " " + x2);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-        currentLevel.displayType();
-        System.out.println();
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+       // gameFrame.pack();
     }
     
     //Exit game

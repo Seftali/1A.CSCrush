@@ -32,6 +32,13 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         gameTable.setTableObjects(tableObjects);
     }
     
+    public void setScore(int score)
+    {
+        currentPoint.setText(""+score);
+        validate();
+        repaint();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,6 +70,11 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         });
 
         settingsButton.setText("Settings");
+        settingsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                settingsButtonActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Remained Move");
 
@@ -136,8 +148,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(backButton)
-                            .addComponent(settingsButton))
-                        .addContainerGap(44, Short.MAX_VALUE))
+                            .addComponent(settingsButton)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(15, 15, 15)
@@ -145,8 +156,8 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addGap(8, 8, 8)
-                        .addComponent(currentPoint)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(currentPoint)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -154,6 +165,11 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         GUIManager.manager.backFromGameScreenPlay();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
+        // TODO add your handling code here:
+        GUIManager.manager.displaySettings(1);
+    }//GEN-LAST:event_settingsButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

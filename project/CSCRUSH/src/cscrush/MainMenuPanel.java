@@ -126,7 +126,7 @@ public class MainMenuPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_playGameButtonActionPerformed
 
     private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        GUIManager.manager.displaySettings();                // TODO add your handling code here:
+        GUIManager.manager.displaySettings(0);                // TODO add your handling code here:
     }//GEN-LAST:event_settingsButtonActionPerformed
 
     private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed

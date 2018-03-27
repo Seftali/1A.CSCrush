@@ -164,6 +164,9 @@ public class GameTable extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(500, 500));
         addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 formMousePressed(evt);
             }
@@ -185,10 +188,7 @@ public class GameTable extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        // TODO add your handling code here:
-        int X = evt.getX();
-        int Y = evt.getY();
-        GUIManager.manager.destroySpecialBooks(X/50, Y/50);
+
         pressedX = evt.getX();
         pressedY = evt.getY();
     }//GEN-LAST:event_formMousePressed
@@ -240,6 +240,13 @@ public class GameTable extends javax.swing.JPanel {
             GUIManager.manager.swapBooks(pressedX/50, pressedY/50, pressedX/50, pressedY/50 - 1);
         }
     }//GEN-LAST:event_formMouseReleased
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+                // TODO add your handling code here:
+        int X = evt.getX();
+        int Y = evt.getY();
+        GUIManager.manager.destroySpecialBooks(X/50, Y/50);
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

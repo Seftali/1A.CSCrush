@@ -90,10 +90,10 @@ public class GUIManager {
         gameFrame.pack();   
     }
     //Opening choosed level
-    public void openLevel()
+    public void openLevel(int lev)
     {
         //Get dump level 
-        currentLevel = new GameManager(1);
+        currentLevel = new GameManager(lev);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());

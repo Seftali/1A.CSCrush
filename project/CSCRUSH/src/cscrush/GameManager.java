@@ -14,11 +14,12 @@ package cscrush;
  */
 public class GameManager {
     
-    BookCandy[][] list;
-    Level level;
-    final int matrixSize = 10;
-    int score;
-    int numberofMarkeds;
+    private BookCandy[][] list;
+    private Level level;
+    private final int matrixSize = 10;
+    private int score;
+    private int numberofMarkeds;
+    
     public GameManager(int level){
         this.level = new Level(level);
         this.list = new BookCandy[matrixSize][matrixSize];
@@ -123,7 +124,7 @@ public class GameManager {
             }
         }
     }
-    private void destroySpecialBook(int x, int y){
+    public void destroySpecialBook(int x, int y){
         if(list[x][y].getTypeBar().equals("horizontal")){
             for(int i = 0; i < matrixSize; i++){
                 list[x][i].setMarked(true);
@@ -247,5 +248,10 @@ public class GameManager {
     }
     public void setScore(int val){
         score = val;
+    }
+    
+    public int getMovement()
+    {
+        return level.getMovement();
     }
 }

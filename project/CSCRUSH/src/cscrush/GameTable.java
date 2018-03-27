@@ -34,21 +34,21 @@ public class GameTable extends javax.swing.JPanel {
         initComponents();
         bookImages = new Image[15];
         dirBookImages = new String[15];
-        dirBookImages[0] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102.jpg";
-        dirBookImages[1] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102Vertical.jpg";
-        dirBookImages[2] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs102Horizontal.jpg";
-        dirBookImages[3] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201.jpg";
-        dirBookImages[4] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201Vertical.jpg";
-        dirBookImages[5] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs201Horizontal.jpg";
-        dirBookImages[6] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224.jpg";
-        dirBookImages[7] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Vertical.jpg";
-        dirBookImages[8] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs224Horizontal.jpg";
-        dirBookImages[9] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342.jpg";
-        dirBookImages[10] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Vertical.jpg";
-        dirBookImages[11] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs342Horizontal.jpg";
-        dirBookImages[12] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476.jpg";
-        dirBookImages[13] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476Vertical.jpg";
-        dirBookImages[14] = "C:\\Users\\tendoushuu\\Documents\\1A.CSCrush\\project\\CSCRUSH\\src\\cscrush\\cs476Horizontal.jpg";
+        dirBookImages[0] = "src\\img\\cs102.jpg";
+        dirBookImages[1] = "src\\img\\cs102Vertical.jpg";
+        dirBookImages[2] = "src\\img\\cs102Horizontal.jpg";
+        dirBookImages[3] = "src\\img\\cs201.jpg";
+        dirBookImages[4] = "src\\img\\cs201Vertical.jpg";
+        dirBookImages[5] = "src\\img\\cs201Horizontal.jpg";
+        dirBookImages[6] = "src\\img\\cs224.jpg";
+        dirBookImages[7] = "src\\img\\cs224Vertical.jpg";
+        dirBookImages[8] = "src\\img\\cs224Horizontal.jpg";
+        dirBookImages[9] = "src\\img\\cs342.jpg";
+        dirBookImages[10] = "src\\img\\cs342Vertical.jpg";
+        dirBookImages[11] = "src\\img\\cs342Horizontal.jpg";
+        dirBookImages[12] = "src\\img\\cs476.jpg";
+        dirBookImages[13] = "src\\img\\cs476Vertical.jpg";
+        dirBookImages[14] = "src\\img\\cs476Horizontal.jpg";
         try {
             bookImages[0] = ImageIO.read(new File(dirBookImages[0])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
             bookImages[1] = ImageIO.read(new File(dirBookImages[1])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
@@ -189,6 +189,8 @@ public class GameTable extends javax.swing.JPanel {
         int X = evt.getX();
         int Y = evt.getY();
         GUIManager.manager.destroySpecialBooks(X/50, Y/50);
+        pressedX = evt.getX();
+        pressedY = evt.getY();
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased

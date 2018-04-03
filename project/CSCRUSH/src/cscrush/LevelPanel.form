@@ -25,25 +25,43 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="level1Button" min="-2" pref="84" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="level3Button" min="-2" pref="119" max="-2" attributes="0"/>
+=======
+                      <Component id="level1Butt" min="-2" pref="84" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="level3Butt" min="-2" pref="119" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
+<<<<<<< HEAD
                               <Component id="level7Button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
                               <Component id="level8Button" min="-2" max="-2" attributes="0"/>
+=======
+                              <Component id="level7Butt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                              <Component id="level8Butt" min="-2" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+<<<<<<< HEAD
                               <Component id="level2Button" min="-2" pref="105" max="-2" attributes="0"/>
                               <EmptySpace pref="134" max="32767" attributes="0"/>
                               <Component id="level4Button" min="-2" max="-2" attributes="0"/>
+=======
+                              <Component id="level2Butt" min="-2" pref="105" max="-2" attributes="0"/>
+                              <EmptySpace pref="134" max="32767" attributes="0"/>
+                              <Component id="Level4Butt" min="-2" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -51,11 +69,19 @@
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
+<<<<<<< HEAD
                       <Component id="level5Button" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="level6Button" min="-2" pref="149" max="-2" attributes="0"/>
+=======
+                      <Component id="level5Butt" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="Level6Butt" min="-2" pref="149" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -67,19 +93,29 @@
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                               <Component id="level9Button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
                               <Component id="level10Button" min="-2" pref="97" max="-2" attributes="0"/>
+=======
+                              <Component id="level9Butt" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="104" max="-2" attributes="0"/>
+                              <Component id="level10Butt" min="-2" pref="97" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <Component id="levelLable" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="274" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD
                       <Component id="backButton" min="-2" max="-2" attributes="0"/>
+=======
+                      <Component id="levelBack" min="-2" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -90,11 +126,12 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <Component id="levelLable" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
+<<<<<<< HEAD
                           <Component id="level1Button" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
                           <Component id="level3Button" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                       </Group>
@@ -105,31 +142,61 @@
                           <Component id="level7Button" min="-2" pref="97" max="-2" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="level8Button" min="-2" pref="35" max="-2" attributes="0"/>
+=======
+                          <Component id="level1Butt" alignment="3" min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="level3Butt" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="level2Butt" min="-2" pref="79" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="level7Butt" min="-2" pref="97" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="level8Butt" min="-2" pref="35" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="level5Button" min="-2" pref="36" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="level6Button" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
                           <Component id="level4Button" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+=======
+                      <Component id="level5Butt" min="-2" pref="36" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="Level6Butt" alignment="3" min="-2" pref="77" max="-2" attributes="0"/>
+                          <Component id="Level4Butt" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       </Group>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="level10Button" min="-2" pref="33" max="-2" attributes="0"/>
+=======
+                      <Component id="level10Butt" min="-2" pref="33" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace pref="17" max="32767" attributes="0"/>
+<<<<<<< HEAD
                       <Component id="level9Button" min="-2" pref="51" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
                       <Component id="backButton" min="-2" max="-2" attributes="0"/>
+=======
+                      <Component id="level9Butt" min="-2" pref="51" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="126" max="-2" attributes="0"/>
+                      <Component id="levelBack" min="-2" max="-2" attributes="0"/>
+>>>>>>> origin/akif
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -138,7 +205,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="levelLable">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -146,23 +213,41 @@
         <Property name="text" type="java.lang.String" value="LEVELS"/>
       </Properties>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level1Button">
+=======
+    <Component class="javax.swing.JButton" name="level1Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 1"/>
       </Properties>
       <Events>
+<<<<<<< HEAD
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level1ButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="backButton">
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level1ButtActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="levelBack">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="&lt;&lt; Back"/>
       </Properties>
       <Events>
+<<<<<<< HEAD
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="level2Button">
+=======
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="levelBackActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="level2Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 2"/>
       </Properties>
@@ -170,7 +255,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level2ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level7Button">
+=======
+    <Component class="javax.swing.JButton" name="level7Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 7"/>
       </Properties>
@@ -178,7 +267,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level7ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level3Button">
+=======
+    <Component class="javax.swing.JButton" name="level3Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 3"/>
       </Properties>
@@ -186,7 +279,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level3ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level4Button">
+=======
+    <Component class="javax.swing.JButton" name="Level4Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 4"/>
       </Properties>
@@ -194,7 +291,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level4ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level8Button">
+=======
+    <Component class="javax.swing.JButton" name="level8Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 8"/>
       </Properties>
@@ -202,7 +303,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level8ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level5Button">
+=======
+    <Component class="javax.swing.JButton" name="level5Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 5"/>
       </Properties>
@@ -210,7 +315,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level5ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level6Button">
+=======
+    <Component class="javax.swing.JButton" name="Level6Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 6"/>
       </Properties>
@@ -218,7 +327,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level6ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level9Button">
+=======
+    <Component class="javax.swing.JButton" name="level9Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 9"/>
       </Properties>
@@ -226,7 +339,11 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="level9ButtonActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
     <Component class="javax.swing.JButton" name="level10Button">
+=======
+    <Component class="javax.swing.JButton" name="level10Butt">
+>>>>>>> origin/akif
       <Properties>
         <Property name="text" type="java.lang.String" value="LEVEL 10"/>
       </Properties>

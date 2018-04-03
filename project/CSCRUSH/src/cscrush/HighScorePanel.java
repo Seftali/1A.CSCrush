@@ -27,42 +27,42 @@ public class HighScorePanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        highScoreLabel = new javax.swing.JLabel();
+        highScoreBack = new javax.swing.JButton();
+        userLable = new javax.swing.JLabel();
+        scoreLable = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        userTextArea = new javax.swing.JList<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        scoreTextArea = new javax.swing.JList<>();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("HIGH SCORE");
+        highScoreLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        highScoreLabel.setText("HIGH SCORE");
 
-        jButton1.setText("<< Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        highScoreBack.setText("<< Back");
+        highScoreBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                highScoreBackActionPerformed(evt);
             }
         });
 
-        jLabel2.setText("Username");
+        userLable.setText("Username");
 
-        jLabel3.setText("Score");
+        scoreLable.setText("Score");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        userTextArea.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Berk", "Akif", "Taner", "Eren" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(userTextArea);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        scoreTextArea.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "10456", "9546", "8292", "2365" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList2);
+        jScrollPane3.setViewportView(scoreTextArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -72,58 +72,58 @@ public class HighScorePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1))
+                        .addComponent(highScoreBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
-                        .addComponent(jLabel2)))
+                        .addComponent(userLable)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(scoreLable)
                         .addGap(104, 104, 104))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(281, 281, 281)
-                .addComponent(jLabel1)
+                .addComponent(highScoreLabel)
                 .addContainerGap(267, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(highScoreLabel)
                 .addGap(174, 174, 174)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
+                    .addComponent(userLable)
+                    .addComponent(scoreLable))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 279, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(highScoreBack)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void highScoreBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoreBackActionPerformed
         GUIManager.manager.backToMainMenuPanel();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_highScoreBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JButton highScoreBack;
+    private javax.swing.JLabel highScoreLabel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel scoreLable;
+    private javax.swing.JList<String> scoreTextArea;
+    private javax.swing.JLabel userLable;
+    private javax.swing.JList<String> userTextArea;
     // End of variables declaration//GEN-END:variables
 }

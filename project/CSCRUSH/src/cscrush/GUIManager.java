@@ -61,8 +61,9 @@ public class GUIManager {
         gameFrame.pack();
     }
     //Display settings by clicking settings button from main menu
-    public void displaySettings()
+    public void displaySettings(int flag)
     {
+        settingsPanel.flag = flag;
         gameFrame.setContentPane(settingsPanel);
         gameFrame.pack();
     }
@@ -89,11 +90,13 @@ public class GUIManager {
         gameFrame.pack();   
     }
     //Opening choosed level
-    public void openLevel()
+    public void openLevel(int lev)
     {
         //Get dump level 
-        currentLevel = new GameManager(1);
+        currentLevel = new GameManager(lev);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
         gameFrame.setContentPane(gamePlayScreenPanel);
         gameFrame.pack();
     }
@@ -115,16 +118,28 @@ public class GUIManager {
         gameFrame.setContentPane(loginPanel);
         gameFrame.pack();
     }
-
+    
+    public void backToGamePlayScreen()
+    {
+        gameFrame.setContentPane(gamePlayScreenPanel);
+        gameFrame.pack();
+    }
+    
+    public void destroySpecialBooks(int x1, int y1){
+        currentLevel.destroySpecialBook(y1, x1);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+    }
     
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
         currentLevel.swap(y1, x1, y2, x2);
-        System.out.println(y1 + " " +  x1 + " " + y2 + " " + x2);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-        currentLevel.displayType();
-        System.out.println();
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+
     }
     
     //Exit game

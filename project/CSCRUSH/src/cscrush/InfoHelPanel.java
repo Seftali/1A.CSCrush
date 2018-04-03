@@ -27,25 +27,25 @@ public class InfoHelPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        infoLable = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        infoText = new javax.swing.JTextArea();
+        infoBack = new javax.swing.JButton();
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("INFO & HELP");
+        infoLable.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        infoLable.setText("INFO & HELP");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("How to play?\n-\n-\nPower-Ups\n-\n-\n-\n-\nCourses\n-\n-\n-\n-\n-\n\n");
-        jScrollPane1.setViewportView(jTextArea1);
+        infoText.setColumns(20);
+        infoText.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        infoText.setLineWrap(true);
+        infoText.setRows(5);
+        infoText.setText("How to play?\n-\n-\nPower-Ups\n-\n-\n-\n-\nCourses\n-\n-\n-\n-\n-\n\n");
+        jScrollPane1.setViewportView(infoText);
 
-        jButton1.setText("<< Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        infoBack.setText("<< Back");
+        infoBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                infoBackActionPerformed(evt);
             }
         });
 
@@ -57,37 +57,37 @@ public class InfoHelPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(infoBack)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane1))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(299, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(infoLable)
                 .addGap(247, 247, 247))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(infoLable)
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(infoBack)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void infoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoBackActionPerformed
         GUIManager.manager.backToMainMenuPanel();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_infoBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton infoBack;
+    private javax.swing.JLabel infoLable;
+    private javax.swing.JTextArea infoText;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

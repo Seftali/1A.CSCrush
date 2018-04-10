@@ -18,13 +18,17 @@ public class GameManager {
     private Level level;
     private final int matrixSize = 10;
     private int score;
+    private int scoreIncrement;
     private int numberofMarkeds;
-    
+    public int minimumDestroyCount;
     public GameManager(int level){
         this.level = new Level(level);
         this.list = new BookCandy[matrixSize][matrixSize];
         numberofMarkeds = 0;
         score = 0;
+        scoreIncrement = 5*(this.level.getLevel());
+        
+        minimumDestroyCount = 3;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
                 list[i][j] = new BookCandy();
@@ -32,6 +36,12 @@ public class GameManager {
         }
         rebuild();
     }
+    public void setDifficulty(int difficulty){
+        if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
+            return;
+        scoreIncrement = (difficulty-2)*5*(this.level.getLevel());
+    }
+    
     public void rebuild(){ 
         fillBooks();
         while(traverselyMarkedBooks() != 0){
@@ -41,8 +51,12 @@ public class GameManager {
             fillBooks();
         }
     }
-    
-    private void fillBooks(){
+    public void reconstruct(int minimumDestroyCount){
+        if( ( minimumDestroyCount < 3 ) || ( minimumDestroyCount > matrixSize ) )
+            return;
+        this.minimumDestroyCount = minimumDestroyCount;
+    }
+    public void fillBooks(){
         int count = 10;
         BookCandy temp = new BookCandy();
         for(int i = 0; i < matrixSize; i++){
@@ -90,12 +104,12 @@ public class GameManager {
             countyy++;
         }
         int result = 0;   
-        if(countxx > 2){
+        if(countxx > minimumDestroyCount-1){
             result = countxx-1;
             for(int i = 0; i < countxx; i++)
                 list[x+i][y].setMarked(true);
         }
-        if(countyy > 2){
+        if(countyy > minimumDestroyCount-1){
             result = countyy-1;
             for(int i = 0; i < countyy; i++)
                 list[x][y+i].setMarked(true);
@@ -103,23 +117,25 @@ public class GameManager {
         return result;
     }
     
-    private int traverselyMarkedBooks(){
+    public int traverselyMarkedBooks(){
         int sum = 0;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                if(!(list[i][j].getMarked()))
+                //if(!(list[i][j].getMarked()))
                     sum += markedBooks(i,j);
             }
         }
+        if(sum != 0)
+            (new SoundManager()).playDestroy();
         return sum;
     }
     
-    private void destroyTraversally(){
+    public void destroyTraversally(){
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
                 if(list[i][j].getMarked()){
                     list[i][j] = new BookCandy();
-                    score = score+5;
+                    score = score+scoreIncrement;
                 }
             }
         }
@@ -150,7 +166,7 @@ public class GameManager {
             }
         }
     }
-    private void fall(int y){
+    public void fall(int y){
         if(y == matrixSize)
             return;
         int i = matrixSize-1;
@@ -186,12 +202,15 @@ public class GameManager {
         if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
             return;
         if(this.level.getMovement()!= 0){
+            (new SoundManager()).playSwap();
             BookCandy temp = list[x1][y1];
             list[x1][y1] = list[x2][y2];
             list[x2][y2] = temp;
             rebuild();
             level.setMovement(level.getMovement()-1);
         }
+        else
+            (new SoundManager()).playEnd();
     }
     public void PowerUpAltay(){
         int x = 0;

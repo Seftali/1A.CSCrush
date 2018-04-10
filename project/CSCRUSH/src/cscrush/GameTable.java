@@ -32,8 +32,8 @@ public class GameTable extends javax.swing.JPanel {
      */
     public GameTable() {
         initComponents();
-        bookImages = new Image[15];
-        dirBookImages = new String[15];
+        bookImages = new Image[16];
+        dirBookImages = new String[16];
         dirBookImages[0] = "src\\img\\cs102.jpg";
         dirBookImages[1] = "src\\img\\cs102Vertical.jpg";
         dirBookImages[2] = "src\\img\\cs102Horizontal.jpg";
@@ -49,6 +49,7 @@ public class GameTable extends javax.swing.JPanel {
         dirBookImages[12] = "src\\img\\cs476.jpg";
         dirBookImages[13] = "src\\img\\cs476Vertical.jpg";
         dirBookImages[14] = "src\\img\\cs476Horizontal.jpg";
+        dirBookImages[15] = "src\\img\\burn.jpg";
         try {
             bookImages[0] = ImageIO.read(new File(dirBookImages[0])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
             bookImages[1] = ImageIO.read(new File(dirBookImages[1])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
@@ -65,6 +66,7 @@ public class GameTable extends javax.swing.JPanel {
             bookImages[12] = ImageIO.read(new File(dirBookImages[12])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
             bookImages[13] = ImageIO.read(new File(dirBookImages[13])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
             bookImages[14] = ImageIO.read(new File(dirBookImages[14])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[15] = ImageIO.read(new File(dirBookImages[15])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             Logger.getLogger(GameTable.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -73,12 +75,17 @@ public class GameTable extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        
+        BookCandy temp2 = new BookCandy();
         for (int i = 0; i < 10; i++)
         for (int j = 0; j < 10; j++)
         {  
             BookCandy temp = tableObjects[j][i];
-            if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
+            if( temp.getType().equals( temp2.getType() ) )
+            {
+                System.err.println("XXXXXXXXXXXX");
+                g.drawImage(bookImages[15],i*50,j*50,null);
+            }
+            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
             {
                 g.drawImage(bookImages[0],i*50,j*50,null);
             }
@@ -138,12 +145,12 @@ public class GameTable extends javax.swing.JPanel {
             {
                 g.drawImage(bookImages[14],i*50,j*50,null);
             }
-            else
-            {
-                g.drawImage(bookImages[14],i*50,j*50,null);
+            else {
+                g.drawImage(bookImages[15],i*50,j*50,null);
+                System.err.println("YYYYYYYYYYYY");
             }
         }
-        
+        System.err.println("IN");
     }
     
     public void setTableObjects(BookCandy[][] tableObjects)
@@ -239,6 +246,7 @@ public class GameTable extends javax.swing.JPanel {
             //swiping up
             GUIManager.manager.swapBooks(pressedX/50, pressedY/50, pressedX/50, pressedY/50 - 1);
         }
+        
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked

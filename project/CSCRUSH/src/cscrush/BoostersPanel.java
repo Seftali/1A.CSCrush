@@ -25,6 +25,7 @@ public class BoostersPanel extends javax.swing.JPanel {
     private Image eray;
     private Image ozcan;
     private Image william;
+    private int pressedX,pressedY;
     /**
      * Creates new form BoostersPanel
      */
@@ -54,7 +55,14 @@ public class BoostersPanel extends javax.swing.JPanel {
         g.drawImage(william,0,200,null);
         
     }
-    
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
+
+        pressedX = evt.getX();
+        pressedY = evt.getY();
+        if (pressedY <= 10000) {
+            GUIManager.manager.powerupaltay();
+        }
+    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

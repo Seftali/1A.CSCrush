@@ -27,25 +27,25 @@ public class CreditsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        creditBack = new javax.swing.JButton();
-        creditLable = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        creditTextArea = new javax.swing.JTextArea();
+        jTextArea2 = new javax.swing.JTextArea();
 
-        creditBack.setText("<< Back");
-        creditBack.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("<< Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creditBackActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        creditLable.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        creditLable.setText("Credits");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Credits");
 
-        creditTextArea.setColumns(20);
-        creditTextArea.setRows(5);
-        creditTextArea.setText("DEVELOPERS\n\nEREN AYTURE\nTANER DÜZCEER\nAHMEY AKİF UĞURTAN\nBERK ATAÇ\n\nDATE 28.03.2018\nVer 1.0");
-        jScrollPane2.setViewportView(creditTextArea);
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("DEVELOPERS\n\nEREN AYTURE\nTANER DÜZCEER\nAHMEY AKİF UĞURTAN\nBERK ATAÇ\n\nDATE 28.03.2018\nVer 1.0");
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -55,7 +55,7 @@ public class CreditsPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(creditBack)
+                        .addComponent(jButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 293, Short.MAX_VALUE)
@@ -64,31 +64,31 @@ public class CreditsPanel extends javax.swing.JPanel {
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(82, 82, 82))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(creditLable)
+                                .addComponent(jLabel1)
                                 .addGap(298, 298, 298))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(creditLable)
+                .addComponent(jLabel1)
                 .addGap(142, 142, 142)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 304, Short.MAX_VALUE)
-                .addComponent(creditBack)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void creditBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditBackActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         GUIManager.manager.backToMainMenuPanel();        // TODO add your handling code here:
-    }//GEN-LAST:event_creditBackActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton creditBack;
-    private javax.swing.JLabel creditLable;
-    private javax.swing.JTextArea creditTextArea;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }

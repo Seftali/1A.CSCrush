@@ -18,22 +18,12 @@ import javax.imageio.ImageIO;
 public class BookCandy {
     private String type;
     protected String typeBar;
-    private BufferedImage image;
-    private int positionMatrixX;
-    private int positionMatrixY;
     private boolean marked;
     
     public BookCandy(){
         marked = false;
         type = (this.getClass().getName()).substring(8);
-        typeBar = setTypeBar();
-        positionMatrixX = -1;
-        positionMatrixY = -1;
-        image = null;
-    }
-    public void setPosition(int x, int y){
-        positionMatrixX = x;
-        positionMatrixY = y;
+        typeBar = "normal";
     }
     public void setMarked(boolean mark){
         marked = mark;
@@ -41,33 +31,14 @@ public class BookCandy {
     public boolean getMarked(){
         return marked;
     }
-    public int getPositonX(){
-        return positionMatrixX;
-    }
-    public int getPositonY(){
-        return positionMatrixY;
-    }
+    
     public String getType(){
         return type;
     }
     public String getTypeBar(){
         return typeBar;
     }
-    protected void setImage(String directory){
-        image = null;
-        try {
-            image = ImageIO.read(new File(directory));
-        } catch (IOException e) {
-            Logger.getLogger(BoostersPanel.class.getName()).log(java.util.logging.Level.SEVERE, null, e);
-
-    }
-    }
-    
-    public BufferedImage getImage()
-    {
-        return image;
-    }
-    
+    /*
     private String setTypeBar(){
          int chance = (int)(Math.random() *100  + 1);
          String str;
@@ -79,6 +50,7 @@ public class BookCandy {
              str = "normal";
          return str;
     }
+        */
     public void setTypeBarDirectly(){
         int chance = (int)(Math.random() *2  + 1);
         switch ( chance ) {

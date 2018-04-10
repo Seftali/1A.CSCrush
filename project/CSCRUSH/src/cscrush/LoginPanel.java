@@ -5,19 +5,42 @@
  */
 package cscrush;
 
+import java.awt.Graphics;
+import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+
 /**
  *
  * @author tendoushuu
  */
 public class LoginPanel extends javax.swing.JPanel {
-
+    
+    //Image bck;
     /**
      * Creates new form LoginPanel
      */
     public LoginPanel() {
         initComponents();
+    /*
+        try {
+            bck = ImageIO.read(new File("src\\img\\bilkent.jpg")).getScaledInstance(700, 700, Image.SCALE_DEFAULT);
+        } catch (IOException ex) {
+            Logger.getLogger(LoginPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        */
     }
 
+    /*
+       @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        
+        g.drawImage(bck, 0, 0, null);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -78,25 +101,34 @@ public class LoginPanel extends javax.swing.JPanel {
         emailS.setToolTipText("");
         emailS.setPreferredSize(new java.awt.Dimension(50, 20));
 
+        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
         jLabel1.setText("Username");
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 0));
         jLabel2.setText("Password");
 
+        jLabel3.setForeground(new java.awt.Color(0, 255, 204));
         jLabel3.setText("Username");
 
+        jLabel4.setForeground(new java.awt.Color(0, 255, 204));
         jLabel4.setText("Password");
 
+        jLabel5.setForeground(new java.awt.Color(0, 255, 204));
         jLabel5.setText("RePassword");
 
+        jLabel6.setForeground(new java.awt.Color(0, 255, 204));
         jLabel6.setText("E-mail");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 255, 204));
         jLabel7.setText("Already Signed Up?");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 255, 204));
         jLabel8.setText("New Player?");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 255, 204));
         jLabel9.setText("CSCRUSH");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -12,7 +12,7 @@ package cscrush;
 public class SettingsPanel extends javax.swing.JPanel {
     
     public static int flag;
-    
+    static SoundManager manager = new SoundManager();
     /**
      * Creates new form SettingsPanel
      */
@@ -29,49 +29,35 @@ public class SettingsPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-<<<<<<< HEAD
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-=======
-        soundOnOff = new javax.swing.JToggleButton();
-        settLabel = new javax.swing.JLabel();
-        settBack = new javax.swing.JButton();
-        settLogOut = new javax.swing.JButton();
->>>>>>> origin/akif
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
 
-        soundOnOff.setText("Sound On/Off");
-        soundOnOff.addActionListener(new java.awt.event.ActionListener() {
+        jToggleButton1.setText("Sound On/Off");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                soundOnOffActionPerformed(evt);
+                jToggleButton1ActionPerformed(evt);
             }
         });
 
-        settLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        settLabel.setText("SETTINGS");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("SETTINGS");
 
-<<<<<<< HEAD
         backButton.setText("<< Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
-=======
-        settBack.setText("<< Back");
-        settBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settBackActionPerformed(evt);
->>>>>>> origin/akif
             }
         });
 
-        settLogOut.setText("Logout");
-        settLogOut.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Logout");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settLogOutActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -84,46 +70,41 @@ public class SettingsPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addGap(273, 273, 273)
-                            .addComponent(settLabel))
+                            .addComponent(jLabel1))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(14, 14, 14)
-                            .addComponent(settLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-<<<<<<< HEAD
                         .addComponent(backButton))
-=======
-                        .addComponent(settBack))
->>>>>>> origin/akif
                     .addGroup(layout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(soundOnOff, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(288, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(settLabel)
+                .addComponent(jLabel1)
                 .addGap(157, 157, 157)
-                .addComponent(soundOnOff)
+                .addComponent(jToggleButton1)
                 .addGap(31, 31, 31)
-                .addComponent(settLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
-<<<<<<< HEAD
                 .addComponent(backButton)
-=======
-                .addComponent(settBack)
->>>>>>> origin/akif
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void soundOnOffActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundOnOffActionPerformed
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
             // TODO add your handling code here:
-    }//GEN-LAST:event_soundOnOffActionPerformed
+            if(jToggleButton1.isSelected())
+                (manager).playMainTheme(true);
+            else
+                (manager).playMainTheme(false);
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-<<<<<<< HEAD
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         
         if ( flag == 0)//Go to main menu
@@ -131,29 +112,17 @@ public class SettingsPanel extends javax.swing.JPanel {
         else//Go to gameplayscreen
             GUIManager.manager.backToGamePlayScreen();
     }//GEN-LAST:event_backButtonActionPerformed
-=======
-    private void settBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settBackActionPerformed
-        GUIManager.manager.backToMainMenuPanel();      // TODO add your handling code here:
-    }//GEN-LAST:event_settBackActionPerformed
->>>>>>> origin/akif
 
-    private void settLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settLogOutActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
         GUIManager.manager.backToLoginPanel();
-    }//GEN-LAST:event_settLogOutActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-<<<<<<< HEAD
     private javax.swing.JButton backButton;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton1;
-=======
-    private javax.swing.JButton settBack;
-    private javax.swing.JLabel settLabel;
-    private javax.swing.JButton settLogOut;
-    private javax.swing.JToggleButton soundOnOff;
->>>>>>> origin/akif
     // End of variables declaration//GEN-END:variables
 }

@@ -6,6 +6,7 @@
 package cscrush;
 
 import java.awt.event.WindowEvent;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -94,6 +95,20 @@ public class GUIManager {
     {
         //Get dump level 
         currentLevel = new GameManager(lev);
+        currentLevel.setScore(0);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        gameFrame.setContentPane(gamePlayScreenPanel);
+        gameFrame.pack();
+    }
+    public void openLevel(int lev, int difficulty)
+    {
+        //Get dump level 
+        currentLevel = new GameManager(lev);
+        currentLevel.reconstruct(difficulty);
+        currentLevel.setScore(0);
+        currentLevel.setDifficulty(difficulty);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
@@ -131,16 +146,46 @@ public class GUIManager {
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
     }
-    
+    public void powerupaltay(){
+        currentLevel.PowerUpAltay();
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+    }
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
+        
         currentLevel.swap(y1, x1, y2, x2);
-        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        //gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        /*
+        try        
+            {
+        while(currentLevel.traverselyMarkedBooks() != 0){
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+            currentLevel.fall(0);
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+            
+                Thread.sleep(100);
+
+            currentLevel.destroyTraversally();
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+            gamePlayScreenPanel.repaint();
+                Thread.sleep(1000);
+            
+            currentLevel.fillBooks();
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+                Thread.sleep(100);
+            
+        }
+        } catch(InterruptedException ex) {}
+        //gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        */
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
 
     }
+    
     
     //Exit game
     public void exitGame()

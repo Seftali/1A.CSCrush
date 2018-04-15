@@ -36,6 +36,7 @@ public class GameManager {
         }
         rebuild();
     }
+    //to fill the matrix with books
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -129,7 +130,7 @@ public class GameManager {
             (new SoundManager()).playDestroy();
         return sum;
     }
-    
+    //to destroy the same type of books and to get points
     public void destroyTraversally(){
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
@@ -140,6 +141,7 @@ public class GameManager {
             }
         }
     }
+    //to destroy books by using special books
     public void destroySpecialBook(int x, int y){
         if(list[x][y].getTypeBar().equals("horizontal")){
             if(this.level.getMovement()!= 0){
@@ -166,6 +168,7 @@ public class GameManager {
             }
         }
     }
+    //to fall books to fill empty empty places
     public void fall(int y){
         if(y == matrixSize)
             return;
@@ -198,6 +201,7 @@ public class GameManager {
     public BookCandy[][] getSystemCall(){
         return list;
     }
+    //to swapping books
     public void swap(int x1,int y1, int x2,int y2){
         if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
             return;
@@ -212,6 +216,7 @@ public class GameManager {
         else
             (new SoundManager()).playEnd();
     }
+    //t
     public void PowerUpAltay(){
         int x = 0;
         int y = 0;
@@ -240,6 +245,7 @@ public class GameManager {
         list[positionX][positionY] = randomBookGenerator();
         rebuild();
     }
+    //to destroy one of the books
     public void PowerUpOzcan(int positionX, int positionY){
         if( (positionX<0|| positionY<0) || ( positionX>=matrixSize || positionY>=matrixSize ) )
             return;
@@ -247,6 +253,7 @@ public class GameManager {
         list[positionX][positionY].setMarked(true);
         rebuild();
     }
+    //to swap books which is chosen in every places in the matrix
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
         swap(positionX,positionY,positionX2,positionY2);
         score = score -70;

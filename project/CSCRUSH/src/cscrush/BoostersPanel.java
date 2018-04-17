@@ -32,11 +32,11 @@ public class BoostersPanel extends javax.swing.JPanel {
     public BoostersPanel() {
         initComponents();
         try {
-            robin = ImageIO.read(new File("src\\img\\robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            halil = ImageIO.read(new File("src\\img\\halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            eray = ImageIO.read(new File("src\\img\\eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            ozcan = ImageIO.read(new File("src\\img\\ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            william = ImageIO.read(new File("src\\img\\william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            robin = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            halil = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            eray = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            ozcan = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            william = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
              
         } catch (IOException ex) {
             Logger.getLogger(BoostersPanel.class.getName()).log(Level.SEVERE, null, ex);

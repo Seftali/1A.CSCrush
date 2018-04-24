@@ -28,6 +28,7 @@ public class GUIManager {
     
     
     
+    
     GUIManager()
     {
         gameFrame = new GameFrame();
@@ -39,6 +40,7 @@ public class GUIManager {
         levelPanel = new LevelPanel();
         infoHelPanel = new InfoHelPanel();
         highScorePanel = new HighScorePanel();
+        
     }
     
     //Start with login panel
@@ -151,6 +153,7 @@ public class GUIManager {
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
     }
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)

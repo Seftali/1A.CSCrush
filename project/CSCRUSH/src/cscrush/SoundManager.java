@@ -7,7 +7,7 @@ package cscrush;
 
 /**
  *
- * @author User
+ * @author TanerMan
  */
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;    

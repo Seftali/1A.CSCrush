@@ -59,9 +59,12 @@ public class BoostersPanel extends javax.swing.JPanel {
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        if (pressedY <= 10000) {
+        if (pressedY <= 10000 && pressedX <=10000) {
             GUIManager.manager.powerupaltay();
         }
+        
+ 
+       
     } 
     /**
      * This method is called from within the constructor to initialize the form.

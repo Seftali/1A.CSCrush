@@ -36,6 +36,17 @@ public class GameManager {
         }
         rebuild();
     }
+    public int[][] markedMatrix(){
+        int[][] marked = new int[matrixSize][matrixSize]; 
+        for(int i = 0; i < matrixSize; i++){
+            for(int j = 0; j < matrixSize; j++){
+                if(list[i][j].getMarked()){
+                    marked[i][j] = 1;
+                }
+            }
+        }
+        return marked;
+    }
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;

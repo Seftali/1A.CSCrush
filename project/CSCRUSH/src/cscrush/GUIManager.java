@@ -155,6 +155,35 @@ public class GUIManager {
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
         
     }
+    public void poweruperay(int positionX, int positionY,int positionX2, int positionY2){
+        currentLevel.PowerUpEray(positionX, positionY,positionX2,positionY2);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
+    }
+     public void powerupozcan(int positionX, int positionY){
+        currentLevel.PowerUpOzcan(positionX, positionY);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
+    }
+      public void poweruprobin(int positionX, int positionY){
+        currentLevel.PowerUpRobin(positionX, positionY);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
+    }
+       public void powerupwilliam(int positionX, int positionY){
+        currentLevel.PowerUpWilliam(positionX, positionY);
+        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        gamePlayScreenPanel.setScore(currentLevel.getScore());
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
+    }
+    
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {

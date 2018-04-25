@@ -59,7 +59,7 @@ public class BoostersPanel extends javax.swing.JPanel {
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        if (pressedY <= 10000 && pressedX <=10000) {
+        if (pressedX== halil.getHeight(this) && pressedY==halil.getWidth(this)) {
             GUIManager.manager.powerupaltay();
         }
         

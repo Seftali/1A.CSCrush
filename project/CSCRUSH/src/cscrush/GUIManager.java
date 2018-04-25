@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -32,6 +34,8 @@ public class GUIManager {
     private GameManager currentLevel;
     private Database dbManager;
     private String[] user;
+    public static final Pattern VALID_EMAIL_ADDRESS_REGEX = 
+    Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,6}$", Pattern.CASE_INSENSITIVE);
     
     
     
@@ -67,7 +71,7 @@ public class GUIManager {
         
         if ( user == null )
         {
-            System.out.println("Username or password is wrong!");
+            loginPanel.setErrorMessageL("Username or password is wrong!");
         }
         else
         {
@@ -76,20 +80,36 @@ public class GUIManager {
         }
     }
     
+    public static boolean validateMail(String emailStr) {
+        Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
+        return matcher.find();
+    }
+    
     //Sign up and open main menu
     public void signup( String username, String pass, String repass, String mail)
     {       
-        user = dbManager.signup(username, pass, mail);
-        
-        if ( user == null)
+        if ( !pass.equals(repass))
         {
-            System.out.println("Sign up failed!");
+            loginPanel.setErrorMessageS("Error while retyping password!");
+        }
+        else if ( !validateMail(mail) )
+        {
+            loginPanel.setErrorMessageS("E-Mail is not proper!");
         }
         else
         {
-            gameFrame.setContentPane(mainMenuPanel);
-            gameFrame.pack();
+            user = dbManager.signup(username, pass, mail);
+            if ( user == null)
+            {
+                loginPanel.setErrorMessageS("Username or email is used!");
+            }
+            else
+            {
+                gameFrame.setContentPane(mainMenuPanel);
+                gameFrame.pack();
+            }
         }
+        
     }
     //Display settings by clicking settings button from main menu
     public void displaySettings(int flag)
@@ -168,6 +188,8 @@ public class GUIManager {
     public void backToLoginPanel()
     {
         user = null;
+        loginPanel.setErrorMessageL("");
+        loginPanel.setErrorMessageS("");
         gameFrame.setContentPane(loginPanel);
         gameFrame.pack();
     }
@@ -227,7 +249,7 @@ public class GUIManager {
         
         currentLevel.swap(y1, x1, y2, x2);
         
-        gamePlayScreenPanel.crushCandies();
+        gamePlayScreenPanel.startAnimation();
         
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());

@@ -32,9 +32,9 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         gameTable.setTableObjects(tableObjects);
     }
     
-    public void crushCandies()
+    public void startAnimation()
     {
-        gameTable.crushCandies();
+        gameTable.startAnimation();
     }
     
     public void setScore(int score)

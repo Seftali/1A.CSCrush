@@ -1,5 +1,7 @@
 package cscrush;
 
+import cscrush.AnimationList.AnimationNode;
+
 
 
 /*
@@ -21,13 +23,14 @@ public class GameManager {
     private int scoreIncrement;
     private int numberofMarkeds;
     public int minimumDestroyCount;
+    AnimationList lists;
     public GameManager(int level){
         this.level = new Level(level);
         this.list = new BookCandy[matrixSize][matrixSize];
         numberofMarkeds = 0;
         score = 0;
         scoreIncrement = 5*(this.level.getLevel());
-        
+        this.lists = new AnimationList();
         minimumDestroyCount = 3;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
@@ -36,6 +39,7 @@ public class GameManager {
         }
         rebuild();
     }
+    
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -43,12 +47,19 @@ public class GameManager {
     }
     
     public void rebuild(){ 
+        lists.removeAll();
         fillBooks(0);
+        lists.add(getSystemCall());
         while(traverselyMarkedBooks() != 0){
+            lists.add(getSystemCall());
             fall(0);
-            fillBooks(destroyTraversally());
+            lists.add(getSystemCall());
+            int temp = destroyTraversally();
+            fillBooks(temp);
+            lists.add(getSystemCall());
         }
     }
+    
     public void reconstruct(int minimumDestroyCount){
         if( ( minimumDestroyCount < 3 ) || ( minimumDestroyCount > matrixSize ) )
             return;
@@ -231,9 +242,9 @@ public class GameManager {
     public BookCandy[][] getSystemCall(){
         return list;
     }
-    public void swap(int x1,int y1, int x2,int y2){
+    public AnimationNode swap(int x1,int y1, int x2,int y2){
         if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
-            return;
+            return null;
         if(this.level.getMovement()!= 0){
             (new SoundManager()).playSwap();
             BookCandy temp = list[x1][y1];
@@ -244,6 +255,7 @@ public class GameManager {
         }
         else
             (new SoundManager()).playEnd();
+        return lists.getFirst();
     }
     public void PowerUpAltay(){
         int x = 0;

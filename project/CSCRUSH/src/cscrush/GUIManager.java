@@ -46,12 +46,9 @@ public class GUIManager {
         levelPanel = new LevelPanel();
         infoHelPanel = new InfoHelPanel();
         highScorePanel = new HighScorePanel();
-<<<<<<< HEAD
         dbManager = new Database();
         user = null;
-=======
-        
->>>>>>> 076877a09b5fef615a08be106c833b6cd1141f30
+
     }
     
     //Start with login panel

@@ -36,7 +36,6 @@ public class GameManager {
         }
         rebuild();
     }
-    //to fill the matrix with books
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -44,12 +43,10 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        fillBooks();
+        fillBooks(0);
         while(traverselyMarkedBooks() != 0){
-            
             fall(0);
-            destroyTraversally();
-            fillBooks();
+            fillBooks(destroyTraversally());
         }
     }
     public void reconstruct(int minimumDestroyCount){
@@ -57,13 +54,45 @@ public class GameManager {
             return;
         this.minimumDestroyCount = minimumDestroyCount;
     }
-    public void fillBooks(){
+    private boolean notInclude(int x, int arr[]){
+        boolean result = true;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == x)
+                result = false;
+        }
+        return result;
+    }
+    public void fillBooks(int specialBookCount){
+        if(specialBookCount == 0 )
+            return;
         int count = 10;
+        int specialBook = 0;
+        if( specialBookCount >= 10 )
+            specialBook = specialBookCount/10;
+        int specialBookPositions[] = new int[specialBook];
+        if( specialBook != 0 ){
+            int counter1 = 0;
+            int temp = (int)(Math.random() *specialBookCount  + 1);
+            while( counter1 != specialBook ){
+                if( notInclude( temp, specialBookPositions ) )
+                    specialBookPositions[counter1++] = temp;
+                else
+                    temp = (int)(Math.random() *specialBookCount  + 1);
+            }
+        }
+        int index = 0;
+        int counter = 0;
         BookCandy temp = new BookCandy();
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                if( ( list[i][j].getType() ).equals( temp.getType()) )
+                if( ( list[i][j].getType() ).equals( temp.getType()) ){
                     list[i][j] = randomBookGenerator();
+                    if( index < specialBookPositions.length && specialBookPositions[index] == counter){
+                        list[i][j].setTypeBarDirectly();
+                        index++;
+                    }
+                    counter++;
+                }
                 else
                     if(--count == 0)
                         break;
@@ -106,12 +135,12 @@ public class GameManager {
         }
         int result = 0;   
         if(countxx > minimumDestroyCount-1){
-            result = countxx-1;
+            result += countxx-1;
             for(int i = 0; i < countxx; i++)
                 list[x+i][y].setMarked(true);
         }
         if(countyy > minimumDestroyCount-1){
-            result = countyy-1;
+            result += countyy-1;
             for(int i = 0; i < countyy; i++)
                 list[x][y+i].setMarked(true);
         }
@@ -130,18 +159,20 @@ public class GameManager {
             (new SoundManager()).playDestroy();
         return sum;
     }
-    //to destroy the same type of books and to get points
-    public void destroyTraversally(){
+    
+    public int destroyTraversally(){
+        int sum = 0;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
                 if(list[i][j].getMarked()){
                     list[i][j] = new BookCandy();
+                    sum++;
                     score = score+scoreIncrement;
                 }
             }
         }
+        return sum;
     }
-    //to destroy books by using special books
     public void destroySpecialBook(int x, int y){
         if(list[x][y].getTypeBar().equals("horizontal")){
             if(this.level.getMovement()!= 0){
@@ -152,7 +183,7 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[0][i] = new BookCandy();
                 }
-                fillBooks();
+                fillBooks(0);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -162,13 +193,12 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[i][y] = new BookCandy();
                 }
-                fillBooks();
+                fillBooks(0);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
         }
     }
-    //to fall books to fill empty empty places
     public void fall(int y){
         if(y == matrixSize)
             return;
@@ -201,7 +231,6 @@ public class GameManager {
     public BookCandy[][] getSystemCall(){
         return list;
     }
-    //to swapping books
     public void swap(int x1,int y1, int x2,int y2){
         if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
             return;
@@ -216,7 +245,6 @@ public class GameManager {
         else
             (new SoundManager()).playEnd();
     }
-    //t
     public void PowerUpAltay(){
         int x = 0;
         int y = 0;
@@ -245,7 +273,6 @@ public class GameManager {
         list[positionX][positionY] = randomBookGenerator();
         rebuild();
     }
-    //to destroy one of the books
     public void PowerUpOzcan(int positionX, int positionY){
         if( (positionX<0|| positionY<0) || ( positionX>=matrixSize || positionY>=matrixSize ) )
             return;
@@ -253,7 +280,6 @@ public class GameManager {
         list[positionX][positionY].setMarked(true);
         rebuild();
     }
-    //to swap books which is chosen in every places in the matrix
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
         swap(positionX,positionY,positionX2,positionY2);
         score = score -70;

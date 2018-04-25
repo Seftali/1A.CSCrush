@@ -5,6 +5,7 @@
  */
 package cscrush;
 
+import cscrush.AnimationList.AnimationNode;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -31,6 +32,7 @@ public class GameTable extends javax.swing.JPanel {
     private int fadeSize;
     private int fallSize;
     private int[][] fallMark, fadeMark;
+    private AnimationNode cur;
     
     /**
      * Creates new form GameTable
@@ -42,6 +44,7 @@ public class GameTable extends javax.swing.JPanel {
         fallCandies = false;
         fadeSize = 1;
         fallSize = 50;
+        cur = null;
         
         fallMark = new int[10][10];
         
@@ -52,17 +55,6 @@ public class GameTable extends javax.swing.JPanel {
                     fallMark[i][j] = 1;
                 else 
                     fallMark[i][j] = 0;
-            }
-        
-        fadeMark = new int[10][10];
-        
-        for (int i = 0; i < 10; i++)
-            for (int j = 0; j < 10; j++)
-            {
-                if (j >= 9)
-                    fadeMark[i][j] = 1;
-                else 
-                    fadeMark[i][j] = 0;
             }
         
         Timer timer = new Timer(20, new ActionListener() {
@@ -79,8 +71,17 @@ public class GameTable extends javax.swing.JPanel {
                     fallSize++;
                     if (fallSize == 50)
                     {
-                        fadeCandies = false;
-                        fallCandies = false;
+                        if ( cur.next != null)
+                        {
+                            cur = cur.next;
+                            fadeCandies = true;
+                            fallCandies = false;
+                        }
+                        else
+                        {   
+                            fadeCandies = false;
+                            fallCandies = false;
+                        }
                     }
                 }
                 else if ( fadeCandies)
@@ -88,6 +89,8 @@ public class GameTable extends javax.swing.JPanel {
                     if ( fadeSize == 1)
                     {
                         fadeSize = 50;
+                        fadeMark = cur.marked;
+                        tableObjects = cur.oldBookCandy;
                     }
                     validate();
                     repaint();
@@ -169,7 +172,7 @@ public class GameTable extends javax.swing.JPanel {
             for (int j = 0; j < 10; j++)
             {  
                 BookCandy temp = tableObjects[j][i];
-                if ( fadeMark[i][j] == 0 && fallMark[i][j] == 0)
+                if ( fadeMark[j][i] == 0 && fallMark[i][j] == 0)
                 {
                     if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
                     {
@@ -235,7 +238,7 @@ public class GameTable extends javax.swing.JPanel {
                         g.drawImage(bookImages[15],i*50,j*50,null);
                     }
                 }
-                else if (fadeMark[i][j] == 0 && fallMark[i][j] == 1)
+                else if (fadeMark[j][i] == 0 && fallMark[i][j] == 1)
                 {
                     if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
                     {
@@ -312,7 +315,7 @@ public class GameTable extends javax.swing.JPanel {
             for (int j = 0; j < 10; j++)
             {  
                 BookCandy temp = tableObjects[j][i];
-                if ( fadeMark[i][j] == 0)
+                if ( fadeMark[j][i] == 0)
                 {
                     if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
                     {
@@ -531,10 +534,13 @@ public class GameTable extends javax.swing.JPanel {
         repaint();
     }
     
-    public void startAnimation()
+    public void startAnimation(AnimationNode head)
     {
+        cur = head;
+
         fadeCandies = true;
         fallCandies = false;
+
     }
     
     /**

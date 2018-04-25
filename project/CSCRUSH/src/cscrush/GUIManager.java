@@ -247,9 +247,7 @@ public class GUIManager {
     public void swapBooks(int x1, int y1, int x2, int y2)
     {
         
-        currentLevel.swap(y1, x1, y2, x2);
-        
-        gamePlayScreenPanel.startAnimation();
+        gamePlayScreenPanel.startAnimation(currentLevel.swap(y1, x1, y2, x2));
         
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());

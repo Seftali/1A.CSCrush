@@ -5,6 +5,7 @@
  */
 package cscrush;
 
+import cscrush.AnimationList.AnimationNode;
 import java.awt.Dimension;
 import javax.swing.JLabel;
 
@@ -32,9 +33,9 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         gameTable.setTableObjects(tableObjects);
     }
     
-    public void startAnimation()
+    public void startAnimation(AnimationNode head)
     {
-        gameTable.startAnimation();
+        gameTable.startAnimation(head);
     }
     
     public void setScore(int score)

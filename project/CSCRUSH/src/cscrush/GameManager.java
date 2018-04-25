@@ -43,12 +43,10 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        fillBooks();
+        fillBooks(0);
         while(traverselyMarkedBooks() != 0){
-            
             fall(0);
-            destroyTraversally();
-            fillBooks();
+            fillBooks(destroyTraversally());
         }
     }
     public void reconstruct(int minimumDestroyCount){
@@ -56,13 +54,45 @@ public class GameManager {
             return;
         this.minimumDestroyCount = minimumDestroyCount;
     }
-    public void fillBooks(){
+    private boolean notInclude(int x, int arr[]){
+        boolean result = true;
+        for(int i = 0; i < arr.length; i++){
+            if(arr[i] == x)
+                result = false;
+        }
+        return result;
+    }
+    public void fillBooks(int specialBookCount){
+        if(specialBookCount == 0 )
+            return;
         int count = 10;
+        int specialBook = 0;
+        if( specialBookCount >= 10 )
+            specialBook = specialBookCount/10;
+        int specialBookPositions[] = new int[specialBook];
+        if( specialBook != 0 ){
+            int counter1 = 0;
+            int temp = (int)(Math.random() *specialBookCount  + 1);
+            while( counter1 != specialBook ){
+                if( notInclude( temp, specialBookPositions ) )
+                    specialBookPositions[counter1++] = temp;
+                else
+                    temp = (int)(Math.random() *specialBookCount  + 1);
+            }
+        }
+        int index = 0;
+        int counter = 0;
         BookCandy temp = new BookCandy();
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
-                if( ( list[i][j].getType() ).equals( temp.getType()) )
+                if( ( list[i][j].getType() ).equals( temp.getType()) ){
                     list[i][j] = randomBookGenerator();
+                    if( index < specialBookPositions.length && specialBookPositions[index] == counter){
+                        list[i][j].setTypeBarDirectly();
+                        index++;
+                    }
+                    counter++;
+                }
                 else
                     if(--count == 0)
                         break;
@@ -105,12 +135,12 @@ public class GameManager {
         }
         int result = 0;   
         if(countxx > minimumDestroyCount-1){
-            result = countxx-1;
+            result += countxx-1;
             for(int i = 0; i < countxx; i++)
                 list[x+i][y].setMarked(true);
         }
         if(countyy > minimumDestroyCount-1){
-            result = countyy-1;
+            result += countyy-1;
             for(int i = 0; i < countyy; i++)
                 list[x][y+i].setMarked(true);
         }
@@ -130,15 +160,18 @@ public class GameManager {
         return sum;
     }
     
-    public void destroyTraversally(){
+    public int destroyTraversally(){
+        int sum = 0;
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
                 if(list[i][j].getMarked()){
                     list[i][j] = new BookCandy();
+                    sum++;
                     score = score+scoreIncrement;
                 }
             }
         }
+        return sum;
     }
     public void destroySpecialBook(int x, int y){
         if(list[x][y].getTypeBar().equals("horizontal")){
@@ -150,7 +183,7 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[0][i] = new BookCandy();
                 }
-                fillBooks();
+                fillBooks(0);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -160,7 +193,7 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[i][y] = new BookCandy();
                 }
-                fillBooks();
+                fillBooks(0);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }

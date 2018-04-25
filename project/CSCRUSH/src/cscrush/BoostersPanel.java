@@ -25,7 +25,7 @@ public class BoostersPanel extends javax.swing.JPanel {
     private Image eray;
     private Image ozcan;
     private Image william;
-    private int pressedX,pressedY;
+    private int pressedX,pressedY,pressedX1,pressedY1;
     /**
      * Creates new form BoostersPanel
      */
@@ -59,10 +59,22 @@ public class BoostersPanel extends javax.swing.JPanel {
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        if (pressedX== halil.getHeight(this) && pressedY==halil.getWidth(this)) {
+        pressedX1 = evt.getX();
+        if (pressedX<= halil.getWidth(this) && pressedY<= halil.getHeight(this)) {
             GUIManager.manager.powerupaltay();
         }
-        
+        if (pressedX<= eray.getWidth(this) && pressedY<= eray.getHeight(this)) {
+            GUIManager.manager.poweruperay(pressedX,pressedY,pressedX1,pressedY1);
+        }
+        if (pressedX<= robin.getWidth(this) && pressedY<= robin.getHeight(this)) {
+            GUIManager.manager.poweruprobin(pressedX,pressedY);
+        }
+        if (pressedX<= ozcan.getWidth(this) && pressedY<= ozcan.getHeight(this)) {
+            GUIManager.manager.powerupozcan(pressedX,pressedY);
+        }
+        if (pressedX<= william.getWidth(this) && pressedY<= william.getHeight(this)) {
+            GUIManager.manager.powerupwilliam(pressedX,pressedY);
+        }
  
        
     } 

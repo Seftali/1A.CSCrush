@@ -6,7 +6,12 @@
 package cscrush;
 
 import java.awt.event.WindowEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +30,8 @@ public class GUIManager {
     private HighScorePanel highScorePanel;
     private LevelPanel levelPanel;
     private GameManager currentLevel;
-    
+    private Database dbManager;
+    private String[] user;
     
     
     GUIManager()
@@ -39,6 +45,8 @@ public class GUIManager {
         levelPanel = new LevelPanel();
         infoHelPanel = new InfoHelPanel();
         highScorePanel = new HighScorePanel();
+        dbManager = new Database();
+        user = null;
     }
     
     //Start with login panel
@@ -49,17 +57,37 @@ public class GUIManager {
     }
     
     //Check login and open main menu
-    public void login()
+    public void login( String username, String pass)
     {
-        gameFrame.setContentPane(mainMenuPanel);
-        gameFrame.pack();
+        user = dbManager.login(username, pass);
+        
+        System.out.println(username + pass);
+        
+        if ( user == null )
+        {
+            System.out.println("Username or password is wrong!");
+        }
+        else
+        {
+            gameFrame.setContentPane(mainMenuPanel);
+            gameFrame.pack();
+        }
     }
     
     //Sign up and open main menu
-    public void signup()
-    {
-        gameFrame.setContentPane(mainMenuPanel);
-        gameFrame.pack();
+    public void signup( String username, String pass, String repass, String mail)
+    {       
+        user = dbManager.signup(username, pass, mail);
+        
+        if ( user == null)
+        {
+            System.out.println("Sign up failed!");
+        }
+        else
+        {
+            gameFrame.setContentPane(mainMenuPanel);
+            gameFrame.pack();
+        }
     }
     //Display settings by clicking settings button from main menu
     public void displaySettings(int flag)
@@ -87,6 +115,13 @@ public class GUIManager {
     }
     public void displayHighScores()
     {
+        ArrayList<String[]> scores = dbManager.getHigh();
+        
+        for ( int i = 0; i < scores.size(); i++)
+        {
+            System.out.println(scores.get(i)[0] + "   " +  scores.get(i)[1]);
+        }
+        
         gameFrame.setContentPane(highScorePanel);
         gameFrame.pack();   
     }
@@ -130,6 +165,7 @@ public class GUIManager {
     
     public void backToLoginPanel()
     {
+        user = null;
         gameFrame.setContentPane(loginPanel);
         gameFrame.pack();
     }
@@ -147,6 +183,7 @@ public class GUIManager {
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
     }
     public void powerupaltay(){
+        System.out.println("altay");
         currentLevel.PowerUpAltay();
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
@@ -157,30 +194,9 @@ public class GUIManager {
     {
         
         currentLevel.swap(y1, x1, y2, x2);
-        //gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-        /*
-        try        
-            {
-        while(currentLevel.traverselyMarkedBooks() != 0){
-            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-            currentLevel.fall(0);
-            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-            
-                Thread.sleep(100);
-
-            currentLevel.destroyTraversally();
-            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-            gamePlayScreenPanel.repaint();
-                Thread.sleep(1000);
-            
-            currentLevel.fillBooks();
-            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-                Thread.sleep(100);
-            
-        }
-        } catch(InterruptedException ex) {}
-        //gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-        */
+        
+        gamePlayScreenPanel.crushCandies();
+        
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
 

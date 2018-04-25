@@ -33,7 +33,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jPasswordField1" max="32767" attributes="0"/>
+                      <Component id="passwordL" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordL" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="loginButton" min="-2" max="-2" attributes="0"/>
@@ -270,7 +270,7 @@
         <Property name="text" type="java.lang.String" value="New Player?"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="passwordL">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>

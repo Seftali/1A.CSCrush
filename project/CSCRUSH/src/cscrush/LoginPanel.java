@@ -65,7 +65,7 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        passwordL = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -141,7 +141,7 @@ public class LoginPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jPasswordField1))
+                        .addComponent(passwordL))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
@@ -215,7 +215,7 @@ public class LoginPanel extends javax.swing.JPanel {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(passwordL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(loginButton)))
                 .addGap(14, 14, 14)
@@ -226,12 +226,12 @@ public class LoginPanel extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        GUIManager.manager.login();
+        GUIManager.manager.login( usernameL.getText(), passwordL.getText());
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void signUpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signUpButtonActionPerformed
         // TODO add your handling code here:
-        GUIManager.manager.signup();
+        GUIManager.manager.signup( usernameS.getText(), passwordS.getText(), repasswordS.getText(), emailS.getText());
     }//GEN-LAST:event_signUpButtonActionPerformed
 
 
@@ -246,8 +246,8 @@ public class LoginPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JButton loginButton;
+    private javax.swing.JPasswordField passwordL;
     private javax.swing.JTextField passwordS;
     private javax.swing.JTextField repasswordS;
     private javax.swing.JButton signUpButton;

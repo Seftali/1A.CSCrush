@@ -7,15 +7,14 @@ package cscrush;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
+import javax.swing.Timer;
 
 /**
  *
@@ -27,11 +26,46 @@ public class GameTable extends javax.swing.JPanel {
     private Image[] bookImages;
     private String[] dirBookImages;
     private int pressedX, pressedY;
+    private boolean redraw;
+    private boolean fadeCandies;
+    private int k;
+    
     /**
      * Creates new form GameTable
      */
     public GameTable() {
         initComponents();
+        
+        redraw = false;
+        fadeCandies = false;
+        k = 0;
+        
+        Timer timer = new Timer(20, new ActionListener() {
+        public void actionPerformed(ActionEvent e) {
+                if ( fadeCandies == false)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    if ( k == 1)
+                    {
+                        k = 50;
+                    }
+                    validate();
+                    repaint();
+                    k--;
+                    if (k == 1)
+                    {
+                        fadeCandies = false;
+                        redraw = true;
+                    }
+                }
+            }
+        });
+
+        timer.start();
+        
         bookImages = new Image[16];
         dirBookImages = new String[16];
         dirBookImages[0] = "src\\img\\cs102.jpg";
@@ -75,89 +109,258 @@ public class GameTable extends javax.swing.JPanel {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        BookCandy temp2 = new BookCandy();
-        for (int i = 0; i < 10; i++)
-        for (int j = 0; j < 10; j++)
-        {  
-            BookCandy temp = tableObjects[j][i];
-            if( temp.getType().equals( temp2.getType() ) )
-            {
-                System.err.println("XXXXXXXXXXXX");
-                g.drawImage(bookImages[15],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
-            {
-                g.drawImage(bookImages[0],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
-            {
-                g.drawImage(bookImages[1],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
-            {
-                g.drawImage(bookImages[2],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
-            {
-                g.drawImage(bookImages[3],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
-            {
-                g.drawImage(bookImages[4],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
-            {
-                g.drawImage(bookImages[5],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
-            {
-                g.drawImage(bookImages[6],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
-            {
-                g.drawImage(bookImages[7],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
-            {
-                g.drawImage(bookImages[8],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
-            {
-                g.drawImage(bookImages[9],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
-            {
-                g.drawImage(bookImages[10],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
-            {
-                g.drawImage(bookImages[11],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
-            {
-                g.drawImage(bookImages[12],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
-            {
-                g.drawImage(bookImages[13],i*50,j*50,null);
-            }
-            else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
-            {
-                g.drawImage(bookImages[14],i*50,j*50,null);
-            }
-            else {
-                g.drawImage(bookImages[15],i*50,j*50,null);
-                System.err.println("YYYYYYYYYYYY");
-            }
+        
+        if ( redraw ) //Just draw table all again
+        {
+            drawAllAgain(g);
         }
-        System.err.println("IN");
+        else if ( fadeCandies)
+        {
+            fade(g);
+        }
+        
+    }
+    
+    private void fade(Graphics g)
+    {
+        int[][] mark = new int[10][10];
+        
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+            {
+                if (j >= 9)
+                    mark[i][j] = 1;
+                else 
+                    mark[i][j] = 0;
+            }
+        
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+            {  
+                BookCandy temp = tableObjects[j][i];
+                if ( mark[i][j] == 0)
+                {
+                    if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[0],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[1],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[2],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[3],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[4],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[5],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[6],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[7],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[8],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[9],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[10],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[11],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[12],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[13],i*50,j*50,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[14],i*50,j*50,null);
+                    }
+                    else {
+                        g.drawImage(bookImages[15],i*50,j*50,null);
+                    }
+                }
+                else 
+                {
+                    if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[0].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[1].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[2].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[3].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[4].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[5].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[6].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[7].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[8].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[9].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[10].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[11].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
+                    {
+                        g.drawImage(bookImages[12].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
+                    {
+                        g.drawImage(bookImages[13].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
+                    {
+                        g.drawImage(bookImages[14].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                    else {
+                        g.drawImage(bookImages[15].getScaledInstance(k, k, Image.SCALE_FAST),i*50 + (50-k)/2,j*50 + (50-k)/2,null);
+                    }
+                   
+                }
+            }
+         
+    }
+    
+    private void drawAllAgain(Graphics g)
+    {
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+            {  
+                BookCandy temp = tableObjects[j][i];
+                if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
+                {
+                    g.drawImage(bookImages[0],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
+                {
+                    g.drawImage(bookImages[1],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
+                {
+                    g.drawImage(bookImages[2],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
+                {
+                    g.drawImage(bookImages[3],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
+                {
+                    g.drawImage(bookImages[4],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
+                {
+                    g.drawImage(bookImages[5],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
+                {
+                    g.drawImage(bookImages[6],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
+                {
+                    g.drawImage(bookImages[7],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
+                {
+                    g.drawImage(bookImages[8],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
+                {
+                    g.drawImage(bookImages[9],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
+                {
+                    g.drawImage(bookImages[10],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
+                {
+                    g.drawImage(bookImages[11],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
+                {
+                    g.drawImage(bookImages[12],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
+                {
+                    g.drawImage(bookImages[13],i*50,j*50,null);
+                }
+                else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
+                {
+                    g.drawImage(bookImages[14],i*50,j*50,null);
+                }
+                else 
+                {
+                    g.drawImage(bookImages[15],i*50,j*50,null);
+                }
+            }
     }
     
     public void setTableObjects(BookCandy[][] tableObjects)
     {
+        redraw = true;
+        fadeCandies = false;
         this.tableObjects = tableObjects;
         validate();
         repaint();
+    }
+    
+    public void crushCandies()
+    {
+        redraw = false;
+        fadeCandies = true;
     }
     
     /**

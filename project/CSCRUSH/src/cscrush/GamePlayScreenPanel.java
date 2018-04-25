@@ -32,6 +32,11 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         gameTable.setTableObjects(tableObjects);
     }
     
+    public void crushCandies()
+    {
+        gameTable.crushCandies();
+    }
+    
     public void setScore(int score)
     {
         currentPoint.setText(""+score);

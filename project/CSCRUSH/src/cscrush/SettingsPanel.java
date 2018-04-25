@@ -32,7 +32,7 @@ public class SettingsPanel extends javax.swing.JPanel {
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
@@ -54,10 +54,10 @@ public class SettingsPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Logout");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        logoutButton.setText("Logout");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                logoutButtonActionPerformed(evt);
             }
         });
 
@@ -73,7 +73,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                             .addComponent(jLabel1))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGap(14, 14, 14)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(backButton))
@@ -90,7 +90,7 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addGap(157, 157, 157)
                 .addComponent(jToggleButton1)
                 .addGap(31, 31, 31)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addContainerGap())
@@ -113,16 +113,16 @@ public class SettingsPanel extends javax.swing.JPanel {
             GUIManager.manager.backToGamePlayScreen();
     }//GEN-LAST:event_backButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
 
         GUIManager.manager.backToLoginPanel();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_logoutButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton logoutButton;
     // End of variables declaration//GEN-END:variables
 }

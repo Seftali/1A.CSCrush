@@ -25,18 +25,18 @@ public class BoostersPanel extends javax.swing.JPanel {
     private Image eray;
     private Image ozcan;
     private Image william;
-    private int pressedX,pressedY;
+    private int pressedX,pressedY,pressedX1,pressedY1;
     /**
      * Creates new form BoostersPanel
      */
     public BoostersPanel() {
         initComponents();
         try {
-            robin = ImageIO.read(new File("src\\img\\robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            halil = ImageIO.read(new File("src\\img\\halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            eray = ImageIO.read(new File("src\\img\\eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            ozcan = ImageIO.read(new File("src\\img\\ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            william = ImageIO.read(new File("src\\img\\william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            robin = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            halil = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            eray = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            ozcan = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            william = ImageIO.read(new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/img/william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
              
         } catch (IOException ex) {
             Logger.getLogger(BoostersPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,9 +59,24 @@ public class BoostersPanel extends javax.swing.JPanel {
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        if (pressedY <= 10000) {
+        pressedX1 = evt.getX();
+        if (pressedX<= halil.getWidth(this) && pressedY<= halil.getHeight(this)) {
             GUIManager.manager.powerupaltay();
         }
+        if (pressedX<= eray.getWidth(this) && pressedY<= eray.getHeight(this)) {
+            GUIManager.manager.poweruperay(pressedX,pressedY,pressedX1,pressedY1);
+        }
+        if (pressedX<= robin.getWidth(this) && pressedY<= robin.getHeight(this)) {
+            GUIManager.manager.poweruprobin(pressedX,pressedY);
+        }
+        if (pressedX<= ozcan.getWidth(this) && pressedY<= ozcan.getHeight(this)) {
+            GUIManager.manager.powerupozcan(pressedX,pressedY);
+        }
+        if (pressedX<= william.getWidth(this) && pressedY<= william.getHeight(this)) {
+            GUIManager.manager.powerupwilliam(pressedX,pressedY);
+        }
+ 
+       
     } 
     /**
      * This method is called from within the constructor to initialize the form.

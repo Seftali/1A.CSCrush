@@ -8,7 +8,7 @@ package cscrush;
 
 /**
  *
- * @author User
+ * @author TanerMan
  */
 public class Level {
     int lev;

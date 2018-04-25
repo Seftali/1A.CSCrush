@@ -7,7 +7,7 @@ package cscrush;
 
 /**
  *
- * @author User
+ * @author TanerMan
  */
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;    
@@ -22,10 +22,10 @@ public class SoundManager {
     File main;
     public SoundManager(){
         try{
-        swap = new File("src\\sounds\\swapSound.wav");
-        destroy = new File("src\\sounds\\battle047.wav");
-        end = new File("src\\sounds\\youve-been-a-very-good.wav");
-        main = new File("src\\sounds\\mainTheme.wav");
+        swap = new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/sounds/swapSound.wav");
+        destroy = new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/sounds/battle047.wav");
+        end = new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/sounds/youve-been-a-very-good.wav");
+        main = new File("/Users/tanerduzceer/Desktop/CSCRUSH/project/CSCRUSH/src/sounds/mainTheme.wav");
         }catch(Exception e){}
     }
     public void playSwap(){

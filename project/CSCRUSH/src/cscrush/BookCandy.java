@@ -25,6 +25,7 @@ public class BookCandy {
         type = (this.getClass().getName()).substring(8);
         typeBar = "normal";
     }
+    //to determine which books are special
     public void setMarked(boolean mark){
         marked = mark;
     }
@@ -51,6 +52,7 @@ public class BookCandy {
          return str;
     }
         */
+    //to determine the special books are horizontal or vertical
     public void setTypeBarDirectly(){
         int chance = (int)(Math.random() *2  + 1);
         switch ( chance ) {

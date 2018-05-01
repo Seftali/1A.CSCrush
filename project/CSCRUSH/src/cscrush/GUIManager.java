@@ -65,6 +65,7 @@ public class GUIManager {
     //Check login and open main menu
     public void login( String username, String pass)
     {
+        /*
         user = dbManager.login(username, pass);
         
         System.out.println(username + pass);
@@ -75,9 +76,10 @@ public class GUIManager {
         }
         else
         {
+*/
             gameFrame.setContentPane(mainMenuPanel);
             gameFrame.pack();
-        }
+  //      }
     }
     
     public static boolean validateMail(String emailStr) {

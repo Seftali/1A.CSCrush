@@ -111,7 +111,7 @@ public class GameManager {
             count = 10;
         }
     }
-    private BookCandy randomBookGenerator(){
+    public BookCandy randomBookGenerator(){
         int book = (int)(Math.random() *5  + 1);
         BookCandy randomBook = new BookCandy();
         switch (book) {
@@ -258,39 +258,37 @@ public class GameManager {
         return lists.getFirst();
     }
     public void PowerUpAltay(){
-        int x = 0;
-        int y = 0;
-        score = score-100;
-        for(int i = 0; i < 5; i++){
-            x = (int)(Math.random() * matrixSize);
-            y = (int)(Math.random() * matrixSize);
-            list[x][y].setTypeBarDirectly();
+        BookCandy[][] temp = new BookCandy[matrixSize][matrixSize];
+        temp  =   new Altay(list).PowerUpAltay();
+        if( temp != null ){
+            list = temp;
+            score = score-100;
+            rebuild();
         }
     }
     public void PowerUpWilliam(int positionX, int positionY){
-        if( ( positionX < 1 ) || ( positionX > 8 ) || ( positionY < 1 ) || ( positionY > 8 ) )
-            return;
-        score = score -90;
-        for(int i = positionX-1; i < positionX+1; i++){
-            for(int j = positionY-1; j < positionY+1; j++){
-                list[i][j].setMarked(true);
-            }
+        BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
+        if( temp != null ){
+            list = temp;
+            score = score-90;
+            rebuild();
         }
-        rebuild();
     }
     public void PowerUpRobin(int positionX, int positionY){
-        if( (positionX<0|| positionY<0) || ( positionX>=matrixSize || positionY>=matrixSize ) )
-            return;
-        score = score -50;
-        list[positionX][positionY] = randomBookGenerator();
-        rebuild();
+        BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
+        if( temp != null ){
+            list = temp;
+            score = score-50;
+            rebuild();
+        }
     }
     public void PowerUpOzcan(int positionX, int positionY){
-        if( (positionX<0|| positionY<0) || ( positionX>=matrixSize || positionY>=matrixSize ) )
-            return;
-        score = score -80;
-        list[positionX][positionY].setMarked(true);
-        rebuild();
+        BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
+        if( temp != null ){
+            list = temp;
+            score = score-50;
+            rebuild();
+        }
     }
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
         swap(positionX,positionY,positionX2,positionY2);

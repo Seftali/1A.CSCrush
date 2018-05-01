@@ -12,11 +12,12 @@ package cscrush;
 public class SettingsPanel extends javax.swing.JPanel {
     
     public static int flag;
-    static SoundManager manager = new SoundManager();
+    SoundManager manager;
     /**
      * Creates new form SettingsPanel
      */
     public SettingsPanel() {
+        this.manager = new SoundManager();
         initComponents();
     }
 
@@ -100,9 +101,9 @@ public class SettingsPanel extends javax.swing.JPanel {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
             // TODO add your handling code here:
             if(jToggleButton1.isSelected())
-                (manager).playMainTheme(true);
+                (manager).playMainTheme();
             else
-                (manager).playMainTheme(false);
+                (manager).stopMainTheme();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed

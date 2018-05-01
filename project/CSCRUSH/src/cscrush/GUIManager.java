@@ -85,7 +85,7 @@ public class GUIManager {
         return matcher.find();
     }
     
-    //Sign up and open main menu
+    //Sign up anda open main menu
     public void signup( String username, String pass, String repass, String mail)
     {       
         if ( !pass.equals(repass))

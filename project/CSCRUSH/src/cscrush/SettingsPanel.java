@@ -5,6 +5,8 @@
  */
 package cscrush;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author berka
@@ -32,8 +34,8 @@ public class SettingsPanel extends javax.swing.JPanel {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-        backButton = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
+        backBS = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
@@ -48,17 +50,27 @@ public class SettingsPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("SETTINGS");
 
-        backButton.setText("<< Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-
         logoutButton.setText("Logout");
         logoutButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutButtonActionPerformed(evt);
+            }
+        });
+
+        backBS.setBackground(new java.awt.Color(255, 255, 255));
+        backBS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
+        backBS.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backBSMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backBSMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backBSMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                backBSMouseReleased(evt);
             }
         });
 
@@ -76,11 +88,11 @@ public class SettingsPanel extends javax.swing.JPanel {
                             .addGap(14, 14, 14)
                             .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backButton))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(256, 256, 256)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(backBS)))
                 .addContainerGap(288, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -92,8 +104,8 @@ public class SettingsPanel extends javax.swing.JPanel {
                 .addComponent(jToggleButton1)
                 .addGap(31, 31, 31)
                 .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
-                .addComponent(backButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
+                .addComponent(backBS)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -106,22 +118,39 @@ public class SettingsPanel extends javax.swing.JPanel {
                 (manager).stopMainTheme();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        
-        if ( flag == 0)//Go to main menu
-            GUIManager.manager.backToMainMenuPanel();      // TODO add your handling code here:
-        else//Go to gameplayscreen
-            GUIManager.manager.backToGamePlayScreen();
-    }//GEN-LAST:event_backButtonActionPerformed
-
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
 
         GUIManager.manager.backToLoginPanel();
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    private void backBSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
+        backBS.setIcon(II);
+    }//GEN-LAST:event_backBSMouseEntered
+
+    private void backBSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backBS.setIcon(II);
+    }//GEN-LAST:event_backBSMouseExited
+
+    private void backBSMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back3.png"));
+        backBS.setIcon(II);
+    }//GEN-LAST:event_backBSMousePressed
+
+    private void backBSMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMouseReleased
+        
+        if ( flag == 0)//Go to main menu
+            GUIManager.manager.backToMainMenuPanel();      // TODO add your handling code here:
+        else//Go to gameplayscreen
+            GUIManager.manager.backToGamePlayScreen();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backBS.setIcon(II);
+    }//GEN-LAST:event_backBSMouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
+    private javax.swing.JLabel backBS;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton logoutButton;

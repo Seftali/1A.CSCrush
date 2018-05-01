@@ -5,6 +5,8 @@
  */
 package cscrush;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author tendoushuu
@@ -27,127 +29,261 @@ public class MainMenuPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        playGameButton = new javax.swing.JButton();
-        settingsButton = new javax.swing.JButton();
-        infoHelpButton = new javax.swing.JButton();
-        highScoresButton = new javax.swing.JButton();
-        creditsButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        set1 = new javax.swing.JLabel();
+        playb = new javax.swing.JLabel();
+        infoB = new javax.swing.JLabel();
+        creditsB = new javax.swing.JLabel();
+        highsB = new javax.swing.JLabel();
+        exitB = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
+        setLayout(null);
 
-        playGameButton.setText("Play Game");
-        playGameButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                playGameButtonActionPerformed(evt);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/background.png"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(380, 350, 320, 350);
+
+        set1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/set1.png"))); // NOI18N
+        set1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                set1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                set1MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                set1MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                set1MouseReleased(evt);
             }
         });
+        add(set1);
+        set1.setBounds(140, 165, 150, 51);
 
-        settingsButton.setText("Settings");
-        settingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settingsButtonActionPerformed(evt);
+        playb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/play1.png"))); // NOI18N
+        playb.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                playbMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                playbMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                playbMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                playbMouseReleased(evt);
             }
         });
+        add(playb);
+        playb.setBounds(310, 253, 96, 96);
 
-        infoHelpButton.setText("Info & Help");
-        infoHelpButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoHelpButtonActionPerformed(evt);
+        infoB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/info1.png"))); // NOI18N
+        infoB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                infoBMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                infoBMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                infoBMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                infoBMouseReleased(evt);
             }
         });
+        add(infoB);
+        infoB.setBounds(415, 165, 149, 51);
 
-        highScoresButton.setText("High Scores");
-        highScoresButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                highScoresButtonActionPerformed(evt);
+        creditsB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/credits1.png"))); // NOI18N
+        creditsB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                creditsBMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                creditsBMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                creditsBMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                creditsBMouseReleased(evt);
             }
         });
+        add(creditsB);
+        creditsB.setBounds(56, 302, 149, 47);
 
-        creditsButton.setText("Credits");
-        creditsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                creditsButtonActionPerformed(evt);
+        highsB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/high1.png"))); // NOI18N
+        highsB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                highsBMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                highsBMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                highsBMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                highsBMouseReleased(evt);
             }
         });
+        add(highsB);
+        highsB.setBounds(500, 301, 150, 48);
 
-        exitButton.setText("Exit");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
+        exitB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ext1.png"))); // NOI18N
+        exitB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                exitBMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                exitBMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                exitBMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                exitBMouseReleased(evt);
             }
         });
+        add(exitB);
+        exitB.setBounds(282, 422, 149, 48);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(140, 140, 140)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(settingsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(infoHelpButton, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                    .addComponent(playGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 229, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(highScoresButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(creditsButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(108, 108, 108))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(96, 96, 96)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(highScoresButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(playGameButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(70, 70, 70)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(creditsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoHelpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(108, 108, 108)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(settingsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(224, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cscrush.png"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(201, 46, 313, 44);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        // TODO add your handling code here:
-        GUIManager.manager.exitGame();
-    }//GEN-LAST:event_exitButtonActionPerformed
+    private void set1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_set1MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/set2.png"));
+        set1.setIcon(II);
+    }//GEN-LAST:event_set1MouseEntered
 
-    private void playGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_playGameButtonActionPerformed
-        // TODO add your handling code here:
+    private void set1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_set1MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/set1.png"));
+        set1.setIcon(II);
+    }//GEN-LAST:event_set1MouseExited
+
+    private void set1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_set1MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/set3.png"));
+        set1.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_set1MousePressed
+
+    private void set1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_set1MouseReleased
+        GUIManager.manager.displaySettings(0);  
+    }//GEN-LAST:event_set1MouseReleased
+
+    private void playbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/play2.png"));
+        playb.setIcon(II);           // TODO add your handling code here:
+    }//GEN-LAST:event_playbMouseEntered
+
+    private void playbMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/play1.png"));
+        playb.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_playbMouseExited
+
+    private void playbMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/play3.png"));
+        playb.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_playbMousePressed
+
+    private void playbMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbMouseReleased
         GUIManager.manager.displayLevels();
-    }//GEN-LAST:event_playGameButtonActionPerformed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/play1.png"));
+        playb.setIcon(II);         
+    }//GEN-LAST:event_playbMouseReleased
 
-    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        GUIManager.manager.displaySettings(0);                // TODO add your handling code here:
-    }//GEN-LAST:event_settingsButtonActionPerformed
+    private void infoBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoBMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/info2.png"));
+        infoB.setIcon(II); 
+    }//GEN-LAST:event_infoBMouseEntered
 
-    private void creditsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditsButtonActionPerformed
-        GUIManager.manager.displayCredits(); // TODO add your handling code here:
-    }//GEN-LAST:event_creditsButtonActionPerformed
+    private void infoBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoBMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/info1.png"));
+        infoB.setIcon(II); 
+    }//GEN-LAST:event_infoBMouseExited
 
-    private void infoHelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoHelpButtonActionPerformed
-        GUIManager.manager.displayHelp();        // TODO add your handling code here:
-    }//GEN-LAST:event_infoHelpButtonActionPerformed
+    private void infoBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoBMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/info3.png"));
+        infoB.setIcon(II); 
+    }//GEN-LAST:event_infoBMousePressed
 
-    private void highScoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_highScoresButtonActionPerformed
-        GUIManager.manager.displayHighScores();    // TODO add your handling code here:
-    }//GEN-LAST:event_highScoresButtonActionPerformed
+    private void infoBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoBMouseReleased
+        GUIManager.manager.displayHelp();
+    }//GEN-LAST:event_infoBMouseReleased
+
+    private void creditsBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/credits2.png"));
+        creditsB.setIcon(II);
+    }//GEN-LAST:event_creditsBMouseEntered
+
+    private void creditsBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/credits1.png"));
+        creditsB.setIcon(II);
+    }//GEN-LAST:event_creditsBMouseExited
+
+    private void creditsBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/credits3.png"));
+        creditsB.setIcon(II);
+    }//GEN-LAST:event_creditsBMousePressed
+
+    private void creditsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMouseReleased
+        GUIManager.manager.displayCredits();
+    }//GEN-LAST:event_creditsBMouseReleased
+
+    private void highsBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/high2.png"));
+        highsB.setIcon(II);
+    }//GEN-LAST:event_highsBMouseEntered
+
+    private void highsBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/high1.png"));
+        highsB.setIcon(II);
+    }//GEN-LAST:event_highsBMouseExited
+
+    private void highsBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/high3.png"));
+        highsB.setIcon(II);
+    }//GEN-LAST:event_highsBMousePressed
+
+    private void highsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMouseReleased
+        GUIManager.manager.displayHighScores();
+    }//GEN-LAST:event_highsBMouseReleased
+
+    private void exitBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/ext2.png"));
+        exitB.setIcon(II);
+    }//GEN-LAST:event_exitBMouseEntered
+
+    private void exitBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/ext1.png"));
+        exitB.setIcon(II);
+    }//GEN-LAST:event_exitBMouseExited
+
+    private void exitBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/ext3.png"));
+        exitB.setIcon(II);
+    }//GEN-LAST:event_exitBMousePressed
+
+    private void exitBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBMouseReleased
+        GUIManager.manager.exitGame();
+    }//GEN-LAST:event_exitBMouseReleased
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton creditsButton;
-    private javax.swing.JButton exitButton;
-    private javax.swing.JButton highScoresButton;
-    private javax.swing.JButton infoHelpButton;
-    private javax.swing.JButton playGameButton;
-    private javax.swing.JButton settingsButton;
+    private javax.swing.JLabel creditsB;
+    private javax.swing.JLabel exitB;
+    private javax.swing.JLabel highsB;
+    private javax.swing.JLabel infoB;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel playb;
+    private javax.swing.JLabel set1;
     // End of variables declaration//GEN-END:variables
 }

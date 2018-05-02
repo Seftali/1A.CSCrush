@@ -91,6 +91,15 @@ public class GameTable extends javax.swing.JPanel {
                         fadeSize = 50;
                         fadeMark = cur.marked;
                         tableObjects = cur.oldBookCandy;
+                        
+                        for ( int i = 0; i < 10; i++)
+                        {
+                            for ( int j = 0; j < 10; j++)
+                            {
+                                System.out.print(cur.marked[i][j]);
+                            }
+                            System.out.println();
+                        }                  
                     }
                     validate();
                     repaint();

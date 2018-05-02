@@ -49,14 +49,14 @@ public class GameManager {
     public void rebuild(){ 
         lists.removeAll();
         fillBooks(0);
-        lists.add(getSystemCall());
+        lists.add(copyList(getSystemCall()));
         while(traverselyMarkedBooks() != 0){
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
             fall(0);
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
             int temp = destroyTraversally();
             fillBooks(temp);
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
         }
     }
     
@@ -257,6 +257,45 @@ public class GameManager {
             (new SoundManager()).playEnd();
         return lists.getFirst();
     }
+    
+    public BookCandy[][] copyList( BookCandy[][] list)
+    {
+        BookCandy[][] tempList = new BookCandy[10][10];
+        
+        for ( int i = 0; i < 10; i++)
+            for ( int j = 0; j < 10; j++)
+            {
+                BookCandy temp = list[i][j];
+                if ( temp.getType().equals("Cs102"))
+                {
+                    tempList[i][j] = new Cs102();
+                }
+                else if ( temp.getType().equals("Cs201"))
+                {
+                    tempList[i][j] = new Cs201();
+                }
+                else if ( temp.getType().equals("Cs224") )
+                {
+                    tempList[i][j] = new Cs224();
+                }
+                else if ( temp.getType().equals("Cs342") )
+                {
+                    tempList[i][j] = new Cs342();
+                }
+                else if ( temp.getType().equals("Cs476") )
+                {
+                    tempList[i][j] = new Cs476();
+                }
+                else
+                {
+                    tempList[i][j] = new BookCandy();
+                }
+                tempList[i][j].setTypeBar(temp.getTypeBar());
+            }
+        
+        return tempList;
+    }
+    
     public void PowerUpAltay(){
         if(this.level.getMovement()!= 0){
             lists.removeAll();

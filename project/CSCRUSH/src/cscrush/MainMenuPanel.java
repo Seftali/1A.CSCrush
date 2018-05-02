@@ -176,6 +176,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void set1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_set1MouseReleased
         GUIManager.manager.displaySettings(0);  
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/set1.png"));
+        set1.setIcon(II);
     }//GEN-LAST:event_set1MouseReleased
 
     private void playbMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_playbMouseEntered
@@ -216,6 +218,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void infoBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_infoBMouseReleased
         GUIManager.manager.displayHelp();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/info1.png"));
+        infoB.setIcon(II); 
     }//GEN-LAST:event_infoBMouseReleased
 
     private void creditsBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMouseEntered
@@ -235,6 +239,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void creditsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_creditsBMouseReleased
         GUIManager.manager.displayCredits();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/credits1.png"));
+        creditsB.setIcon(II);
     }//GEN-LAST:event_creditsBMouseReleased
 
     private void highsBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMouseEntered
@@ -254,6 +260,8 @@ public class MainMenuPanel extends javax.swing.JPanel {
 
     private void highsBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_highsBMouseReleased
         GUIManager.manager.displayHighScores();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/high1.png"));
+        highsB.setIcon(II);
     }//GEN-LAST:event_highsBMouseReleased
 
     private void exitBMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitBMouseEntered

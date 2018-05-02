@@ -140,12 +140,14 @@ public class SettingsPanel extends javax.swing.JPanel {
 
     private void backBSMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMouseReleased
         
-        if ( flag == 0)//Go to main menu
-            GUIManager.manager.backToMainMenuPanel();      // TODO add your handling code here:
-        else//Go to gameplayscreen
+        if ( flag == 0){//Go to main menu
+            GUIManager.manager.backToMainMenuPanel();
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+            backBS.setIcon(II);}// TODO add your handling code here:
+        else {//Go to gameplayscreen 
             GUIManager.manager.backToGamePlayScreen();
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
-        backBS.setIcon(II);
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+            backBS.setIcon(II);}
     }//GEN-LAST:event_backBSMouseReleased
 
 

@@ -30,8 +30,9 @@ public class GameTable extends javax.swing.JPanel {
     private boolean fadeCandies;
     private boolean fallCandies;
     private int fadeSize;
-    private int fallSize;
-    private int[][] fallMark, fadeMark;
+    private int maxFallSize;
+    private int checkFall;
+    private int[][] fallMark, fadeMark, fallSize;
     private AnimationNode cur;
     
     /**
@@ -43,72 +44,77 @@ public class GameTable extends javax.swing.JPanel {
         fadeCandies = false;
         fallCandies = false;
         fadeSize = 1;
-        fallSize = 50;
+        maxFallSize = 0;
+        checkFall = 50;
         cur = null;
+        fallSize = new int[10][10];
         
-        fallMark = new int[10][10];
-        
-        for (int i = 0; i < 10; i++)
-            for (int j = 0; j < 10; j++)
+        Timer timer = new Timer(20, (ActionEvent e) -> {
+            if ( fallCandies)
             {
-                if (i == 0 && j < 9)
-                    fallMark[i][j] = 1;
-                else 
-                    fallMark[i][j] = 0;
-            }
-        
-        Timer timer = new Timer(20, new ActionListener() {
-        public void actionPerformed(ActionEvent e) {
-                
-                if ( fallCandies)
+                if ( checkFall == maxFallSize * 50)
                 {
-                    if ( fallSize == 50)
-                    {
-                        fallSize = 1;
-                    }
-                    validate();
-                    repaint();
-                    fallSize++;
-                    if (fallSize == 50)
-                    {
-                        if ( cur.next != null)
-                        {
-                            cur = cur.next;
-                            fadeCandies = true;
-                            fallCandies = false;
-                        }
-                        else
-                        {   
-                            fadeCandies = false;
-                            fallCandies = false;
-                        }
-                    }
+                    checkFall = 1;
                 }
-                else if ( fadeCandies)
+                validate();
+                repaint();
+                checkFall++;
+                if (checkFall == maxFallSize * 50)
                 {
-                    if ( fadeSize == 1)
+                    if ( cur.next != null)
                     {
-                        fadeSize = 50;
-                        fadeMark = cur.marked;
-                        tableObjects = cur.oldBookCandy;
-                        
-                        for ( int i = 0; i < 10; i++)
-                        {
-                            for ( int j = 0; j < 10; j++)
-                            {
-                                System.out.print(cur.marked[i][j]);
-                            }
-                            System.out.println();
-                        }                  
+                        cur = cur.next;
+                        fadeCandies = true;
+                        fallCandies = false;
                     }
-                    validate();
-                    repaint();
-                    fadeSize--;
-                    if (fadeSize == 1)
+                    else
                     {
                         fadeCandies = false;
-                        fallCandies = true;
+                        fallCandies = false;
+                        maxFallSize = 0;
+                        tableObjects = cur.newBookCandy;
+                        validate();
+                        repaint();
                     }
+                }
+            }
+            else if ( fadeCandies)
+            {
+                if ( fadeSize == 1)
+                {
+                    fadeSize = 50;
+                    fadeMark = cur.marked;
+                    tableObjects = cur.oldBookCandy;
+                    fallMark = cur.fall;
+                    
+                    for ( int i = 0; i < 10; i++)
+                    {
+                        for ( int j = 0; j < 10; j++)
+                        {
+                            fallSize[i][j] = 1;
+                            if ( fallMark[i][j] >= maxFallSize)
+                            {
+                                maxFallSize = fallMark[j][i];
+                            }
+                        }
+                    }
+                    
+                    for ( int i = 0; i < 10; i++)
+                    {
+                        for ( int j = 0; j < 10; j++)
+                        {
+                            System.out.print(cur.fall[i][j] + " ");
+                        }
+                        System.out.println();                  
+                    }
+                }
+                validate();
+                repaint();
+                fadeSize--;
+                if (fadeSize == 1)
+                {
+                    fadeCandies = false;
+                    fallCandies = true;
                 }
             }
         });
@@ -181,7 +187,7 @@ public class GameTable extends javax.swing.JPanel {
             for (int j = 0; j < 10; j++)
             {  
                 BookCandy temp = tableObjects[j][i];
-                if ( fadeMark[j][i] == 0 && fallMark[i][j] == 0)
+                if ( fadeMark[j][i] == 0 && fallMark[j][i] == 0)
                 {
                     if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
                     {
@@ -247,72 +253,81 @@ public class GameTable extends javax.swing.JPanel {
                         g.drawImage(bookImages[15],i*50,j*50,null);
                     }
                 }
-                else if (fadeMark[j][i] == 0 && fallMark[i][j] == 1)
+                else if (fadeMark[j][i] == 0 && fallMark[j][i] != 0)
                 {
                     if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("normal"))
                     {
-                        g.drawImage(bookImages[0],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[0],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("vertical"))
                     {
-                        g.drawImage(bookImages[1],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[1],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs102") && temp.getTypeBar().equals("horizontal"))
                     {
-                        g.drawImage(bookImages[2],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[2],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("normal"))
                     {
-                        g.drawImage(bookImages[3],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[3],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("vertical"))
                     {
-                        g.drawImage(bookImages[4],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[4],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs201") && temp.getTypeBar().equals("horizontal"))
                     {
-                        g.drawImage(bookImages[5],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[5],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("normal"))
                     {
-                        g.drawImage(bookImages[6],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[6],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("vertical"))
                     {
-                        g.drawImage(bookImages[7],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[7],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs224") && temp.getTypeBar().equals("horizontal"))
                     {
-                        g.drawImage(bookImages[8],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[8],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("normal"))
                     {
-                        g.drawImage(bookImages[9],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[9],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("vertical"))
                     {
-                        g.drawImage(bookImages[10],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[10],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs342") && temp.getTypeBar().equals("horizontal"))
                     {
-                        g.drawImage(bookImages[11],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[11],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("normal"))
                     {
-                        g.drawImage(bookImages[12],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[12],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("vertical"))
                     {
-                        g.drawImage(bookImages[13],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[13],i*50,j*50 + fallSize[j][i],null);
                     }
                     else if ( temp.getType().equals("Cs476") && temp.getTypeBar().equals("horizontal"))
                     {
-                        g.drawImage(bookImages[14],i*50,j*50 + fallSize,null);
+                        g.drawImage(bookImages[14],i*50,j*50 + fallSize[j][i],null);
                     }
-                    else {
-                        g.drawImage(bookImages[15],i*50,j*50 + fallSize,null);
+                    else 
+                    {
+                        g.drawImage(bookImages[15],i*50,j*50 + fallSize[j][i],null);
+                    }
+                    
+                    if ( fallMark[j][i] * 50 > fallSize[j][i])
+                    {
+                        fallSize[j][i]++;
                     }
                 }
+                
+                
+                
             }
         
         

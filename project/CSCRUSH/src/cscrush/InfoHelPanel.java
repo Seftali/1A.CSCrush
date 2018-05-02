@@ -40,8 +40,18 @@ public class InfoHelPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/images.png"))); // NOI18N
         jLabel1.setText("INFO & HELP");
+<<<<<<< HEAD
         add(jLabel1);
         jLabel1.setBounds(300, 0, 360, 180);
+=======
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("How to play?\n- This game is played by swapping. User can swap books by clicking and drugging. \n- The user cannot swap books which are not neighbor each other.\n- If the player reach to target point, player can go to next level.\nPower-Ups\n-Altay : Changes 5 random books as special books.\n-Ozcan : Destroys a chosen book.\n-Robin : Generates a random book instead of chosen book.\n-William : Destroys the neighbors of chosen book.\n-Eray: Changes books which are not neighbor.\n\nCourses\n-\n-\n-\n-\n-\n\n");
+        jScrollPane1.setViewportView(jTextArea1);
+>>>>>>> e8c09bbf84a93fcf92c93c0b74058d745c16630a
 
         backBI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
         backBI.addMouseListener(new java.awt.event.MouseAdapter() {

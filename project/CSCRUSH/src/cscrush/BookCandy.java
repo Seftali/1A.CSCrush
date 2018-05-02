@@ -68,6 +68,11 @@ public class BookCandy {
         type = str;
     }
     
+    public void setTypeBar( String str)
+    {
+        typeBar = str;
+    }
+    
     public String toString(){
        String str;
        String str2;

@@ -47,16 +47,16 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        lists.removeAll();
+        //lists.removeAll();
         fillBooks(0);
-        lists.add(getSystemCall());
+        lists.add(copyList(getSystemCall()));
         while(traverselyMarkedBooks() != 0){
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
             fall(0);
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
             int temp = destroyTraversally();
             fillBooks(temp);
-            lists.add(getSystemCall());
+            lists.add(copyList(getSystemCall()));
         }
     }
     
@@ -194,7 +194,9 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[0][i] = new BookCandy();
                 }
+                lists.removeAll();
                 fillBooks(0);
+                lists.add(list);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -250,6 +252,7 @@ public class GameManager {
             BookCandy temp = list[x1][y1];
             list[x1][y1] = list[x2][y2];
             list[x2][y2] = temp;
+            lists.removeAll();
             rebuild();
             level.setMovement(level.getMovement()-1);
         }
@@ -257,42 +260,104 @@ public class GameManager {
             (new SoundManager()).playEnd();
         return lists.getFirst();
     }
+    
+    public BookCandy[][] copyList( BookCandy[][] list)
+    {
+        BookCandy[][] tempList = new BookCandy[10][10];
+        
+        for ( int i = 0; i < 10; i++)
+            for ( int j = 0; j < 10; j++)
+            {
+                BookCandy temp = list[i][j];
+                if ( temp.getType().equals("Cs102"))
+                {
+                    tempList[i][j] = new Cs102();
+                }
+                else if ( temp.getType().equals("Cs201"))
+                {
+                    tempList[i][j] = new Cs201();
+                }
+                else if ( temp.getType().equals("Cs224") )
+                {
+                    tempList[i][j] = new Cs224();
+                }
+                else if ( temp.getType().equals("Cs342") )
+                {
+                    tempList[i][j] = new Cs342();
+                }
+                else if ( temp.getType().equals("Cs476") )
+                {
+                    tempList[i][j] = new Cs476();
+                }
+                else
+                {
+                    tempList[i][j] = new BookCandy();
+                }
+                tempList[i][j].setTypeBar(temp.getTypeBar());
+            }
+        
+        return tempList;
+    }
+    
     public void PowerUpAltay(){
-        BookCandy[][] temp = new BookCandy[matrixSize][matrixSize];
-        temp  =   new Altay(list).PowerUpAltay();
-        if( temp != null ){
-            list = temp;
-            score = score-100;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Altay(list).PowerUpAltay();
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-100;
+                rebuild();
+            }
         }
     }
     public void PowerUpWilliam(int positionX, int positionY){
-        BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-90;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-90;
+                rebuild();
+            }
         }
     }
     public void PowerUpRobin(int positionX, int positionY){
-        BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-50;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-50;
+                rebuild();
+            }
         }
     }
     public void PowerUpOzcan(int positionX, int positionY){
-        BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-50;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-50;
+                rebuild();
+            }
         }
     }
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
-        swap(positionX,positionY,positionX2,positionY2);
-        score = score -70;
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Eray(list).PowerUpEray(positionX, positionY, positionX2, positionY2);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-70;
+                rebuild();
+            }
+        }
     }
     public void displayMarked(){
         for(int i = 0; i < matrixSize; i++){

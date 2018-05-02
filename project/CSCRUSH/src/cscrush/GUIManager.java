@@ -89,7 +89,9 @@ public class GUIManager {
     
     //Sign up anda open main menu
     public void signup( String username, String pass, String repass, String mail)
-    {       
+    {   /*
+        
+        
         if ( !pass.equals(repass))
         {
             loginPanel.setErrorMessageS("Error while retyping password!");
@@ -107,10 +109,12 @@ public class GUIManager {
             }
             else
             {
+*/
                 gameFrame.setContentPane(mainMenuPanel);
+                new SoundManager().changePage();
                 gameFrame.pack();
-            }
-        }
+  //          }
+  //      }
         
     }
     //Display settings by clicking settings button from main menu
@@ -118,23 +122,27 @@ public class GUIManager {
     {
         settingsPanel.flag = flag;
         gameFrame.setContentPane(settingsPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     //Display credits by clicking credits button from main menu
     public void displayCredits()
     {
         gameFrame.setContentPane(creditsPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     //Display levels by clicking play button from main menu
     public void displayLevels()
     {
         gameFrame.setContentPane(levelPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     public void displayHelp()
     {
         gameFrame.setContentPane(infoHelPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     public void displayHighScores()
@@ -147,6 +155,7 @@ public class GUIManager {
         }
         
         gameFrame.setContentPane(highScorePanel);
+        new SoundManager().changePage();
         gameFrame.pack();   
     }
     //Opening choosed level
@@ -179,11 +188,13 @@ public class GUIManager {
     public void backFromGameScreenPlay()
     {
         gameFrame.setContentPane(levelPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     public void backToMainMenuPanel()
     {
         gameFrame.setContentPane(mainMenuPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     
@@ -193,12 +204,14 @@ public class GUIManager {
         loginPanel.setErrorMessageL("");
         loginPanel.setErrorMessageS("");
         gameFrame.setContentPane(loginPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     
     public void backToGamePlayScreen()
     {
         gameFrame.setContentPane(gamePlayScreenPanel);
+        new SoundManager().changePage();
         gameFrame.pack();
     }
     

@@ -58,9 +58,6 @@ public class GameTable extends javax.swing.JPanel {
                 if (checkFall == maxFallSize * 50)
                 {
                     maxFallSize = 0;
-                    tableObjects = cur.newBookCandy;
-                    validate();
-                    repaint();
                     checkFall = 1;
                     
                     if ( cur.next != null)
@@ -73,6 +70,11 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         fadeCandies = false;
                         fallCandies = false;
+                        
+                        tableObjects = cur.newBookCandy;
+                        validate();
+                        repaint();
+                        
                     }
                 }
             }
@@ -101,7 +103,7 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         for ( int j = 0; j < 10; j++)
                         {
-                            System.out.print(cur.fall[i][j] + " ");
+                            System.out.print(fadeMark[i][j] + " ");
                         }
                         System.out.println();                  
                     }
@@ -561,6 +563,14 @@ public class GameTable extends javax.swing.JPanel {
     {
         cur = head;
 
+        AnimationNode temp = head;
+        
+        while ( temp!= null)
+        {
+            System.out.println("*");
+            temp = temp.next;
+        }
+        
         fadeCandies = true;
         fallCandies = false;
 

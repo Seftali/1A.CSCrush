@@ -61,9 +61,12 @@ public class GameManager {
     public void rebuild(){ 
         lists.removeAll();
         
-        AnimationList.AnimationNode node = lists.new AnimationNode();
-        node.next = null;
+        
         while(traverselyMarkedBooks() != 0){
+            AnimationList.AnimationNode node = lists.new AnimationNode();
+            node.next = null;
+            
+            
             node.oldBookCandy = copyList(list);
             node.marked = markedMatrix(list);
             node.fall = fallAnimate();
@@ -73,6 +76,9 @@ public class GameManager {
             
             int temp = destroyTraversally();
             fillBooks(temp);
+            
+            displayType();
+
             
             node.newBookCandy = copyList(list);
             lists.add(node);

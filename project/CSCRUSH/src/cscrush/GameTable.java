@@ -45,22 +45,24 @@ public class GameTable extends javax.swing.JPanel {
         fallCandies = false;
         fadeSize = 1;
         maxFallSize = 0;
-        checkFall = 50;
+        checkFall = 1;
         cur = null;
         fallSize = new int[10][10];
         
         Timer timer = new Timer(20, (ActionEvent e) -> {
             if ( fallCandies)
             {
-                if ( checkFall == maxFallSize * 50)
-                {
-                    checkFall = 1;
-                }
                 validate();
                 repaint();
                 checkFall++;
                 if (checkFall == maxFallSize * 50)
                 {
+                    maxFallSize = 0;
+                    tableObjects = cur.newBookCandy;
+                    validate();
+                    repaint();
+                    checkFall = 1;
+                    
                     if ( cur.next != null)
                     {
                         cur = cur.next;
@@ -71,10 +73,6 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         fadeCandies = false;
                         fallCandies = false;
-                        maxFallSize = 0;
-                        tableObjects = cur.newBookCandy;
-                        validate();
-                        repaint();
                     }
                 }
             }
@@ -94,7 +92,7 @@ public class GameTable extends javax.swing.JPanel {
                             fallSize[i][j] = 1;
                             if ( fallMark[i][j] >= maxFallSize)
                             {
-                                maxFallSize = fallMark[j][i];
+                                maxFallSize = fallMark[i][j];
                             }
                         }
                     }
@@ -115,6 +113,7 @@ public class GameTable extends javax.swing.JPanel {
                 {
                     fadeCandies = false;
                     fallCandies = true;
+                    checkFall = 1;
                 }
             }
         });

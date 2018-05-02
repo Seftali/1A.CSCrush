@@ -264,6 +264,8 @@ public class GUIManager {
         
         gamePlayScreenPanel.startAnimation(currentLevel.swap(y1, x1, y2, x2));
         
+        System.out.println("swap = " + x1 + ", " + y1 + ", " + x2 + ", " + y2 + "\n");
+        
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
 

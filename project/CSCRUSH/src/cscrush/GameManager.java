@@ -59,8 +59,8 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        //lists.removeAll();
-        fillBooks(0);
+        lists.removeAll();
+        
         AnimationList.AnimationNode node = lists.new AnimationNode();
         node.next = null;
         while(traverselyMarkedBooks() != 0){
@@ -286,7 +286,8 @@ public class GameManager {
     public AnimationNode swap(int x1,int y1, int x2,int y2){
         if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
             return null;
-        if(this.level.getMovement()!= 0){
+        if(this.level.getMovement()!= 0)
+        {
             (new SoundManager()).playSwap();
             BookCandy temp = list[x1][y1];
             list[x1][y1] = list[x2][y2];

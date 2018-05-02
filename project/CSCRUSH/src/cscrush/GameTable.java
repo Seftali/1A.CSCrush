@@ -47,6 +47,7 @@ public class GameTable extends javax.swing.JPanel {
         maxFallSize = 0;
         checkFall = 50;
         cur = null;
+        fallSize = new int[10][10];
         
         Timer timer = new Timer(20, (ActionEvent e) -> {
             if ( fallCandies)
@@ -70,6 +71,10 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         fadeCandies = false;
                         fallCandies = false;
+                        maxFallSize = 0;
+                        tableObjects = cur.newBookCandy;
+                        validate();
+                        repaint();
                     }
                 }
             }
@@ -89,7 +94,7 @@ public class GameTable extends javax.swing.JPanel {
                             fallSize[i][j] = 1;
                             if ( fallMark[i][j] >= maxFallSize)
                             {
-                                maxFallSize = fallMark[i][j];
+                                maxFallSize = fallMark[j][i];
                             }
                         }
                     }
@@ -98,7 +103,7 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         for ( int j = 0; j < 10; j++)
                         {
-                            System.out.print(cur.marked[i][j]);
+                            System.out.print(cur.fall[i][j] + " ");
                         }
                         System.out.println();                  
                     }
@@ -315,12 +320,14 @@ public class GameTable extends javax.swing.JPanel {
                         g.drawImage(bookImages[15],i*50,j*50 + fallSize[j][i],null);
                     }
                     
-                    if ( fallMark[j][i] > fallSize[j][i])
+                    if ( fallMark[j][i] * 50 > fallSize[j][i])
                     {
                         fallSize[j][i]++;
                     }
-                    
                 }
+                
+                
+                
             }
         
         

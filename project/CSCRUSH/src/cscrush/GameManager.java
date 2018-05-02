@@ -66,9 +66,9 @@ public class GameManager {
         while(traverselyMarkedBooks() != 0){
             node.oldBookCandy = copyList(list);
             node.marked = markedMatrix(list);
+            node.fall = fallAnimate();
             
             fall(0);
-            
             
             
             int temp = destroyTraversally();
@@ -267,12 +267,12 @@ public class GameManager {
         for(int i = 0; i < matrixSize; i++){
             for(int j = matrixSize-2; j>=0; j--){
                 int temp = j;
-                while( (!( list[i][j].getMarked())) && temp < matrixSize    ){
-                    if(list[i][++temp].getMarked()){
+                while( (!( list[j][i].getMarked())) && temp < matrixSize    ){
+                    if(list[temp++][i].getMarked()){
                         count++;
                     }
                 }
-                arr[i][j] = count;
+                arr[j][i] = count;
                 count = 0;
             }
         }

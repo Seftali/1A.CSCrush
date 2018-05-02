@@ -158,5 +158,18 @@ public class Database {
         return null;
     }
     
+    public void setHigh(int point)
+    {
+        try {
+            Statement stmt = conn.createStatement();
+            
+            stmt.executeUpdate("UPDATE highscores SET point=point+" +
+                   point + " WHERE username = '" + GUIManager.user[0] + "'");           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
 }

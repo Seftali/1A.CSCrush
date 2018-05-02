@@ -17,7 +17,10 @@ public class AnimationList {
         AnimationNode next;
         BookCandy[][] oldBookCandy;
         int[][] marked;
-
+        int[][] fall; //How many square will it fall
+        BookCandy[][] newBookCandy;
+        
+        
     };
 AnimationNode head;
 AnimationNode tail;
@@ -25,33 +28,20 @@ public AnimationList()
 {
     head = null;
 }
-public void add(BookCandy[][] list){
-    if(head == null){
-        head = new AnimationNode();
-        head.next = null;
-        head.oldBookCandy = list;
-        head.marked = markedMatrix(list);
+public void add(AnimationNode node){
+    if(head == null)
+    {
+        head = node;
         tail = head;
     }
-    else{
-        tail.next = new AnimationNode();
-        tail.next.oldBookCandy = list;
-        tail.next.marked = markedMatrix(list);
+    else
+    {
+        tail.next = node;
         tail = tail.next;
         tail.next = null;
     }
 }
-public int[][] markedMatrix(BookCandy[][] temp){
-        int[][] marked = new int[10][10]; 
-        for(int i = 0; i < 10; i++){
-            for(int j = 0; j < 10; j++){
-                if(temp[i][j].getMarked()){
-                    marked[i][j] = 1;
-                }
-            }
-        }
-        return marked;
-    }
+
 public void removeAll(){
     head = null;
 }

@@ -46,17 +46,36 @@ public class GameManager {
         scoreIncrement = (difficulty-2)*5*(this.level.getLevel());
     }
     
+    public int[][] markedMatrix(BookCandy[][] temp){
+        int[][] marked = new int[10][10]; 
+        for(int i = 0; i < 10; i++){
+            for(int j = 0; j < 10; j++){
+                if(temp[i][j].getMarked()){
+                    marked[i][j] = 1;
+                }
+            }
+        }
+        return marked;
+    }
+    
     public void rebuild(){ 
         //lists.removeAll();
         fillBooks(0);
-        lists.add(copyList(getSystemCall()));
+        AnimationList.AnimationNode node = lists.new AnimationNode();
+        node.next = null;
         while(traverselyMarkedBooks() != 0){
-            lists.add(copyList(getSystemCall()));
+            node.oldBookCandy = copyList(list);
+            node.marked = markedMatrix(list);
+            
             fall(0);
-            lists.add(copyList(getSystemCall()));
+            
+            
+            
             int temp = destroyTraversally();
             fillBooks(temp);
-            lists.add(copyList(getSystemCall()));
+            
+            node.newBookCandy = copyList(list);
+            lists.add(node);
         }
     }
     
@@ -196,7 +215,7 @@ public class GameManager {
                 }
                 lists.removeAll();
                 fillBooks(0);
-                lists.add(list);
+              //  lists.add(list);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -268,32 +287,7 @@ public class GameManager {
         for ( int i = 0; i < 10; i++)
             for ( int j = 0; j < 10; j++)
             {
-                BookCandy temp = list[i][j];
-                if ( temp.getType().equals("Cs102"))
-                {
-                    tempList[i][j] = new Cs102();
-                }
-                else if ( temp.getType().equals("Cs201"))
-                {
-                    tempList[i][j] = new Cs201();
-                }
-                else if ( temp.getType().equals("Cs224") )
-                {
-                    tempList[i][j] = new Cs224();
-                }
-                else if ( temp.getType().equals("Cs342") )
-                {
-                    tempList[i][j] = new Cs342();
-                }
-                else if ( temp.getType().equals("Cs476") )
-                {
-                    tempList[i][j] = new Cs476();
-                }
-                else
-                {
-                    tempList[i][j] = new BookCandy();
-                }
-                tempList[i][j].setTypeBar(temp.getTypeBar());
+                tempList[i][j] = list[i][j];
             }
         
         return tempList;
@@ -305,7 +299,7 @@ public class GameManager {
             BookCandy[][] temp = new Altay(list).PowerUpAltay();
             if( temp != null ){
                 list = temp;
-                lists.add(list);
+            //    lists.add(list);
                 score = score-100;
                 rebuild();
             }
@@ -317,7 +311,7 @@ public class GameManager {
             BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
             if( temp != null ){
                 list = temp;
-                lists.add(list);
+            //    lists.add(list);
                 score = score-90;
                 rebuild();
             }
@@ -329,7 +323,7 @@ public class GameManager {
             BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
             if( temp != null ){
                 list = temp;
-                lists.add(list);
+            //    lists.add(list);
                 score = score-50;
                 rebuild();
             }
@@ -341,7 +335,7 @@ public class GameManager {
             BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
             if( temp != null ){
                 list = temp;
-                lists.add(list);
+               // lists.add(list);
                 score = score-50;
                 rebuild();
             }
@@ -353,7 +347,7 @@ public class GameManager {
             BookCandy[][] temp = new Eray(list).PowerUpEray(positionX, positionY, positionX2, positionY2);
             if( temp != null ){
                 list = temp;
-                lists.add(list);
+               // lists.add(list);
                 score = score-70;
                 rebuild();
             }

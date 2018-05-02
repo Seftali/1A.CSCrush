@@ -77,7 +77,7 @@
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="How to play?&#xa;-&#xa;-&#xa;Power-Ups&#xa;-&#xa;-&#xa;-&#xa;-&#xa;Courses&#xa;-&#xa;-&#xa;-&#xa;-&#xa;-&#xa;&#xa;"/>
+            <Property name="text" type="java.lang.String" value="How to play?&#xa;- This game is played by swapping. User can swap books by clicking and drugging. &#xa;- The user cannot swap books which are not neighbor each other.&#xa;- If the player reach to target point, player can go to next level.&#xa;Power-Ups&#xa;-Altay : Changes 5 random books as special books.&#xa;-Ozcan : Destroys a chosen book.&#xa;-Robin : Generates a random book instead of chosen book.&#xa;-William : Destroys the neighbors of chosen book.&#xa;-Eray: Changes books which are not neighbor.&#xa;&#xa;Courses&#xa;-&#xa;-&#xa;-&#xa;-&#xa;-&#xa;&#xa;"/>
           </Properties>
         </Component>
       </SubComponents>

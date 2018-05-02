@@ -260,6 +260,26 @@ public class GameManager {
         }
         fall(y+1); 
     }
+    
+    public int[][] fallAnimate(){
+        int arr[][] = new int[matrixSize][matrixSize];
+        int count = 0;
+        for(int i = 0; i < matrixSize; i++){
+            for(int j = matrixSize-2; j>=0; j--){
+                int temp = j;
+                while( (!( list[i][j].getMarked())) && temp < matrixSize    ){
+                    if(list[i][++temp].getMarked()){
+                        count++;
+                    }
+                }
+                arr[i][j] = count;
+                count = 0;
+            }
+        }
+        
+        return arr;
+    }
+    
     public BookCandy[][] getSystemCall(){
         return list;
     }

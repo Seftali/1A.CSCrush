@@ -47,7 +47,7 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        lists.removeAll();
+        //lists.removeAll();
         fillBooks(0);
         lists.add(copyList(getSystemCall()));
         while(traverselyMarkedBooks() != 0){
@@ -194,7 +194,9 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[0][i] = new BookCandy();
                 }
+                lists.removeAll();
                 fillBooks(0);
+                lists.add(list);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -250,6 +252,7 @@ public class GameManager {
             BookCandy temp = list[x1][y1];
             list[x1][y1] = list[x2][y2];
             list[x2][y2] = temp;
+            lists.removeAll();
             rebuild();
             level.setMovement(level.getMovement()-1);
         }

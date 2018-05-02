@@ -20,6 +20,7 @@ public class SoundManager {
     File destroy;
     File end;
     File main;
+    File page;
     Clip theme;
     
     public SoundManager(){
@@ -27,6 +28,7 @@ public class SoundManager {
         swap = new File("src/sounds/swapSound.wav");
         destroy = new File("src/sounds/battle047.wav");
         end = new File("src/sounds/youve-been-a-very-good.wav");
+        page = new File("src/sounds/Page Turn Sound Effect.wav");
         main = new File("src/sounds/mainTheme.wav");
         theme = javax.sound.sampled.AudioSystem.getClip();
         theme.open(javax.sound.sampled.AudioSystem.getAudioInputStream(main));
@@ -53,6 +55,14 @@ public class SoundManager {
         {
         Clip clip = javax.sound.sampled.AudioSystem.getClip();
         clip.open(javax.sound.sampled.AudioSystem.getAudioInputStream(end));
+        clip.start();
+        }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
+    }
+    public void changePage(){
+        try
+        {
+        Clip clip = javax.sound.sampled.AudioSystem.getClip();
+        clip.open(javax.sound.sampled.AudioSystem.getAudioInputStream(page));
         clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }

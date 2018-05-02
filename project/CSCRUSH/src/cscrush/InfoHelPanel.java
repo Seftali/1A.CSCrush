@@ -5,6 +5,8 @@
  */
 package cscrush;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author berka
@@ -30,7 +32,9 @@ public class InfoHelPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        backBI = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setText("INFO & HELP");
@@ -42,10 +46,19 @@ public class InfoHelPanel extends javax.swing.JPanel {
         jTextArea1.setText("How to play?\n-\n-\nPower-Ups\n-\n-\n-\n-\nCourses\n-\n-\n-\n-\n-\n\n");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jButton1.setText("<< Back");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        backBI.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
+        backBI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backBIMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backBIMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backBIMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                backBIMouseReleased(evt);
             }
         });
 
@@ -53,18 +66,18 @@ public class InfoHelPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
-                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(299, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(247, 247, 247))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backBI)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,19 +86,36 @@ public class InfoHelPanel extends javax.swing.JPanel {
                 .addComponent(jLabel1)
                 .addGap(46, 46, 46)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(backBI)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        GUIManager.manager.backToMainMenuPanel();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void backBIMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBIMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
+        backBI.setIcon(II);
+    }//GEN-LAST:event_backBIMouseEntered
+
+    private void backBIMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBIMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backBI.setIcon(II);
+    }//GEN-LAST:event_backBIMouseExited
+
+    private void backBIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBIMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back3.png"));
+        backBI.setIcon(II);
+    }//GEN-LAST:event_backBIMousePressed
+
+    private void backBIMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBIMouseReleased
+        GUIManager.manager.backToMainMenuPanel();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backBI.setIcon(II);
+    }//GEN-LAST:event_backBIMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel backBI;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;

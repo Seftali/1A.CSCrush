@@ -5,6 +5,8 @@
  */
 package cscrush;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author berka
@@ -102,7 +104,6 @@ public class LevelPanel extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         level1Button = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
         level2Button = new javax.swing.JButton();
         level7Button = new javax.swing.JButton();
         level3Button = new javax.swing.JButton();
@@ -123,6 +124,7 @@ public class LevelPanel extends javax.swing.JPanel {
         jSlider9 = new javax.swing.JSlider();
         jSlider10 = new javax.swing.JSlider();
         jLabel2 = new javax.swing.JLabel();
+        backL = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -133,13 +135,6 @@ public class LevelPanel extends javax.swing.JPanel {
         level1Button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 level1ButtonActionPerformed(evt);
-            }
-        });
-
-        backButton.setText("<< Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
             }
         });
 
@@ -208,14 +203,27 @@ public class LevelPanel extends javax.swing.JPanel {
 
         jLabel2.setText("DIFFICULTY");
 
+        backL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
+        backL.setToolTipText("");
+        backL.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backLMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backLMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backLMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                backLMouseReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backButton)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(42, 159, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,6 +253,10 @@ public class LevelPanel extends javax.swing.JPanel {
                     .addComponent(jSlider6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(173, 173, 173))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backL)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,15 +310,11 @@ public class LevelPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jSlider10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                .addComponent(backButton)
-                .addContainerGap())
+                .addGap(2, 2, 2)
+                .addComponent(backL)
+                .addGap(47, 47, 47))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        GUIManager.manager.backToMainMenuPanel();        // TODO add your handling code here:
-    }//GEN-LAST:event_backButtonActionPerformed
 
     private void level1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level1ButtonActionPerformed
         GUIManager.manager.openLevel(1, jSlider1.getValue());        // TODO add your handling code here:
@@ -348,9 +356,30 @@ public class LevelPanel extends javax.swing.JPanel {
         GUIManager.manager.openLevel(10, jSlider10.getValue());
     }//GEN-LAST:event_level10ButtonActionPerformed
 
+    private void backLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
+        backL.setIcon(II);
+    }//GEN-LAST:event_backLMouseEntered
+
+    private void backLMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backL.setIcon(II);
+    }//GEN-LAST:event_backLMouseExited
+
+    private void backLMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back3.png"));
+        backL.setIcon(II);
+    }//GEN-LAST:event_backLMousePressed
+
+    private void backLMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLMouseReleased
+        GUIManager.manager.backToMainMenuPanel();
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backL.setIcon(II);
+    }//GEN-LAST:event_backLMouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
+    private javax.swing.JLabel backL;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSlider jSlider1;

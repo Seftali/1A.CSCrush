@@ -9,16 +9,18 @@ package cscrush;
  *
  * @author User
  */
-public class Ozcan {
+public class Eray {
     private BookCandy[][] list;
-    public Ozcan(BookCandy[][] list){
+    public Eray(BookCandy[][] list){
         this.list = list;
     }
 
-    public BookCandy[][] PowerUpOzcan(int positionX, int positionY){
-        if( (positionX<0|| positionY<0) || ( positionX>=10 || positionY>=10 ) )
+    public BookCandy[][] PowerUpEray(int x1,int y1, int x2,int y2){
+        if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>= 10 || y1>= 10 || x2 >= 10 || y2 >= 10 ) )
             return null;
-        list[positionX][positionY].setMarked(true);
+        BookCandy temp = list[x1][y1];
+        list[x1][y1] = list[x2][y2];
+        list[x2][y2] = temp;
         return list;
     }
 }

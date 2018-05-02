@@ -258,41 +258,64 @@ public class GameManager {
         return lists.getFirst();
     }
     public void PowerUpAltay(){
-        BookCandy[][] temp = new BookCandy[matrixSize][matrixSize];
-        temp  =   new Altay(list).PowerUpAltay();
-        if( temp != null ){
-            list = temp;
-            score = score-100;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Altay(list).PowerUpAltay();
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-100;
+                rebuild();
+            }
         }
     }
     public void PowerUpWilliam(int positionX, int positionY){
-        BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-90;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp  =   new William(list).PowerUpWilliam(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-90;
+                rebuild();
+            }
         }
     }
     public void PowerUpRobin(int positionX, int positionY){
-        BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-50;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp  =  (new Robin(list)).PowerUpRobin(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-50;
+                rebuild();
+            }
         }
     }
     public void PowerUpOzcan(int positionX, int positionY){
-        BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
-        if( temp != null ){
-            list = temp;
-            score = score-50;
-            rebuild();
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Ozcan(list).PowerUpOzcan(positionX, positionY);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-50;
+                rebuild();
+            }
         }
     }
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
-        swap(positionX,positionY,positionX2,positionY2);
-        score = score -70;
+        if(this.level.getMovement()!= 0){
+            lists.removeAll();
+            BookCandy[][] temp = new Eray(list).PowerUpEray(positionX, positionY, positionX2, positionY2);
+            if( temp != null ){
+                list = temp;
+                lists.add(list);
+                score = score-70;
+                rebuild();
+            }
+        }
     }
     public void displayMarked(){
         for(int i = 0; i < matrixSize; i++){

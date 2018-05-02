@@ -34,11 +34,13 @@ public class SettingsPanel extends javax.swing.JPanel {
 
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-        logoutButton = new javax.swing.JButton();
         backBS = new javax.swing.JLabel();
+        logOutB = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(664, 670));
+        setLayout(null);
 
         jToggleButton1.setText("Sound On/Off");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -46,16 +48,14 @@ public class SettingsPanel extends javax.swing.JPanel {
                 jToggleButton1ActionPerformed(evt);
             }
         });
+        add(jToggleButton1);
+        jToggleButton1.setBounds(440, 240, 110, 100);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/seticon.png"))); // NOI18N
         jLabel1.setText("SETTINGS");
-
-        logoutButton.setText("Logout");
-        logoutButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                logoutButtonActionPerformed(evt);
-            }
-        });
+        add(jLabel1);
+        jLabel1.setBounds(300, 80, 340, 50);
 
         backBS.setBackground(new java.awt.Color(255, 255, 255));
         backBS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
@@ -73,41 +73,27 @@ public class SettingsPanel extends javax.swing.JPanel {
                 backBSMouseReleased(evt);
             }
         });
+        add(backBS);
+        backBS.setBounds(10, 618, 43, 41);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(273, 273, 273)
-                            .addComponent(jLabel1))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGap(14, 14, 14)
-                            .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(256, 256, 256)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backBS)))
-                .addContainerGap(288, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(157, 157, 157)
-                .addComponent(jToggleButton1)
-                .addGap(31, 31, 31)
-                .addComponent(logoutButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
-                .addComponent(backBS)
-                .addContainerGap())
-        );
+        logOutB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logout1.png"))); // NOI18N
+        logOutB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                logOutBMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                logOutBMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                logOutBMouseReleased(evt);
+            }
+        });
+        add(logOutB);
+        logOutB.setBounds(480, 600, 158, 48);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/12.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(0, -10, 670, 600);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -117,11 +103,6 @@ public class SettingsPanel extends javax.swing.JPanel {
             else
                 (manager).stopMainTheme();
     }//GEN-LAST:event_jToggleButton1ActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-
-        GUIManager.manager.backToLoginPanel();
-    }//GEN-LAST:event_logoutButtonActionPerformed
 
     private void backBSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBSMouseEntered
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
@@ -150,11 +131,28 @@ public class SettingsPanel extends javax.swing.JPanel {
             backBS.setIcon(II);}
     }//GEN-LAST:event_backBSMouseReleased
 
+    private void logOutBMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutBMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/logout1.png"));
+        logOutB.setIcon(II);
+    }//GEN-LAST:event_logOutBMouseExited
+
+    private void logOutBMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutBMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/logut2.png"));
+        logOutB.setIcon(II);
+    }//GEN-LAST:event_logOutBMousePressed
+
+    private void logOutBMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutBMouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/logout1.png"));
+        logOutB.setIcon(II);
+        GUIManager.manager.backToLoginPanel();
+    }//GEN-LAST:event_logOutBMouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backBS;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JButton logoutButton;
+    private javax.swing.JLabel logOutB;
     // End of variables declaration//GEN-END:variables
 }

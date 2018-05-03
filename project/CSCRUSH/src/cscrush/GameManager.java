@@ -236,7 +236,7 @@ public class GameManager {
                 level.setMovement(level.getMovement()-1);
             }
         }
-    }
+    }/*
     public void fall(int y){
         if(y == matrixSize)
             return;
@@ -265,6 +265,34 @@ public class GameManager {
             i--;
         }
         fall(y+1); 
+    }
+    */
+    public void fall(int y){
+        if(y == matrixSize)
+            return;
+        BookCandy[] temp = new BookCandy[matrixSize];
+        int fallCount = 0;
+        for( int i = 0;  i < matrixSize; i++  ){
+            temp[i]= list[i][y];
+        }
+        
+        for( int i = 0;  i < matrixSize; i++  ){
+            if(temp[i].getMarked())
+                fallCount++;
+        }
+        
+        for( int i = 0;  i < fallCount; i++  ){
+            temp[i]= randomBookGenerator();
+            temp[i].setMarked(true);
+        }
+        for( int i = 0;  i < matrixSize; i++  ){
+            if( !( list[i][y].getMarked() ) )
+                temp[fallCount++]= list[i][y];
+        }
+        for( int i = 0;  i < matrixSize; i++  ){
+            list[i][y] = temp[i];
+        }
+        fall(y+1);
     }
     
     public int[][] fallAnimate(){

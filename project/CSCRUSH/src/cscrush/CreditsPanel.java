@@ -41,7 +41,7 @@ public class CreditsPanel extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/creditlgo.gif"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(0, 570, 275, 90);
+        jLabel3.setBounds(0, 610, 270, 90);
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);

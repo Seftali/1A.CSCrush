@@ -88,8 +88,7 @@ public class LevelPanel extends javax.swing.JPanel {
         jSlider10.setPaintTicks(true);
         jSlider10.setPaintLabels(true);
         jSlider10.setValue(3);
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("DIFFICULTY");
+        
 
     }
 
@@ -102,17 +101,6 @@ public class LevelPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        level1Button = new javax.swing.JButton();
-        level2Button = new javax.swing.JButton();
-        level7Button = new javax.swing.JButton();
-        level3Button = new javax.swing.JButton();
-        level4Button = new javax.swing.JButton();
-        level8Button = new javax.swing.JButton();
-        level5Button = new javax.swing.JButton();
-        level6Button = new javax.swing.JButton();
-        level9Button = new javax.swing.JButton();
-        level10Button = new javax.swing.JButton();
         jSlider2 = new javax.swing.JSlider();
         jSlider1 = new javax.swing.JSlider();
         jSlider3 = new javax.swing.JSlider();
@@ -123,85 +111,43 @@ public class LevelPanel extends javax.swing.JPanel {
         jSlider8 = new javax.swing.JSlider();
         jSlider9 = new javax.swing.JSlider();
         jSlider10 = new javax.swing.JSlider();
-        jLabel2 = new javax.swing.JLabel();
         backL = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("LEVELS");
-
-        level1Button.setText("LEVEL 1");
-        level1Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level1ButtonActionPerformed(evt);
-            }
-        });
-
-        level2Button.setText("LEVEL 2");
-        level2Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level2ButtonActionPerformed(evt);
-            }
-        });
-
-        level7Button.setText("LEVEL 7");
-        level7Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level7ButtonActionPerformed(evt);
-            }
-        });
-
-        level3Button.setText("LEVEL 3");
-        level3Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level3ButtonActionPerformed(evt);
-            }
-        });
-
-        level4Button.setText("LEVEL 4");
-        level4Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level4ButtonActionPerformed(evt);
-            }
-        });
-
-        level8Button.setText("LEVEL 8");
-        level8Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level8ButtonActionPerformed(evt);
-            }
-        });
-
-        level5Button.setText("LEVEL 5");
-        level5Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level5ButtonActionPerformed(evt);
-            }
-        });
-
-        level6Button.setText("LEVEL 6");
-        level6Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level6ButtonActionPerformed(evt);
-            }
-        });
-
-        level9Button.setText("LEVEL 9");
-        level9Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level9ButtonActionPerformed(evt);
-            }
-        });
-
-        level10Button.setText("LEVEL 10");
-        level10Button.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                level10ButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setText("DIFFICULTY");
+        setLayout(null);
+        add(jSlider2);
+        jSlider2.setBounds(60, 220, 200, 50);
+        add(jSlider1);
+        jSlider1.setBounds(60, 100, 200, 50);
+        add(jSlider3);
+        jSlider3.setBounds(60, 350, 200, 50);
+        add(jSlider4);
+        jSlider4.setBounds(60, 476, 200, 50);
+        add(jSlider5);
+        jSlider5.setBounds(60, 610, 200, 50);
+        add(jSlider6);
+        jSlider6.setBounds(380, 100, 200, 50);
+        add(jSlider7);
+        jSlider7.setBounds(380, 220, 200, 50);
+        add(jSlider8);
+        jSlider8.setBounds(380, 350, 200, 50);
+        add(jSlider9);
+        jSlider9.setBounds(370, 476, 200, 50);
+        add(jSlider10);
+        jSlider10.setBounds(370, 610, 200, 50);
 
         backL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
         backL.setToolTipText("");
@@ -219,142 +165,201 @@ public class LevelPanel extends javax.swing.JPanel {
                 backLMouseReleased(evt);
             }
         });
+        add(backL);
+        backL.setBounds(10, 610, 43, 41);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(42, 159, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(level1Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level2Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level3Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level4Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level5Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level6Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level7Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level8Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level9Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(level10Button, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel1))
-                .addGap(64, 64, 64)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(173, 173, 173))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(backL)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSlider1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level1Button, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSlider2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(level2Button, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(level3Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(level4Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(level5Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(level6Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSlider6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSlider7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(level7Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSlider4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(level8Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(level9Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSlider9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(level10Button, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(49, 89, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jSlider10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(2, 2, 2)
-                .addComponent(backL)
-                .addGap(47, 47, 47))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/b1.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel3MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel3MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel3MouseReleased(evt);
+            }
+        });
+        add(jLabel3);
+        jLabel3.setBounds(110, 20, 96, 68);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/2.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel4MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel4MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel4MouseReleased(evt);
+            }
+        });
+        add(jLabel4);
+        jLabel4.setBounds(110, 160, 101, 68);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/3.png"))); // NOI18N
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel5MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel5MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel5MouseReleased(evt);
+            }
+        });
+        add(jLabel5);
+        jLabel5.setBounds(110, 270, 101, 67);
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/4.png"))); // NOI18N
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel6MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel6MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel6MouseReleased(evt);
+            }
+        });
+        add(jLabel6);
+        jLabel6.setBounds(100, 400, 109, 69);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/5.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel7MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel7MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel7MouseReleased(evt);
+            }
+        });
+        add(jLabel7);
+        jLabel7.setBounds(110, 530, 107, 70);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/6.png"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel8MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel8MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel8MouseReleased(evt);
+            }
+        });
+        add(jLabel8);
+        jLabel8.setBounds(430, 20, 105, 71);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/7.png"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel9MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel9MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel9MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel9MouseReleased(evt);
+            }
+        });
+        add(jLabel9);
+        jLabel9.setBounds(430, 150, 105, 68);
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/8.png"))); // NOI18N
+        jLabel10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel10MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel10MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel10MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel10MouseReleased(evt);
+            }
+        });
+        add(jLabel10);
+        jLabel10.setBounds(430, 270, 110, 68);
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/9.png"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel11MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel11MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel11MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel11MouseReleased(evt);
+            }
+        });
+        add(jLabel11);
+        jLabel11.setBounds(420, 400, 109, 69);
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/10.png"))); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel12MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLabel12MouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jLabel12MousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jLabel12MouseReleased(evt);
+            }
+        });
+        add(jLabel12);
+        jLabel12.setBounds(420, 530, 109, 79);
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/book_stack.jpg"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(550, 10, 91, 570);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/book_stack.jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(0, 10, 91, 570);
+
+        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/book_stack.jpg"))); // NOI18N
+        add(jLabel13);
+        jLabel13.setBounds(270, 10, 91, 570);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void level1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level1ButtonActionPerformed
-        GUIManager.manager.openLevel(1, jSlider1.getValue());        // TODO add your handling code here:
-    }//GEN-LAST:event_level1ButtonActionPerformed
-
-    private void level2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level2ButtonActionPerformed
-        GUIManager.manager.openLevel(2, jSlider2.getValue());
-    }//GEN-LAST:event_level2ButtonActionPerformed
-
-    private void level3ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level3ButtonActionPerformed
-        GUIManager.manager.openLevel(3, jSlider3.getValue());
-    }//GEN-LAST:event_level3ButtonActionPerformed
-
-    private void level4ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level4ButtonActionPerformed
-        GUIManager.manager.openLevel(4, jSlider4.getValue());
-    }//GEN-LAST:event_level4ButtonActionPerformed
-
-    private void level5ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level5ButtonActionPerformed
-        GUIManager.manager.openLevel(5, jSlider5.getValue());
-    }//GEN-LAST:event_level5ButtonActionPerformed
-
-    private void level6ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level6ButtonActionPerformed
-        GUIManager.manager.openLevel(6, jSlider6.getValue());
-    }//GEN-LAST:event_level6ButtonActionPerformed
-
-    private void level7ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level7ButtonActionPerformed
-        GUIManager.manager.openLevel(7, jSlider7.getValue());
-    }//GEN-LAST:event_level7ButtonActionPerformed
-
-    private void level8ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level8ButtonActionPerformed
-        GUIManager.manager.openLevel(8, jSlider8.getValue());
-    }//GEN-LAST:event_level8ButtonActionPerformed
-
-    private void level9ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level9ButtonActionPerformed
-        GUIManager.manager.openLevel(9 , jSlider9.getValue());
-    }//GEN-LAST:event_level9ButtonActionPerformed
-
-    private void level10ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_level10ButtonActionPerformed
-        GUIManager.manager.openLevel(10, jSlider10.getValue());
-    }//GEN-LAST:event_level10ButtonActionPerformed
 
     private void backLMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backLMouseEntered
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
@@ -377,11 +382,232 @@ public class LevelPanel extends javax.swing.JPanel {
         backL.setIcon(II);
     }//GEN-LAST:event_backLMouseReleased
 
+    private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/b12.png"));
+        jLabel3.setIcon(II);
+    }//GEN-LAST:event_jLabel3MouseEntered
+
+    private void jLabel3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/b1.png"));
+        jLabel3.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseExited
+
+    private void jLabel3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/b13.png"));
+        jLabel3.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MousePressed
+
+    private void jLabel3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/b1.png"));
+        jLabel3.setIcon(II);         
+        GUIManager.manager.openLevel(1, jSlider1.getValue());        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel3MouseReleased
+
+    private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/22.png"));
+        jLabel4.setIcon(II);
+    }//GEN-LAST:event_jLabel4MouseEntered
+
+    private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
+        jLabel4.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseExited
+
+    private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/23.png"));
+        jLabel4.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MousePressed
+
+    private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
+        jLabel4.setIcon(II);
+        GUIManager.manager.openLevel(2, jSlider2.getValue());        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel4MouseReleased
+
+    private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/32.png"));
+        jLabel5.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseEntered
+
+    private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
+        jLabel5.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseExited
+
+    private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/33.png"));
+        jLabel5.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MousePressed
+
+    private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
+        jLabel5.setIcon(II);
+        GUIManager.manager.openLevel(3, jSlider3.getValue());        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel5MouseReleased
+
+    private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/42.png"));
+        jLabel6.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseEntered
+
+    private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
+        jLabel6.setIcon(II);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseExited
+
+    private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/43.png"));
+        jLabel6.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MousePressed
+
+    private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
+        jLabel6.setIcon(II);
+        GUIManager.manager.openLevel(4, jSlider4.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel6MouseReleased
+
+    private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/52.png"));
+        jLabel7.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseEntered
+
+    private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/5.png"));
+        jLabel7.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseExited
+
+    private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/53.png"));
+        jLabel7.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MousePressed
+
+    private void jLabel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/5.png"));
+        jLabel7.setIcon(II);
+        GUIManager.manager.openLevel(5, jSlider5.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseReleased
+
+    private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/62.png"));
+        jLabel8.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseEntered
+
+    private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/6.png"));
+        jLabel8.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseExited
+
+    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/63.png"));
+        jLabel8.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MousePressed
+
+    private void jLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/6.png"));
+        jLabel8.setIcon(II);
+        GUIManager.manager.openLevel(6, jSlider6.getValue());        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel8MouseReleased
+
+    private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/72.png"));
+        jLabel9.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseEntered
+
+    private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/7.png"));
+        jLabel9.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseExited
+
+    private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/73.png"));
+        jLabel9.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MousePressed
+
+    private void jLabel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/7.png"));
+        jLabel9.setIcon(II);
+        GUIManager.manager.openLevel(7, jSlider7.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel9MouseReleased
+
+    private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/82.png"));
+        jLabel10.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseEntered
+
+    private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/8.png"));
+        jLabel10.setIcon(II);           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseExited
+
+    private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/83.png"));
+        jLabel10.setIcon(II);           // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MousePressed
+
+    private void jLabel10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/8.png"));
+        jLabel10.setIcon(II);    
+        GUIManager.manager.openLevel(8, jSlider8.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel10MouseReleased
+
+    private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/92.png"));
+        jLabel11.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseEntered
+
+    private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/9.png"));
+        jLabel11.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseExited
+
+    private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/93.png"));
+        jLabel11.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MousePressed
+
+    private void jLabel11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/9.png"));
+        jLabel11.setIcon(II);  
+        GUIManager.manager.openLevel(9 , jSlider9.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseReleased
+
+    private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/102.png"));
+        jLabel12.setIcon(II);        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseEntered
+
+    private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/10.png"));
+        jLabel12.setIcon(II);          // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseExited
+
+    private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.png"));
+        jLabel12.setIcon(II);         // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MousePressed
+
+    private void jLabel12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/10.png"));
+        jLabel12.setIcon(II); 
+        GUIManager.manager.openLevel(10, jSlider10.getValue());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel backL;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSlider jSlider1;
     private javax.swing.JSlider jSlider10;
     private javax.swing.JSlider jSlider2;
@@ -392,16 +618,6 @@ public class LevelPanel extends javax.swing.JPanel {
     private javax.swing.JSlider jSlider7;
     private javax.swing.JSlider jSlider8;
     private javax.swing.JSlider jSlider9;
-    private javax.swing.JButton level10Button;
-    private javax.swing.JButton level1Button;
-    private javax.swing.JButton level2Button;
-    private javax.swing.JButton level3Button;
-    private javax.swing.JButton level4Button;
-    private javax.swing.JButton level5Button;
-    private javax.swing.JButton level6Button;
-    private javax.swing.JButton level7Button;
-    private javax.swing.JButton level8Button;
-    private javax.swing.JButton level9Button;
     // End of variables declaration//GEN-END:variables
 
 }

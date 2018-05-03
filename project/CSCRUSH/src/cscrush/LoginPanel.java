@@ -140,14 +140,14 @@ public class LoginPanel extends javax.swing.JPanel {
         jLabel6.setBounds(430, 420, 40, 14);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ask1.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ask17.png"))); // NOI18N
         add(jLabel7);
-        jLabel7.setBounds(100, 280, 320, 50);
+        jLabel7.setBounds(100, 290, 300, 30);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/ask2.png"))); // NOI18N
         add(jLabel8);
-        jLabel8.setBounds(420, 290, 215, 30);
+        jLabel8.setBounds(420, 280, 212, 40);
         add(passwordL);
         passwordL.setBounds(190, 380, 52, 20);
 

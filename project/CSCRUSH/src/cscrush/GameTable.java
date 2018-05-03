@@ -50,12 +50,14 @@ public class GameTable extends javax.swing.JPanel {
         fallSize = new int[10][10];
         
         Timer timer = new Timer(20, (ActionEvent e) -> {
+            
+            int count = 0;
             if ( fallCandies)
             {
                 validate();
                 repaint();
                 checkFall++;
-                if (checkFall == maxFallSize * 50)
+                if (checkFall >= maxFallSize * 50)
                 {
                     maxFallSize = 0;
                     checkFall = 1;
@@ -74,6 +76,9 @@ public class GameTable extends javax.swing.JPanel {
                         tableObjects = cur.newBookCandy;
                         validate();
                         repaint();
+                        count++;
+                        System.out.println("New  " + count);
+                        
                         
                     }
                 }
@@ -325,6 +330,10 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         fallSize[j][i]++;
                     }
+                    else
+                    {
+                        
+                    }
                 }
                 
                 
@@ -562,18 +571,11 @@ public class GameTable extends javax.swing.JPanel {
     public void startAnimation(AnimationNode head)
     {
         cur = head;
-
-        AnimationNode temp = head;
-        
-        while ( temp!= null)
+        if ( cur != null)
         {
-            System.out.println("*");
-            temp = temp.next;
+            fadeCandies = true;
+            fallCandies = false;
         }
-        
-        fadeCandies = true;
-        fallCandies = false;
-
     }
     
     /**
@@ -621,7 +623,8 @@ public class GameTable extends javax.swing.JPanel {
         int x,y;
         x = evt.getX();
         y = evt.getY();
-        
+        if ( fallCandies == false && fadeCandies == false)
+        {
         if (x > pressedX && y > pressedY && x - pressedX > y - pressedY)
         {
             //swiping right
@@ -662,6 +665,7 @@ public class GameTable extends javax.swing.JPanel {
             //swiping up
             GUIManager.manager.swapBooks(pressedX/50, pressedY/50, pressedX/50, pressedY/50 - 1);
         }
+        }
         
     }//GEN-LAST:event_formMouseReleased
 
@@ -669,7 +673,7 @@ public class GameTable extends javax.swing.JPanel {
                 // TODO add your handling code here:
         int X = evt.getX();
         int Y = evt.getY();
-        GUIManager.manager.destroySpecialBooks(X/50, Y/50);
+       // GUIManager.manager.destroySpecialBooks(X/50, Y/50);
     }//GEN-LAST:event_formMouseClicked
 
 

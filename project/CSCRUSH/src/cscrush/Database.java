@@ -22,7 +22,7 @@ public class Database {
     
     static String userName = "cscrush";
     static String password = "";
-    static String serverURL = "jdbc:mysql://139.179.226.246:3306/cscrush";
+    static String serverURL = "jdbc:mysql://139.179.227.212:3306/cscrush";
     static String portNumber = "80";
     private Connection conn;
     

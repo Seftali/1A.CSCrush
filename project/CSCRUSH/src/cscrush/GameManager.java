@@ -76,8 +76,6 @@ public class GameManager {
             
             int temp = destroyTraversally();
             fillBooks(temp);
-            
-            displayType();
 
             
             node.newBookCandy = copyList(list);

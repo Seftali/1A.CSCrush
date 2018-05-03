@@ -59,7 +59,7 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        lists.removeAll();
+        //lists.removeAll();
         
         
         while(traverselyMarkedBooks() != 0){
@@ -215,13 +215,18 @@ public class GameManager {
                 for(int i = 0; i < matrixSize; i++){
                     list[x][i].setMarked(true);
                 }
+                AnimationList.AnimationNode node = lists.new AnimationNode();
+                node.next = null;
+                node.oldBookCandy = copyList(list);
+                node.marked = markedMatrix(list);
+                node.fall = fallAnimate();
                 fall(0);
                 for(int i = 0; i < matrixSize; i++){
-                    list[0][i] = new BookCandy();
+                    list[x][i] = new BookCandy();
                 }
-                lists.removeAll();
                 fillBooks(0);
-              //  lists.add(list);
+                node.newBookCandy = copyList(list);
+                lists.add(node);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -229,9 +234,16 @@ public class GameManager {
         else if(list[x][y].getTypeBar().equals("vertical")){
             if(this.level.getMovement()!= 0){
                 for(int i = 0; i < matrixSize; i++){
-                    list[i][y] = new BookCandy();
+                    list[i][y].setMarked(true);
                 }
-                fillBooks(0);
+                AnimationList.AnimationNode node = lists.new AnimationNode();
+                node.next = null;
+                node.oldBookCandy = copyList(list);
+                node.marked = markedMatrix(list);
+                node.fall = fallAnimate();
+                fillBooks(destroyTraversally());
+                node.newBookCandy = copyList(list);
+                lists.add(node);
                 rebuild();
                 level.setMovement(level.getMovement()-1);
             }
@@ -356,6 +368,7 @@ public class GameManager {
                 list = temp;
             //    lists.add(list);
                 score = score-100;
+                lists.removeAll();
                 rebuild();
             }
         }
@@ -368,6 +381,7 @@ public class GameManager {
                 list = temp;
             //    lists.add(list);
                 score = score-90;
+                lists.removeAll();
                 rebuild();
             }
         }
@@ -380,6 +394,7 @@ public class GameManager {
                 list = temp;
             //    lists.add(list);
                 score = score-50;
+                lists.removeAll();
                 rebuild();
             }
         }
@@ -392,6 +407,7 @@ public class GameManager {
                 list = temp;
                // lists.add(list);
                 score = score-50;
+                lists.removeAll();
                 rebuild();
             }
         }
@@ -404,6 +420,7 @@ public class GameManager {
                 list = temp;
                // lists.add(list);
                 score = score-70;
+                lists.removeAll();
                 rebuild();
             }
         }

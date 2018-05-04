@@ -157,7 +157,7 @@ public class GameManager {
         return randomBook;
     }
 
-    private int markedBooks(int x,int y){
+        private int markedBooks(int x,int y){
         int countx = x;
         int countxx = 1;
         int county = y;
@@ -170,13 +170,31 @@ public class GameManager {
         int result = 0;   
         if(countxx > minimumDestroyCount-1){
             result += countxx-1;
-            for(int i = 0; i < countxx; i++)
+            for(int i = 0; i < countxx; i++){
                 list[x+i][y].setMarked(true);
+                if(list[x+i][y].getTypeBar().equals("vertical")){
+                    for(int j = 0; j <  matrixSize; j++)
+                        list[j][y].setMarked(true);
+                }
+                else if(list[x+i][y].getTypeBar().equals("horizontal")){
+                    for(int j = 0; j <  matrixSize; j++)
+                        list[x+i][j].setMarked(true);
+                }
+            }
         }
         if(countyy > minimumDestroyCount-1){
             result += countyy-1;
-            for(int i = 0; i < countyy; i++)
+            for(int i = 0; i < countyy; i++){
                 list[x][y+i].setMarked(true);
+                if(list[x][y+i].getTypeBar().equals("vertical")){
+                    for(int j = 0; j <  matrixSize; j++)
+                        list[j][y+i].setMarked(true);
+                }
+                else if(list[x][y+i].getTypeBar().equals("horizontal")){
+                    for(int j = 0; j <  matrixSize; j++)
+                        list[x][j].setMarked(true);
+                }
+            }
         }
         return result;
     }

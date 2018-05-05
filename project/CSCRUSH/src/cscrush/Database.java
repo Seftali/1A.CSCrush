@@ -20,9 +20,9 @@ import java.util.logging.Logger;
  */
 public class Database {
     
-    static String userName = "cscrush";
+    static String userName = "root";
     static String password = "";
-    static String serverURL = "jdbc:mysql://139.179.227.119:3306/cscrush";
+    static String serverURL = "jdbc:mysql://localhost/cscrush";
     static String portNumber = "80";
     private Connection conn;
     

@@ -99,7 +99,7 @@ public class SettingsPanel extends javax.swing.JPanel {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
             // TODO add your handling code here:
             if(jToggleButton1.isSelected())
-                (manager).playMainTheme();
+                (manager).playMainTheme();                
             else
                 (manager).stopMainTheme();
     }//GEN-LAST:event_jToggleButton1ActionPerformed

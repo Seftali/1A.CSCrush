@@ -450,7 +450,7 @@ public class GameManager {
     sets five random objects in the table special book:
     */
     public void PowerUpAltay(){
-        if(this.level.getMovement()!= 0){
+        if(this.level.getMovement()!= 0 && score >= 100 ){
             lists.removeAll();
             BookCandy[][] temp = new Altay(list).PowerUpAltay();
             if( temp != null ){

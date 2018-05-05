@@ -774,7 +774,7 @@ public class GameTable extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-                // TODO add your handling code here:
+     
         int X = evt.getX();
         int Y = evt.getY();
        // GUIManager.manager.destroySpecialBooks(X/50, Y/50);

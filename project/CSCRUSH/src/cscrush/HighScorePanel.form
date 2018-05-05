@@ -13,6 +13,10 @@
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
   </AuxValues>
 
+<<<<<<< HEAD
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="true"/>
+=======
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
@@ -20,7 +24,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="69" max="-2" attributes="0"/>
+                      <Component id="usernameListPane" min="-2" pref="69" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
@@ -30,7 +34,7 @@
               <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane3" min="-2" pref="66" max="-2" attributes="0"/>
+                      <Component id="scoreListPane" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
@@ -66,8 +70,8 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
+                  <Component id="usernameListPane" min="-2" max="-2" attributes="0"/>
+                  <Component id="scoreListPane" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="246" max="32767" attributes="0"/>
               <Component id="backBH" min="-2" max="-2" attributes="0"/>
@@ -75,34 +79,64 @@
           </Group>
       </Group>
     </DimensionLayout>
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="1"/>
+          <Font name="Wide Latin" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="HIGH SCORE"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="cc" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="HIGH SCORES"/>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="190" y="80" width="340" height="60"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="240" y="190" width="140" height="20"/>
+        </Constraint>
+      </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="18" style="1"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Score"/>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="370" y="190" width="60" height="-1"/>
+        </Constraint>
+      </Constraints>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="usernameListPane">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="240" y="220" width="90" height="150"/>
+        </Constraint>
+      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList1">
+        <Component class="javax.swing.JList" name="usernameList">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="4">
@@ -119,14 +153,19 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+    <Container class="javax.swing.JScrollPane" name="scoreListPane">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="370" y="220" width="90" height="150"/>
+        </Constraint>
+      </Constraints>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList2">
+        <Component class="javax.swing.JList" name="scoreList">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="4">
@@ -155,6 +194,23 @@
         <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backBHMousePressed"/>
         <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="backBHMouseReleased"/>
       </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="590" width="-1" height="-1"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/icons/Open-Book-Backgrounds.jpg"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="-100" y="0" width="770" height="670"/>
+        </Constraint>
+      </Constraints>
     </Component>
   </SubComponents>
 </Form>

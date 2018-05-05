@@ -124,6 +124,7 @@ public class GameTable extends javax.swing.JPanel {
                 fadeMark = cur.marked;
                 tableObjects = cur.oldBookCandy;
                 fallMark = cur.fall;
+                (new SoundManager()).playDestroy();
 
                 for ( int j = 0; j < 10; j++)
                 {
@@ -678,6 +679,7 @@ public class GameTable extends javax.swing.JPanel {
     public void gameOver()
     {
         gameOver = true;
+        (new SoundManager()).playEnd();
     }
     
     /**
@@ -772,7 +774,7 @@ public class GameTable extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-                // TODO add your handling code here:
+     
         int X = evt.getX();
         int Y = evt.getY();
        // GUIManager.manager.destroySpecialBooks(X/50, Y/50);

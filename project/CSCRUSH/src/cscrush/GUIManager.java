@@ -174,7 +174,6 @@ public class GUIManager {
         currentLevel.reconstruct(difficulty);
         currentLevel.setScore(0);
         currentLevel.setDifficulty(difficulty);
-        gamePlayScreenPanel.setLevelName(lev);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());

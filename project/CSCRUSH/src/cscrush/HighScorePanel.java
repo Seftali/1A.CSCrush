@@ -7,6 +7,8 @@ package cscrush;
 
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
 
 /**
  *
@@ -105,22 +107,20 @@ public class HighScorePanel extends javax.swing.JPanel {
         });
         usernameListPane.setViewportView(usernameList);
 
-<<<<<<< HEAD
-        add(jScrollPane1);
-        jScrollPane1.setBounds(240, 220, 90, 150);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
-=======
+        add(usernameListPane);
+        usernameListPane.setBounds(240, 220, 90, 150);
+
         scoreList.setModel(new javax.swing.AbstractListModel<String>() {
->>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
+
             String[] strings = { "10456", "9546", "8292", "2365" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         scoreListPane.setViewportView(scoreList);
 
-        add(jScrollPane3);
-        jScrollPane3.setBounds(370, 220, 90, 150);
+        add(scoreListPane);
+        scoreListPane.setBounds(370, 220, 90, 150);
 
         backBH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
         backBH.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -140,59 +140,11 @@ public class HighScorePanel extends javax.swing.JPanel {
         add(backBH);
         backBH.setBounds(0, 590, 43, 41);
 
-<<<<<<< HEAD
+
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Open-Book-Backgrounds.jpg"))); // NOI18N
         add(jLabel4);
         jLabel4.setBounds(-100, 0, 770, 670);
-=======
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(usernameListPane, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addComponent(jLabel2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(scoreListPane, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(104, 104, 104))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(281, 281, 281)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(backBH)))
-                .addContainerGap(267, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(174, 174, 174)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(usernameListPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(scoreListPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
-                .addComponent(backBH)
-                .addGap(26, 26, 26))
-        );
->>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void backBHMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backBHMouseEntered
@@ -215,24 +167,16 @@ public class HighScorePanel extends javax.swing.JPanel {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
         backBH.setIcon(II);
     }//GEN-LAST:event_backBHMouseReleased
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+// Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JList usernameList;
+    private javax.swing.JList scoreList;
+    private javax.swing.JScrollPane usernameListPane;
+    private javax.swing.JScrollPane scoreListPane;   
     private javax.swing.JLabel backBH;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-=======
-    private javax.swing.JList<String> scoreList;
-    private javax.swing.JScrollPane scoreListPane;
-    private javax.swing.JList<String> usernameList;
-    private javax.swing.JScrollPane usernameListPane;
->>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
+
     // End of variables declaration//GEN-END:variables
 }

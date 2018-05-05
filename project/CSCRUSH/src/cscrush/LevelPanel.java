@@ -479,11 +479,6 @@ public class LevelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
-<<<<<<< HEAD
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
-        jLabel4.setIcon(II);
-        GUIManager.manager.openLevel(2, jSlider2.getValue());        
-=======
        
         if ( maxLevel  >= 2)
         {
@@ -491,7 +486,6 @@ public class LevelPanel extends javax.swing.JPanel {
             jLabel4.setIcon(II);
             GUIManager.manager.openLevel(2, jSlider2.getValue());        
         }
->>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
     }//GEN-LAST:event_jLabel4MouseReleased
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered

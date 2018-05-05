@@ -66,18 +66,23 @@ public class BoostersPanel extends javax.swing.JPanel {
         pressedY = evt.getY();
         if (0<=pressedX && 49>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
+            System.out.println("click");
         }
         if (50<=pressedX && 99>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
+            System.out.println("click");
         }
         if (100<=pressedX && 149>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
+            System.out.println("click");
         }
         if (150<=pressedX && 199>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
+            System.out.println("click");
         }
         if (200<=pressedX && 249>= pressedX && 0<= pressedY && 49>= pressedY) {
            GUIManager.manager.powerupaltay();
+           System.out.println("click");
         }
  
        

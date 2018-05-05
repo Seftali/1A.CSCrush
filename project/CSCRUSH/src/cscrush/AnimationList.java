@@ -22,10 +22,16 @@ public class AnimationList {
     };
 AnimationNode head;
 AnimationNode tail;
+/*
+ * This constructor creates a node which is null
+ */
 public AnimationList()
 {
     head = null;
 }
+/*
+ * This method adds a BookCandy to the linked list
+ */
 public void add(AnimationNode node){
     if(head == null)
     {
@@ -39,10 +45,16 @@ public void add(AnimationNode node){
         tail.next = null;
     }
 }
-
+/*
+ * This method removes all elements
+ */
 public void removeAll(){
     head = null;
 }
+/*
+ * This method gets the first element of the list
+ * @return head
+ */
 public AnimationNode getFirst(){
     return head;
 }

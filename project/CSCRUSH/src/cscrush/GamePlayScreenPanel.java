@@ -22,8 +22,8 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
      */
     public GamePlayScreenPanel() {
         initComponents();
-        gameTable = new GameTable( this);
-        boostersPanel = new BoostersPanel();
+        gameTable = new GameTable( this );
+        boostersPanel = new BoostersPanel( this );
         table.add(gameTable);
         boosters.add(boostersPanel);
     }
@@ -32,7 +32,21 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     {
         gameTable.setTableObjects(tableObjects);
     }
+    public void altay(){
+        GUIManager.manager.powerupaltay();
+    }
+    public void ozcan(BookCandy[][] tableObjects){
     
+    }
+    public void eray(int x1,int y1,int x2,int y2){
+        GUIManager.manager.poweruperay(x1, y1, x2, y2);
+    }
+    public void robin(BookCandy[][] tableObjects){
+    
+    }
+    public void william(BookCandy[][] tableObjects){
+    
+    }
     public void startAnimation(AnimationNode head)
     {
         gameTable.startAnimation(head);

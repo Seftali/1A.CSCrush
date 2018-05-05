@@ -24,11 +24,14 @@ public class BoostersPanel extends javax.swing.JPanel {
     private Image ozcan;
     private Image william;
     private int pressedX,pressedY,pressedX1,pressedY1;
+    private GamePlayScreenPanel parent;
     /**
      * Creates new form BoostersPanel
+     * @param parent
      */
-    public BoostersPanel() {
+    public BoostersPanel(GamePlayScreenPanel parent) {
         initComponents();
+        this.parent = parent;
         try {
             robin = ImageIO.read(new File("src/img/robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
             halil = ImageIO.read(new File("src/img/halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
@@ -41,6 +44,7 @@ public class BoostersPanel extends javax.swing.JPanel {
         }
 
     }
+
 /*
  * This method is implemented to showthe image of boosters
  * @param Graphics g  
@@ -60,28 +64,7 @@ public class BoostersPanel extends javax.swing.JPanel {
  * This method is implemented to get mouse clicks
  * @param java.awt.event.MouseEvent evt
  */
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
 
-        pressedX = evt.getX();
-        pressedY = evt.getY();
-        if (0<=pressedX && 49>= pressedX && 0<= pressedY && 49>= pressedY) {
-            GUIManager.manager.powerupaltay();
-        }
-        if (50<=pressedX && 99>= pressedX && 0<= pressedY && 49>= pressedY) {
-            GUIManager.manager.powerupaltay();
-        }
-        if (100<=pressedX && 149>= pressedX && 0<= pressedY && 49>= pressedY) {
-            GUIManager.manager.powerupaltay();
-        }
-        if (150<=pressedX && 199>= pressedX && 0<= pressedY && 49>= pressedY) {
-            GUIManager.manager.powerupaltay();
-        }
-        if (200<=pressedX && 249>= pressedX && 0<= pressedY && 49>= pressedY) {
-           GUIManager.manager.powerupaltay();
-        }
- 
-       
-    } 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,8 +74,40 @@ public class BoostersPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setLayout(new java.awt.GridLayout());
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                formMouseClicked(evt);
+            }
+        });
+        setLayout(new java.awt.GridLayout(1, 0));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
+        // TODO add your handling code here:
+        int pressedX = evt.getX();
+        int pressedY = evt.getY();
+        if ( 0 <= pressedY && 50 >= pressedY) {
+            int x1 = evt.getX();
+            int x2 = evt.getX();
+            int y1 = evt.getY();
+            int y2 = evt.getY();
+            parent.eray(x1,y1,x2,y2);
+            System.err.println(x1+" "+y1+" "+x2+"  "+y2);
+        }
+        else if ( 50 <= pressedY && 99 >= pressedY ) {
+            parent.altay();
+        }
+        else if ( 100<= pressedY && 149 >= pressedY ) {
+            parent.altay();
+        }
+        else if ( 150 <= pressedY && 199 >= pressedY ) {
+            parent.altay();
+        }
+        else if ( 200 <= pressedY && 249 >= pressedY ) {
+           parent.altay();
+        }
+ 
+    }//GEN-LAST:event_formMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,13 +5,9 @@ import cscrush.AnimationList.AnimationNode;
 
 
 /*
- * This class implements the logic part of the game.This class controls the game ,
+ * @description: This class implements the logic part of the game.This class controls the game ,
  * logically according to the level. Score, number of movements, minimum destroy number
  * and animations are executed. 
- */
-
-/**
- *
  * @author Eren Ayture
  *  @property: BookCandy[][] list;
     @property: Level level;

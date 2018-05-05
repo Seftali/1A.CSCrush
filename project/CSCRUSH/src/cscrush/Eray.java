@@ -1,10 +1,8 @@
-/*
- * This class implements the powerup Eray which swaps choosen books which are not neighbor
- */
+
 package cscrush;
 
 /**
- *
+ * @description: This class implements the powerup Eray which swaps choosen books which are not neighbor
  * @author Eren Ayture
  * 
    @property: BookCandy[][] list

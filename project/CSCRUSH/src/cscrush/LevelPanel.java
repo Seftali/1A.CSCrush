@@ -421,7 +421,7 @@ public class LevelPanel extends javax.swing.JPanel {
     private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
         jLabel4.setIcon(II);
-        GUIManager.manager.openLevel(2, jSlider2.getValue());        // TODO add your handling code here:
+        GUIManager.manager.openLevel(2, jSlider2.getValue());        
     }//GEN-LAST:event_jLabel4MouseReleased
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered

@@ -29,6 +29,7 @@ public class GameTable extends javax.swing.JPanel {
     private int pressedX, pressedY;
     private boolean fadeCandies;
     private boolean fallCandies;
+    private boolean gameOver;
     private int fadeSize;
     private int maxFallSize;
     private int checkFall, wait;
@@ -45,6 +46,7 @@ public class GameTable extends javax.swing.JPanel {
         
         fadeCandies = false;
         fallCandies = false;
+        gameOver = false;
         fadeSize = 0;
         maxFallSize = 0;
         checkFall = 0;
@@ -673,6 +675,11 @@ public class GameTable extends javax.swing.JPanel {
         }
     }
     
+    public void gameOver()
+    {
+        gameOver = true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -718,7 +725,7 @@ public class GameTable extends javax.swing.JPanel {
         int x,y;
         x = evt.getX();
         y = evt.getY();
-        if ( fallCandies == false && fadeCandies == false)
+        if ( fallCandies == false && fadeCandies == false && gameOver == false)
         {
         if (x > pressedX && y > pressedY && x - pressedX > y - pressedY)
         {

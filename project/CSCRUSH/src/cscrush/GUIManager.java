@@ -271,9 +271,13 @@ public class GUIManager {
         else
             gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         
-        //gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());      
         
+        if ( currentLevel.getMovement() == 0)
+        {
+            gamePlayScreenPanel.gameOver();
+            dbManager.setHigh(currentLevel.getScore());
+        }
 
     }
     

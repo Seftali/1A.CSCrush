@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class implements the sound of the game. They are swapping sound, 
+ * destroying sound,vs.
  */
 package cscrush;
 
@@ -34,6 +33,9 @@ public class SoundManager {
         theme.open(javax.sound.sampled.AudioSystem.getAudioInputStream(main));
         }catch(Exception e){}
     }
+    /*
+    *This method plays swapping sound
+    */
     public void playSwap(){
         try
         {
@@ -42,6 +44,9 @@ public class SoundManager {
         clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }
+    /*
+    *This method plays destroying sound
+    */
     public void playDestroy(){
         try
         {
@@ -50,6 +55,9 @@ public class SoundManager {
         clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }
+    /*
+    *This method plays ending sound
+    */
     public void playEnd(){
         try
         {
@@ -58,6 +66,9 @@ public class SoundManager {
         clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }
+    /*
+    *This method plays changing page sound
+    */
     public void changePage(){
         try
         {
@@ -66,9 +77,15 @@ public class SoundManager {
         clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }
+    /*
+    *This method start the music of the game
+    */
     public void playMainTheme(){
         theme.start();
     }
+    /*
+    *This method stop the music of the game
+    */
     public void stopMainTheme(){
         theme.stop();
     }

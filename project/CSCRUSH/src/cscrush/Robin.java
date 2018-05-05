@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class implements the powerup Robin which changes a choosen book with another random book
  */
 package cscrush;
 
@@ -17,7 +15,11 @@ public class Robin {
         this.list = list;
         this.game = new GameManager(1);
     }
-
+/*
+ * This method takes the x and y coordinates of a book location and changes it with a random book
+ * @param positionX, positionY
+ * @return list
+ */
     public BookCandy[][] PowerUpRobin(int positionX, int positionY){
         if( (positionX<0|| positionY<0) || ( positionX>=10 || positionY>=10 ) )
             return null;

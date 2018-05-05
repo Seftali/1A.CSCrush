@@ -47,6 +47,16 @@ public class GameManager {
         rebuild();
     }
     
+    public void removeList()
+    {
+        lists.removeAll();
+    }
+    
+    public Level getLevel()
+    {
+        return level;
+    }
+    
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -96,6 +106,7 @@ public class GameManager {
 
             
             node.newBookCandy = copyList(list);
+            node.score = getScore();
             lists.add(node);
         }
     }
@@ -372,7 +383,7 @@ public class GameManager {
         for(int i = 0; i < matrixSize; i++){
             for(int j = matrixSize-2; j>=0; j--){
                 int temp = j;
-                while( (!( list[j][i].getMarked())) && temp < matrixSize    ){
+                while( temp < matrixSize ){
                     if(list[temp++][i].getMarked()){
                         count++;
                     }

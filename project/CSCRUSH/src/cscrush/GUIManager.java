@@ -5,6 +5,7 @@
  */
 package cscrush;
 
+import cscrush.AnimationList.AnimationNode;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -177,9 +178,11 @@ public class GUIManager {
         currentLevel.reconstruct(difficulty);
         currentLevel.setScore(0);
         currentLevel.setDifficulty(difficulty);
+        gamePlayScreenPanel.setLevelName(lev);
         gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        gamePlayScreenPanel.setTargetPoint("" + currentLevel.getLevel().getTarget());
         gameFrame.setContentPane(gamePlayScreenPanel);
         gameFrame.pack();
     }
@@ -261,15 +264,26 @@ public class GUIManager {
     //Swap books in GameTable
     public void swapBooks(int x1, int y1, int x2, int y2)
     {        
-        System.out.println("swap = " + x1 + ", " + y1 + ", " + x2 + ", " + y2 + "\n");
+        AnimationNode head = currentLevel.swap(y1, x1, y2, x2);
+        
+        if ( head != null)
+            gamePlayScreenPanel.startAnimation(head);
+        else
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
+        
+        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());      
+        
+        if ( currentLevel.getMovement() == 0)
+        {
+            gamePlayScreenPanel.gameOver();
+            dbManager.setHigh(currentLevel.getScore());
+        }
 
-        
-        gamePlayScreenPanel.startAnimation(currentLevel.swap(y1, x1, y2, x2));
-        
-        
-        gamePlayScreenPanel.setScore(currentLevel.getScore());
-        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
-
+    }
+    
+    public void removeList()
+    {
+        currentLevel.removeList();
     }
     
     

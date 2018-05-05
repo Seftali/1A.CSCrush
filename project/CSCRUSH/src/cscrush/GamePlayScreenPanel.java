@@ -22,7 +22,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
      */
     public GamePlayScreenPanel() {
         initComponents();
-        gameTable = new GameTable();
+        gameTable = new GameTable( this);
         boostersPanel = new BoostersPanel();
         table.add(gameTable);
         boosters.add(boostersPanel);
@@ -52,6 +52,25 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         repaint();
     }
     
+    public void setTargetPoint(String target)
+    {
+        targetPoint.setText(target);
+        validate();
+        repaint();
+    }
+    
+    public void setLevelName(int lev)
+    {
+        levelName.setText("Level " + lev);
+        validate();
+        repaint();
+    }
+    
+    public void gameOver()
+    {
+        gameTable.gameOver();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,7 +90,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         currentPoint = new javax.swing.JLabel();
         boosters = new javax.swing.JPanel();
         table = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        levelName = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -107,8 +126,8 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         table.setPreferredSize(new java.awt.Dimension(500, 500));
         table.setLayout(new java.awt.GridLayout(1, 0));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel4.setText("Level 1");
+        levelName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        levelName.setText("Level 1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -140,13 +159,13 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(295, 295, 295)
-                .addComponent(jLabel4)
+                .addComponent(levelName)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4)
+                .addComponent(levelName)
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -192,7 +211,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel levelName;
     private javax.swing.JLabel remainedMovePoint;
     private javax.swing.JButton settingsButton;
     private javax.swing.JPanel table;

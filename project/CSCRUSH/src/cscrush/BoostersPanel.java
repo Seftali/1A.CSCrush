@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class is implemented to showw boosters of the game
  */
 package cscrush;
 
@@ -43,7 +41,10 @@ public class BoostersPanel extends javax.swing.JPanel {
         }
 
     }
-
+/*
+ * This method is implemented to showthe image of boosters
+ * @param Graphics g  
+ */
         @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -55,6 +56,10 @@ public class BoostersPanel extends javax.swing.JPanel {
         g.drawImage(william,0,200,null);
         
     }
+/*
+ * This method is implemented to get mouse clicks
+ * @param java.awt.event.MouseEvent evt
+ */
     private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
 
         pressedX = evt.getX();

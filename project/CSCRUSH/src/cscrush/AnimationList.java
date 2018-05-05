@@ -3,9 +3,7 @@ import cscrush.BookCandy;
 import javax.xml.soap.Node;
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class maintains the connection between GUIManager and GameManager to show animations
  */
 
 /**
@@ -19,15 +17,21 @@ public class AnimationList {
         int[][] marked;
         int[][] fall; //How many square will it fall
         BookCandy[][] newBookCandy;
-        
+        int score;
         
     };
 AnimationNode head;
 AnimationNode tail;
+/*
+ * This constructor creates a node which is null
+ */
 public AnimationList()
 {
     head = null;
 }
+/*
+ * This method adds a BookCandy to the linked list
+ */
 public void add(AnimationNode node){
     if(head == null)
     {
@@ -41,10 +45,16 @@ public void add(AnimationNode node){
         tail.next = null;
     }
 }
-
+/*
+ * This method removes all elements
+ */
 public void removeAll(){
     head = null;
 }
+/*
+ * This method gets the first element of the list
+ * @return head
+ */
 public AnimationNode getFirst(){
     return head;
 }

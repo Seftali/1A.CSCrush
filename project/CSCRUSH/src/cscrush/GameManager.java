@@ -50,6 +50,11 @@ public class GameManager {
         return level;
     }
     
+    public boolean achieved()
+    {
+        return score >= level.target;
+    }
+    
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -216,8 +221,7 @@ public class GameManager {
                     sum += markedBooks(i,j);
             }
         }
-        if(sum != 0)
-            (new SoundManager()).playDestroy();
+        
         return sum;
     }
     
@@ -367,8 +371,6 @@ public class GameManager {
             rebuild();
             level.setMovement(level.getMovement()-1);
         }
-        else
-            (new SoundManager()).playEnd();
         return lists.getFirst();
     }
     

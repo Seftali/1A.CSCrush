@@ -158,7 +158,7 @@ public class LoginPanel extends javax.swing.JPanel {
 
         errorMessageL.setText("jLabel10");
         add(errorMessageL);
-        errorMessageL.setBounds(280, 440, 90, 14);
+        errorMessageL.setBounds(120, 500, 230, 14);
 
         errorMessageS.setText("jLabel10");
         add(errorMessageS);

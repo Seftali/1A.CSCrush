@@ -42,16 +42,16 @@ public class GUIManager {
     
     GUIManager()
     {
+        dbManager = new Database();
         gameFrame = new GameFrame();
         loginPanel = new LoginPanel();
         mainMenuPanel = new MainMenuPanel();
         gamePlayScreenPanel = new GamePlayScreenPanel();
         settingsPanel = new SettingsPanel();
         creditsPanel = new CreditsPanel();
-        levelPanel = new LevelPanel();
+        levelPanel = null;
         infoHelPanel = new InfoHelPanel();
-        highScorePanel = new HighScorePanel();
-        dbManager = new Database();
+        highScorePanel = null;
         user = null;
 
     }
@@ -66,10 +66,8 @@ public class GUIManager {
     //Check login and open main menu
     public void login( String username, String pass)
     {
-        /*
-        user = dbManager.login(username, pass);
         
-        System.out.println(username + pass);
+        user = dbManager.login(username, pass);
         
         if ( user == null )
         {
@@ -77,10 +75,10 @@ public class GUIManager {
         }
         else
         {
-*/
+
             gameFrame.setContentPane(mainMenuPanel);
             gameFrame.pack();
-  //      }
+        }
     }
     
     public static boolean validateMail(String emailStr) {
@@ -90,7 +88,7 @@ public class GUIManager {
     
     //Sign up anda open main menu
     public void signup( String username, String pass, String repass, String mail)
-    {   /*
+    {   
         
         
         if ( !pass.equals(repass))
@@ -110,12 +108,12 @@ public class GUIManager {
             }
             else
             {
-*/
+
                 gameFrame.setContentPane(mainMenuPanel);
                 new SoundManager().changePage();
                 gameFrame.pack();
-  //          }
-  //      }
+            }
+        }
         
     }
     //Display settings by clicking settings button from main menu
@@ -136,6 +134,7 @@ public class GUIManager {
     //Display levels by clicking play button from main menu
     public void displayLevels()
     {
+        levelPanel = new LevelPanel( dbManager.getLevel());
         gameFrame.setContentPane(levelPanel);
         new SoundManager().changePage();
         gameFrame.pack();
@@ -150,10 +149,7 @@ public class GUIManager {
     {
         ArrayList<String[]> scores = dbManager.getHigh();
         
-        for ( int i = 0; i < scores.size(); i++)
-        {
-            System.out.println(scores.get(i)[0] + "   " +  scores.get(i)[1]);
-        }
+        highScorePanel = new HighScorePanel(  scores);
         
         gameFrame.setContentPane(highScorePanel);
         new SoundManager().changePage();
@@ -277,6 +273,10 @@ public class GUIManager {
         {
             gamePlayScreenPanel.gameOver();
             dbManager.setHigh(currentLevel.getScore());
+            if ( currentLevel.achieved() && currentLevel.getLevel().getLevel() > dbManager.getLevel())
+            {
+                dbManager.setLevel(currentLevel.getLevel().getLevel());
+            }
         }
 
     }

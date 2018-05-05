@@ -5,6 +5,7 @@
  */
 package cscrush;
 
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,13 +14,53 @@ import javax.swing.ImageIcon;
  */
 public class HighScorePanel extends javax.swing.JPanel {
 
+    String[] names = null;
+    String[] scores = null;
+    
     /**
      * Creates new form HighScorePanel
+     * @param highscores
      */
-    public HighScorePanel() {
+    public HighScorePanel( ArrayList<String[]> highscores) {
         initComponents();
-    }
+        
+        if ( highscores != null)
+        {
+            names = new String[highscores.size()];
+            scores = new String[highscores.size()];
+            for ( int i = 0; i < highscores.size() && i < 10; i++)
+            {
+                names[i] = highscores.get(i)[0];
+                scores[i] = highscores.get(i)[1];
+            }
+        }
+        else
+        {
+            names = new String[0];
+            scores = new String[0];
+        }
+        
+        
+        
+        usernameList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = names;
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
 
+        usernameListPane.setViewportView(usernameList);
+        
+        scoreList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = scores;
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+
+        scoreListPane.setViewportView(scoreList);
+        
+        
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,10 +73,10 @@ public class HighScorePanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        usernameListPane = new javax.swing.JScrollPane();
+        usernameList = new javax.swing.JList<>();
+        scoreListPane = new javax.swing.JScrollPane();
+        scoreList = new javax.swing.JList<>();
         backBH = new javax.swing.JLabel();
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -45,19 +86,19 @@ public class HighScorePanel extends javax.swing.JPanel {
 
         jLabel3.setText("Score");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        usernameList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Berk", "Akif", "Taner", "Eren" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        usernameListPane.setViewportView(usernameList);
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        scoreList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "10456", "9546", "8292", "2365" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane3.setViewportView(jList2);
+        scoreListPane.setViewportView(scoreList);
 
         backBH.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
         backBH.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -83,14 +124,14 @@ public class HighScorePanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(74, 74, 74)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(usernameListPane, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scoreListPane, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(80, 80, 80))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
@@ -116,8 +157,8 @@ public class HighScorePanel extends javax.swing.JPanel {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(usernameListPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scoreListPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 246, Short.MAX_VALUE)
                 .addComponent(backBH)
                 .addGap(26, 26, 26))
@@ -151,9 +192,9 @@ public class HighScorePanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList<String> scoreList;
+    private javax.swing.JScrollPane scoreListPane;
+    private javax.swing.JList<String> usernameList;
+    private javax.swing.JScrollPane usernameListPane;
     // End of variables declaration//GEN-END:variables
 }

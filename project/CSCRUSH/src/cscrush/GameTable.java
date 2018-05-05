@@ -34,78 +34,32 @@ public class GameTable extends javax.swing.JPanel {
     private int checkFall, wait;
     private int[][] fallMark, fadeMark, fallSize;
     private AnimationNode cur;
+    private GamePlayScreenPanel parent;
     
     /**
      * Creates new form GameTable
      */
-    public GameTable() {
+    public GameTable(GamePlayScreenPanel parent) {
         initComponents();
+        this.parent = parent;
         
         fadeCandies = false;
         fallCandies = false;
-        fadeSize = 1;
+        fadeSize = 0;
         maxFallSize = 0;
-        checkFall = 1;
+        checkFall = 0;
         cur = null;
-        wait = 50;
+        wait = 500;
         fallSize = new int[10][10];
         
         
-        Timer timer = new Timer(20, (ActionEvent e) -> {
+        Timer timer = new Timer(10, (ActionEvent e) -> {
             
-            if ( wait >= 50 && fallCandies )
-            {
+            if ( wait >= 50 && (fadeCandies || fallCandies))
+            {                                
                 validate();
                 repaint();
-                checkFall++;
-                
-            }
-            else if ( wait >= 50 && fadeCandies )
-            {
-                if ( fadeSize == 1)
-                {
-                    fadeSize = 50;
-                    fadeMark = cur.marked;
-                    tableObjects = cur.oldBookCandy;
-                    fallMark = cur.fall;
-                    
-                    for ( int j = 0; j < 10; j++)
-                    {
-                      
-                        for ( int i = 0; i < 10; i++)
-                        {
-                            fallSize[j][i] = 1;
-                            if ( fallMark[j][i] >= maxFallSize)
-                            {
-                                maxFallSize = fallMark[j][i];
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                    for ( int j = 0; j < 10; j++)
-                    {
-                      
-                        for ( int i = 0; i < 10; i++)
-                        {
-                            System.out.print(fallMark[j][i] + " ");
-                        }
-                        System.out.println();
-                    }
-                    
-                   
-                }
-                
-                validate();
-                repaint();
-                fadeSize--;
-                if (fadeSize == 1)
-                {
-                    fadeCandies = false;
-                    fallCandies = true;
-                    checkFall = 1;
-                }
+                                
             }
             else if ( fallCandies || fadeCandies)
             {
@@ -162,16 +116,51 @@ public class GameTable extends javax.swing.JPanel {
             
         if ( fadeCandies)
         {
+            if ( fadeSize == 0)
+            {
+                fadeSize = 50;
+                fadeMark = cur.marked;
+                tableObjects = cur.oldBookCandy;
+                fallMark = cur.fall;
+
+                for ( int j = 0; j < 10; j++)
+                {
+
+                    for ( int i = 0; i < 10; i++)
+                    {
+                        fallSize[j][i] = 1;
+                        if ( fallMark[j][i] >= maxFallSize)
+                        {
+                            maxFallSize = fallMark[j][i];
+                        }
+
+                    }
+
+                }
+                parent.setScore(cur.score);
+
+            }
+            
             fade(g);
+            fadeSize--;
+            
+            if (fadeSize == 0)
+            {
+                fadeCandies = false;
+                fallCandies = true;
+                checkFall = 0;
+            }
+            
         }
         else if ( fallCandies)
         {
             fall(g);
+            checkFall++;
             
             if (checkFall >= maxFallSize * 50)
             {
                 maxFallSize = 0;
-                checkFall = 1;
+                checkFall = 0;
 
                 if ( cur.next != null)
                 {
@@ -188,6 +177,8 @@ public class GameTable extends javax.swing.JPanel {
                     tableObjects = cur.newBookCandy;
                     validate();
                     repaint();
+                    
+                    GUIManager.manager.removeList();
 
                 }
             }
@@ -217,12 +208,9 @@ public class GameTable extends javax.swing.JPanel {
                 {
                     sizeColumn++;
                 }
-                
-                System.out.print(fallSize[i][j] + " ");
-                
+
             }
-            
-            System.out.println();
+
                 
             
             for (int j = 0; j < 10; j++)

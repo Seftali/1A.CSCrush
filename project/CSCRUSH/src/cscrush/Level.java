@@ -21,32 +21,32 @@ public class Level {
     private int movementCount(){
         switch (lev) {
             case 1:
-                count = 55;
+                count = 30;
                 target = 1000;
                 
                 break;
             case 2:
-                count = 50;
+                count = 30;
                 target = 2000;
                 break;
             case 3:
-                count = 45;
+                count = 30;
                 target = 3000;
                 break;
             case 4:
-                count = 40;
+                count = 25;
                 target = 4000;
                 break;
             case 5:
-                count = 35;
+                count = 25;
                 target = 5000;
                 break;
             case 6:
-                count = 30;
+                count = 20;
                 target = 6000;
                 break;
             case 7:
-                count = 25;
+                count = 20;
                 target = 7000;
                 break;
             case 8:
@@ -58,7 +58,7 @@ public class Level {
                 target = 9000;
                 break;
             default:
-                count = 10;
+                count = 15;
                 target = 10000;
                 break;
         }   

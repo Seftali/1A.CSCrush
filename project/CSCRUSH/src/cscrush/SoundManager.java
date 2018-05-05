@@ -26,7 +26,7 @@ public class SoundManager {
         try{
         swap = new File("src/sounds/swapSound.wav");
         destroy = new File("src/sounds/battle047.wav");
-        end = new File("src/sounds/youve-been-a-very-good.wav");
+        end = new File("src/sounds/you-got-it-1.wav");
         page = new File("src/sounds/Page Turn Sound Effect.wav");
         main = new File("src/sounds/mainTheme.wav");
         theme = javax.sound.sampled.AudioSystem.getClip();

@@ -124,6 +124,7 @@ public class GameTable extends javax.swing.JPanel {
                 fadeMark = cur.marked;
                 tableObjects = cur.oldBookCandy;
                 fallMark = cur.fall;
+                (new SoundManager()).playDestroy();
 
                 for ( int j = 0; j < 10; j++)
                 {
@@ -678,6 +679,7 @@ public class GameTable extends javax.swing.JPanel {
     public void gameOver()
     {
         gameOver = true;
+        (new SoundManager()).playEnd();
     }
     
     /**

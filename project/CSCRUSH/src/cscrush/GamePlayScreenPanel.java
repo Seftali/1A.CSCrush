@@ -7,6 +7,7 @@ package cscrush;
 
 import cscrush.AnimationList.AnimationNode;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 /**
@@ -80,52 +81,111 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        backButton = new javax.swing.JButton();
-        settingsButton = new javax.swing.JButton();
+        table = new javax.swing.JPanel();
+        boosters = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         remainedMovePoint = new javax.swing.JLabel();
         targetPoint = new javax.swing.JLabel();
         currentPoint = new javax.swing.JLabel();
+<<<<<<< HEAD
+        backplay = new javax.swing.JLabel();
+        setGear = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+=======
         boosters = new javax.swing.JPanel();
         table = new javax.swing.JPanel();
         levelName = new javax.swing.JLabel();
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
-        backButton.setText("<< Back");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
-            }
-        });
-
-        settingsButton.setText("Settings");
-        settingsButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                settingsButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("Remained Move");
-
-        jLabel2.setText("Target Point");
-
-        jLabel3.setText("Current Point");
-
-        remainedMovePoint.setText("100");
-
-        targetPoint.setText("50000");
-
-        currentPoint.setText("15000");
-
-        boosters.setPreferredSize(new java.awt.Dimension(50, 250));
-        boosters.setLayout(new java.awt.GridLayout(1, 0));
-
+        table.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(102, 102, 0), 2, true));
         table.setPreferredSize(new java.awt.Dimension(500, 500));
         table.setLayout(new java.awt.GridLayout(1, 0));
+        add(table);
+        table.setBounds(100, 50, 500, 500);
 
+        boosters.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(204, 204, 0), new java.awt.Color(204, 204, 0), new java.awt.Color(102, 102, 0), new java.awt.Color(102, 102, 0)));
+        boosters.setPreferredSize(new java.awt.Dimension(50, 250));
+        boosters.setLayout(new java.awt.GridLayout(1, 0));
+        add(boosters);
+        boosters.setBounds(10, 168, 50, 250);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Remained Move ");
+        add(jLabel1);
+        jLabel1.setBounds(160, 600, 110, 14);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Target Point");
+        add(jLabel2);
+        jLabel2.setBounds(350, 600, 80, 14);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Current Point");
+        add(jLabel3);
+        jLabel3.setBounds(350, 620, 90, 14);
+
+        remainedMovePoint.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        remainedMovePoint.setText("100");
+        add(remainedMovePoint);
+        remainedMovePoint.setBounds(160, 610, 40, 30);
+
+        targetPoint.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        targetPoint.setText("50000");
+        add(targetPoint);
+        targetPoint.setBounds(450, 600, 70, 14);
+
+        currentPoint.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        currentPoint.setText("15000");
+        add(currentPoint);
+        currentPoint.setBounds(450, 620, 70, 14);
+
+        backplay.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/back1.png"))); // NOI18N
+        backplay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                backplayMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                backplayMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                backplayMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                backplayMouseReleased(evt);
+            }
+        });
+        add(backplay);
+        backplay.setBounds(10, 600, 43, 50);
+
+        setGear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Gear1.jpg"))); // NOI18N
+        setGear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                setGearMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                setGearMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                setGearMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                setGearMouseReleased(evt);
+            }
+        });
+        add(setGear);
+        setGear.setBounds(650, 600, 43, 50);
+
+<<<<<<< HEAD
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Book-Wallpaper-booknerd-40623852-1024-768.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4);
+        jLabel4.setBounds(0, 0, 710, 590);
+=======
         levelName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         levelName.setText("Level 1");
 
@@ -191,21 +251,54 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
                         .addComponent(currentPoint)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
-        // TODO add your handling code here:
-        GUIManager.manager.backFromGameScreenPlay();
-    }//GEN-LAST:event_backButtonActionPerformed
+    private void backplayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backplayMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back2.png"));
+        backplay.setIcon(II);
+    }//GEN-LAST:event_backplayMouseEntered
 
-    private void settingsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settingsButtonActionPerformed
-        // TODO add your handling code here:
-        GUIManager.manager.displaySettings(1);
-    }//GEN-LAST:event_settingsButtonActionPerformed
+    private void backplayMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backplayMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backplay.setIcon(II);
+    }//GEN-LAST:event_backplayMouseExited
+
+    private void backplayMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backplayMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back3.png"));
+        backplay.setIcon(II);
+    }//GEN-LAST:event_backplayMousePressed
+
+    private void backplayMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backplayMouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/back1.png"));
+        backplay.setIcon(II);       
+        GUIManager.manager.backFromGameScreenPlay();
+    }//GEN-LAST:event_backplayMouseReleased
+
+    private void setGearMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_setGearMouseEntered
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/Gear2.png"));
+        setGear.setIcon(II);
+    }//GEN-LAST:event_setGearMouseEntered
+
+    private void setGearMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_setGearMouseExited
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/Gear1.jpg"));
+        setGear.setIcon(II);       
+    }//GEN-LAST:event_setGearMouseExited
+
+    private void setGearMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_setGearMousePressed
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/Gear3.png"));
+        setGear.setIcon(II);      
+    }//GEN-LAST:event_setGearMousePressed
+
+    private void setGearMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_setGearMouseReleased
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/Gear1.jpg"));
+        setGear.setIcon(II);
+        GUIManager.manager.displaySettings(1);  
+    }//GEN-LAST:event_setGearMouseReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backButton;
+    private javax.swing.JLabel backplay;
     private javax.swing.JPanel boosters;
     private javax.swing.JLabel currentPoint;
     private javax.swing.JLabel jLabel1;
@@ -213,7 +306,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel levelName;
     private javax.swing.JLabel remainedMovePoint;
-    private javax.swing.JButton settingsButton;
+    private javax.swing.JLabel setGear;
     private javax.swing.JPanel table;
     private javax.swing.JLabel targetPoint;
     // End of variables declaration//GEN-END:variables

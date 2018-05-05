@@ -101,7 +101,17 @@ public class Database {
             int res = stmt.executeUpdate("INSERT INTO users(username, password, email) VALUES ('" + 
                     username + "','" + pass + "','" + mail + "');");
             
+            int res2 = stmt.executeUpdate("INSERT INTO highscores(username, point) VALUES ('" +
+                    username + "','" + 0 + "');");
+            
+            int res3 = stmt.executeUpdate("INSERT INTO level(username, level) VALUES ('" +
+                    username + "','" + 1 + "');");
+            
             if ( res == 0)
+                return null;
+            else if ( res2 == 0)
+                return null;
+            else if ( res3 == 0)
                 return null;
             else
                 return login(username, pass);
@@ -121,7 +131,7 @@ public class Database {
             
             ArrayList<String[]> res = null;
             
-            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores");
+            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores;");
             
             if ( highScore.next())
             {
@@ -164,7 +174,7 @@ public class Database {
             Statement stmt = conn.createStatement();
             
             stmt.executeUpdate("UPDATE highscores SET point=point+" +
-                   point + " WHERE username = '" + GUIManager.user[0] + "'");           
+                   point + " WHERE username = '" + GUIManager.manager.user[1] + "';");           
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
@@ -176,7 +186,8 @@ public class Database {
         try {
             Statement stmt = conn.createStatement();
             
-            ResultSet level = stmt.executeQuery("SELECT * FROM level WHERE username='" + GUIManager.user[0] +"'");
+            ResultSet level = stmt.executeQuery("SELECT * FROM level WHERE  username='" + GUIManager.manager.user[1] +"';");
+            
             
             if ( level.next())
             {
@@ -206,7 +217,7 @@ public class Database {
             Statement stmt = conn.createStatement();
             
             stmt.executeUpdate("UPDATE level SET level=" +
-                   newLevel + " WHERE username = '" + GUIManager.user[0] + "'");           
+                   newLevel + " WHERE username = '" + GUIManager.manager.user[1] + "';");           
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);

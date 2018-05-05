@@ -12,12 +12,16 @@ import javax.swing.ImageIcon;
  * @author berka
  */
 public class LevelPanel extends javax.swing.JPanel {
+    
+    private int maxLevel;
 
     /**
      * Creates new form LevelPanel
+     * @param maxLevel
      */
-    public LevelPanel() {
+    public LevelPanel( int maxLevel) {
         initComponents();
+        this.maxLevel = maxLevel;
         jSlider2.setMinimum(3);
         jSlider2.setMaximum(10);
         jSlider2.setMinorTickSpacing(1);
@@ -89,6 +93,51 @@ public class LevelPanel extends javax.swing.JPanel {
         jSlider10.setPaintLabels(true);
         jSlider10.setValue(3);
         
+        if ( maxLevel < 2 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/23.png"));
+            jLabel4.setIcon(II);
+        }
+        if ( maxLevel < 3 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/33.png"));
+            jLabel5.setIcon(II);
+        }
+        if ( maxLevel < 4 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/43.png"));
+            jLabel6.setIcon(II);
+        }
+        if ( maxLevel < 5 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/53.png"));
+            jLabel7.setIcon(II);
+        }
+        if ( maxLevel < 6 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/63.png"));
+            jLabel8.setIcon(II);
+        }
+        if ( maxLevel < 7 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/73.png"));
+            jLabel9.setIcon(II);
+        }
+        if ( maxLevel < 8 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/83.png"));
+            jLabel10.setIcon(II);
+        }
+        if ( maxLevel < 9 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/93.png"));
+            jLabel11.setIcon(II);
+        }
+        if ( maxLevel < 10 )
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.jpg"));
+            jLabel12.setIcon(II);
+        }
 
     }
 
@@ -404,192 +453,351 @@ public class LevelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel3MouseReleased
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/22.png"));
-        jLabel4.setIcon(II);
+        
+        if ( maxLevel  >= 2)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/22.png"));
+            jLabel4.setIcon(II);
+        }
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void jLabel4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseExited
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
-        jLabel4.setIcon(II);        // TODO add your handling code here:
+        if ( maxLevel  >= 2)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
+            jLabel4.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel4MouseExited
 
     private void jLabel4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MousePressed
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/23.png"));
-        jLabel4.setIcon(II);        // TODO add your handling code here:
+        if ( maxLevel  >= 2)
+        {
+        
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/23.png"));
+            jLabel4.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel4MousePressed
 
     private void jLabel4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseReleased
+<<<<<<< HEAD
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
         jLabel4.setIcon(II);
-        GUIManager.manager.openLevel(2, jSlider2.getValue());        // TODO add your handling code here:
+        GUIManager.manager.openLevel(2, jSlider2.getValue());        
+=======
+       
+        if ( maxLevel  >= 2)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/2.png"));
+            jLabel4.setIcon(II);
+            GUIManager.manager.openLevel(2, jSlider2.getValue());        
+        }
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
     }//GEN-LAST:event_jLabel4MouseReleased
 
     private void jLabel5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseEntered
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/32.png"));
-        jLabel5.setIcon(II);         // TODO add your handling code here:
+        
+        if ( maxLevel  >= 3)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/32.png"));
+            jLabel5.setIcon(II);         // TODO add your handling code here:
+        
+        }
     }//GEN-LAST:event_jLabel5MouseEntered
 
     private void jLabel5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseExited
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
-        jLabel5.setIcon(II);        // TODO add your handling code here:
+       
+        if ( maxLevel  >= 3)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
+            jLabel5.setIcon(II);       
+        }
+        
     }//GEN-LAST:event_jLabel5MouseExited
 
     private void jLabel5MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MousePressed
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/33.png"));
-        jLabel5.setIcon(II);        // TODO add your handling code here:
+        
+        if ( maxLevel  >= 3)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/33.png"));
+            jLabel5.setIcon(II);        // TODO add your handling code here:
+        }
+        
     }//GEN-LAST:event_jLabel5MousePressed
 
     private void jLabel5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseReleased
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
-        jLabel5.setIcon(II);
-        GUIManager.manager.openLevel(3, jSlider3.getValue());        // TODO add your handling code here:
+       
+        if ( maxLevel  >= 3)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/3.png"));
+            jLabel5.setIcon(II);
+            GUIManager.manager.openLevel(3, jSlider3.getValue());   
+        }
     }//GEN-LAST:event_jLabel5MouseReleased
 
     private void jLabel6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseEntered
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/42.png"));
-        jLabel6.setIcon(II);        // TODO add your handling code here:
+        
+        if ( maxLevel  >= 4)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/42.png"));
+            jLabel6.setIcon(II);       
+        }
+        
     }//GEN-LAST:event_jLabel6MouseEntered
 
     private void jLabel6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseExited
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
-        jLabel6.setIcon(II);          // TODO add your handling code here:
+      
+        if ( maxLevel  >= 4)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
+            jLabel6.setIcon(II);       
+        }
+        
+        
     }//GEN-LAST:event_jLabel6MouseExited
 
     private void jLabel6MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MousePressed
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/43.png"));
-        jLabel6.setIcon(II);        // TODO add your handling code here:
+       
+        if ( maxLevel  >= 4)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/43.png"));
+            jLabel6.setIcon(II);     
+        
+        }
     }//GEN-LAST:event_jLabel6MousePressed
 
     private void jLabel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseReleased
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
-        jLabel6.setIcon(II);
-        GUIManager.manager.openLevel(4, jSlider4.getValue());// TODO add your handling code here:
+        
+        if ( maxLevel  >= 4)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/4.png"));
+            jLabel6.setIcon(II);
+            GUIManager.manager.openLevel(4, jSlider4.getValue());
+        }
+        
     }//GEN-LAST:event_jLabel6MouseReleased
 
     private void jLabel7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseEntered
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/52.png"));
-        jLabel7.setIcon(II);        // TODO add your handling code here:
+       
+        if ( maxLevel  >= 5)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/52.png"));
+            jLabel7.setIcon(II);
+        }
+        
+        
     }//GEN-LAST:event_jLabel7MouseEntered
 
     private void jLabel7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseExited
+       
+        if ( maxLevel  >= 5)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/5.png"));
         jLabel7.setIcon(II);         // TODO add your handling code here:
+        }
+        
     }//GEN-LAST:event_jLabel7MouseExited
 
     private void jLabel7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MousePressed
+       
+        if ( maxLevel  >= 5)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/53.png"));
         jLabel7.setIcon(II);         // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel7MousePressed
 
     private void jLabel7MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseReleased
+       
+        if ( maxLevel  >= 5)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/5.png"));
         jLabel7.setIcon(II);
         GUIManager.manager.openLevel(5, jSlider5.getValue());// TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel7MouseReleased
 
     private void jLabel8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseEntered
+       
+        if ( maxLevel  >= 6)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/62.png"));
         jLabel8.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel8MouseEntered
 
     private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
+      
+        if ( maxLevel  >= 6)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/6.png"));
         jLabel8.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel8MouseExited
 
     private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
+        
+        if ( maxLevel  >= 6)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/63.png"));
         jLabel8.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel8MousePressed
 
     private void jLabel8MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseReleased
+      
+        if ( maxLevel  >= 6)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/6.png"));
         jLabel8.setIcon(II);
-        GUIManager.manager.openLevel(6, jSlider6.getValue());        // TODO add your handling code here:
+        GUIManager.manager.openLevel(6, jSlider6.getValue());        
+        }
     }//GEN-LAST:event_jLabel8MouseReleased
 
     private void jLabel9MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseEntered
+        
+        if ( maxLevel  >= 7)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/72.png"));
         jLabel9.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel9MouseEntered
 
     private void jLabel9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseExited
+        
+        if ( maxLevel  >= 7)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/7.png"));
         jLabel9.setIcon(II);         // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel9MouseExited
 
     private void jLabel9MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MousePressed
+        
+        if ( maxLevel  >= 7)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/73.png"));
         jLabel9.setIcon(II);         // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel9MousePressed
 
     private void jLabel9MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseReleased
+        
+        if ( maxLevel  >= 7)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/7.png"));
         jLabel9.setIcon(II);
         GUIManager.manager.openLevel(7, jSlider7.getValue());// TODO add your handling code here:
+        
+        }
     }//GEN-LAST:event_jLabel9MouseReleased
 
     private void jLabel10MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseEntered
+       
+        if ( maxLevel  >= 8)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/82.png"));
         jLabel10.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel10MouseEntered
 
     private void jLabel10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseExited
+        
+        if ( maxLevel  >= 8)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/8.png"));
         jLabel10.setIcon(II);           // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel10MouseExited
 
     private void jLabel10MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MousePressed
+        
+        if ( maxLevel  >= 8)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/83.png"));
         jLabel10.setIcon(II);           // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel10MousePressed
 
     private void jLabel10MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel10MouseReleased
+       
+        if ( maxLevel  >= 8)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/8.png"));
         jLabel10.setIcon(II);    
         GUIManager.manager.openLevel(8, jSlider8.getValue());// TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel10MouseReleased
 
     private void jLabel11MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseEntered
+        if ( maxLevel  >= 9)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/92.png"));
         jLabel11.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel11MouseEntered
 
     private void jLabel11MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseExited
+        
+        if ( maxLevel  >= 9)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/9.png"));
         jLabel11.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel11MouseExited
 
     private void jLabel11MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MousePressed
+        
+        if ( maxLevel  >= 9)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/93.png"));
         jLabel11.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel11MousePressed
 
     private void jLabel11MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseReleased
+        
+        if ( maxLevel  >= 9)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/9.png"));
         jLabel11.setIcon(II);  
         GUIManager.manager.openLevel(9 , jSlider9.getValue());// TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel11MouseReleased
 
     private void jLabel12MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseEntered
+        
+        if ( maxLevel  >= 10)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/102.png"));
         jLabel12.setIcon(II);        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel12MouseEntered
 
     private void jLabel12MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseExited
+        
+        if ( maxLevel  >= 10)
+        {
         ImageIcon II = new ImageIcon(getClass().getResource("/icons/10.png"));
         jLabel12.setIcon(II);          // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel12MouseExited
 
     private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.jpg"));
-        jLabel12.setIcon(II);         // TODO add your handling code here:
+        if ( maxLevel  >= 10)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.jpg"));
+            jLabel12.setIcon(II);         // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel12MousePressed
 
     private void jLabel12MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseReleased
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/10.png"));
-        jLabel12.setIcon(II); 
-        GUIManager.manager.openLevel(10, jSlider10.getValue());// TODO add your handling code here:
+        
+        if ( maxLevel  >= 10)
+        {
+            ImageIcon II = new ImageIcon(getClass().getResource("/icons/10.png"));
+            jLabel12.setIcon(II); 
+            GUIManager.manager.openLevel(10, jSlider10.getValue());// TODO add your handling code here:
+        }
     }//GEN-LAST:event_jLabel12MouseReleased
 
 

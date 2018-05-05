@@ -10,11 +10,22 @@ package cscrush;
 /**
  *
  * @author Eren Ayture
+ * @description: child class of an BookCandy object with overrided setTypeBarDirectly() 
+ * @date: 5.05.2018
  */
+
 public class Cs102 extends BookCandy {
+    /*
+    @see: super() takes parent class properties
+    Constructor 
+    */
     public Cs102(){
         super();
     }
+    /*
+    @return: void
+    with %10 possibility set objec as special book vertical else horizontal
+    */
     @Override
     public void setTypeBarDirectly(){
         int chance = (int)(Math.random() *100  + 1);

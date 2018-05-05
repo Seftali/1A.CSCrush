@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,7 +47,7 @@ public class GUIManager {
         gameFrame = new GameFrame();
         loginPanel = new LoginPanel();
         mainMenuPanel = new MainMenuPanel();
-        gamePlayScreenPanel = new GamePlayScreenPanel();
+        gamePlayScreenPanel = null;
         settingsPanel = new SettingsPanel();
         creditsPanel = new CreditsPanel();
         levelPanel = null;
@@ -156,20 +157,10 @@ public class GUIManager {
         gameFrame.pack();   
     }
     //Opening choosed level
-    public void openLevel(int lev)
-    {
-        //Get dump level 
-        currentLevel = new GameManager(lev);
-        currentLevel.setScore(0);
-        gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
-        gamePlayScreenPanel.setScore(currentLevel.getScore());
-        gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
-        gameFrame.setContentPane(gamePlayScreenPanel);
-        gameFrame.pack();
-    }
     public void openLevel(int lev, int difficulty)
     {
-        //Get dump level 
+
+        gamePlayScreenPanel = new GamePlayScreenPanel();
         currentLevel = new GameManager(lev);
         currentLevel.reconstruct(difficulty);
         currentLevel.setScore(0);
@@ -275,6 +266,14 @@ public class GUIManager {
             if ( currentLevel.achieved() && currentLevel.getLevel().getLevel() > dbManager.getLevel())
             {
                 dbManager.setLevel(currentLevel.getLevel().getLevel());
+                
+                JOptionPane.showMessageDialog(mainMenuPanel, "You have reached target point! New level available!");
+                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(mainMenuPanel, "You could not reached target point! Out of move!");
+                
             }
         }
 

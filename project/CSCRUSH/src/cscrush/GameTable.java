@@ -29,100 +29,45 @@ public class GameTable extends javax.swing.JPanel {
     private int pressedX, pressedY;
     private boolean fadeCandies;
     private boolean fallCandies;
+    private boolean gameOver;
     private int fadeSize;
     private int maxFallSize;
-    private int checkFall;
+    private int checkFall, wait;
     private int[][] fallMark, fadeMark, fallSize;
     private AnimationNode cur;
+    private GamePlayScreenPanel parent;
     
     /**
      * Creates new form GameTable
      */
-    public GameTable() {
+    public GameTable(GamePlayScreenPanel parent) {
         initComponents();
+        this.parent = parent;
         
         fadeCandies = false;
         fallCandies = false;
-        fadeSize = 1;
+        gameOver = false;
+        fadeSize = 0;
         maxFallSize = 0;
-        checkFall = 1;
+        checkFall = 0;
         cur = null;
+        wait = 500;
         fallSize = new int[10][10];
         
-        Timer timer = new Timer(20, (ActionEvent e) -> {
+        
+        Timer timer = new Timer(10, (ActionEvent e) -> {
             
-            int count = 0;
-            if ( fallCandies)
-            {
+            if ( wait >= 50 && (fadeCandies || fallCandies))
+            {                                
                 validate();
                 repaint();
-                checkFall++;
-                if (checkFall >= maxFallSize * 50)
-                {
-                    maxFallSize = 0;
-                    checkFall = 1;
-                    
-                    if ( cur.next != null)
-                    {
-                        cur = cur.next;
-                        fadeCandies = true;
-                        fallCandies = false;
-                    }
-                    else
-                    {
-                        fadeCandies = false;
-                        fallCandies = false;
-                        
-                        tableObjects = cur.newBookCandy;
-                        validate();
-                        repaint();
-                        count++;
-                        System.out.println("New  " + count);
-                        
-                        
-                    }
-                }
+                                
             }
-            else if ( fadeCandies)
+            else if ( fallCandies || fadeCandies)
             {
-                if ( fadeSize == 1)
-                {
-                    fadeSize = 50;
-                    fadeMark = cur.marked;
-                    tableObjects = cur.oldBookCandy;
-                    fallMark = cur.fall;
-                    
-                    for ( int i = 0; i < 10; i++)
-                    {
-                        for ( int j = 0; j < 10; j++)
-                        {
-                            fallSize[i][j] = 1;
-                            if ( fallMark[i][j] >= maxFallSize)
-                            {
-                                maxFallSize = fallMark[i][j];
-                            }
-                        }
-                    }
-                    
-                    for ( int i = 0; i < 10; i++)
-                    {
-                        for ( int j = 0; j < 10; j++)
-                        {
-                            System.out.print(fadeMark[i][j] + " ");
-                        }
-                        System.out.println();                  
-                    }
-                }
-                validate();
-                repaint();
-                fadeSize--;
-                if (fadeSize == 1)
-                {
-                    fadeCandies = false;
-                    fallCandies = true;
-                    checkFall = 1;
-                }
+                wait++;
             }
+            
         });
 
         timer.start();
@@ -173,11 +118,74 @@ public class GameTable extends javax.swing.JPanel {
             
         if ( fadeCandies)
         {
+            if ( fadeSize == 0)
+            {
+                fadeSize = 50;
+                fadeMark = cur.marked;
+                tableObjects = cur.oldBookCandy;
+                fallMark = cur.fall;
+                (new SoundManager()).playDestroy();
+
+                for ( int j = 0; j < 10; j++)
+                {
+
+                    for ( int i = 0; i < 10; i++)
+                    {
+                        fallSize[j][i] = 1;
+                        if ( fallMark[j][i] >= maxFallSize)
+                        {
+                            maxFallSize = fallMark[j][i];
+                        }
+
+                    }
+
+                }
+                parent.setScore(cur.score);
+
+            }
+            
             fade(g);
+            fadeSize--;
+            
+            if (fadeSize == 0)
+            {
+                fadeCandies = false;
+                fallCandies = true;
+                checkFall = 0;
+            }
+            
         }
         else if ( fallCandies)
         {
             fall(g);
+            checkFall++;
+            
+            if (checkFall >= maxFallSize * 50)
+            {
+                maxFallSize = 0;
+                checkFall = 0;
+
+                if ( cur.next != null)
+                {
+                    wait = 1;
+                    cur = cur.next;    
+                    fadeCandies = true;
+                    fallCandies = false;
+                }
+                else
+                {
+                    fadeCandies = false;
+                    fallCandies = false;
+
+                    tableObjects = cur.newBookCandy;
+                    validate();
+                    repaint();
+                    
+                    GUIManager.manager.removeList();
+
+                }
+            }
+            
         }
         else
         {
@@ -188,8 +196,26 @@ public class GameTable extends javax.swing.JPanel {
     
     private void fall(Graphics g)
     {
-
+        int[] limit = new int[10];
         for (int i = 0; i < 10; i++)
+        {
+            int sizeColumn = 0;
+            limit[i] = 1;
+            for ( int j = 0; j < 10; j++)
+            {
+                if ( fallSize[j][i] >= limit[i])
+                {
+                    limit[i] = fallSize[j][i];
+                }
+                if ( fadeMark[j][i] == 1)
+                {
+                    sizeColumn++;
+                }
+
+            }
+
+                
+            
             for (int j = 0; j < 10; j++)
             {  
                 BookCandy temp = tableObjects[j][i];
@@ -330,15 +356,87 @@ public class GameTable extends javax.swing.JPanel {
                     {
                         fallSize[j][i]++;
                     }
-                    else
+                }
+                else
+                {
+                    if ( fallMark[j][i] * 50 > fallSize[j][i])
                     {
-                        
+                        fallSize[j][i]++;
+                    }
+                    for ( int m = 1; m < limit[i] / 50 + 1; m++)
+                    {
+                        BookCandy temp2 = cur.newBookCandy[sizeColumn - m][i];
+                        if ( temp2.getType().equals("Cs102") && temp2.getTypeBar().equals("normal"))
+                        {
+                            g.drawImage(bookImages[0], i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs102") && temp2.getTypeBar().equals("vertical"))
+                        {
+                            g.drawImage(bookImages[1],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs102") && temp2.getTypeBar().equals("horizontal"))
+                        {
+                            g.drawImage(bookImages[2],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs201") && temp2.getTypeBar().equals("normal"))
+                        {
+                            g.drawImage(bookImages[3],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs201") && temp2.getTypeBar().equals("vertical"))
+                        {
+                            g.drawImage(bookImages[4],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs201") && temp2.getTypeBar().equals("horizontal"))
+                        {
+                            g.drawImage(bookImages[5],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs224") && temp2.getTypeBar().equals("normal"))
+                        {
+                            g.drawImage(bookImages[6],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs224") && temp2.getTypeBar().equals("vertical"))
+                        {
+                            g.drawImage(bookImages[7],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs224") && temp2.getTypeBar().equals("horizontal"))
+                        {
+                            g.drawImage(bookImages[8],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs342") && temp2.getTypeBar().equals("normal"))
+                        {
+                            g.drawImage(bookImages[9],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs342") && temp2.getTypeBar().equals("vertical"))
+                        {
+                            g.drawImage(bookImages[10],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs342") && temp2.getTypeBar().equals("horizontal"))
+                        {
+                            g.drawImage(bookImages[11],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs476") && temp2.getTypeBar().equals("normal"))
+                        {
+                            g.drawImage(bookImages[12],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs476") && temp2.getTypeBar().equals("vertical"))
+                        {
+                            g.drawImage(bookImages[13],i*50, limit[i] - 50 * m,null);
+                        }
+                        else if ( temp2.getType().equals("Cs476") && temp2.getTypeBar().equals("horizontal"))
+                        {
+                            g.drawImage(bookImages[14],i*50, limit[i] - 50 * m,null);
+                        }
+                        else 
+                        {
+                            g.drawImage(bookImages[15],i*50, limit[i] - 50 * m,null);
+                        }
                     }
                 }
                 
-                
-                
             }
+                
+                
+        }
         
         
     }
@@ -578,6 +676,12 @@ public class GameTable extends javax.swing.JPanel {
         }
     }
     
+    public void gameOver()
+    {
+        gameOver = true;
+        (new SoundManager()).playEnd();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -623,7 +727,7 @@ public class GameTable extends javax.swing.JPanel {
         int x,y;
         x = evt.getX();
         y = evt.getY();
-        if ( fallCandies == false && fadeCandies == false)
+        if ( fallCandies == false && fadeCandies == false && gameOver == false)
         {
         if (x > pressedX && y > pressedY && x - pressedX > y - pressedY)
         {

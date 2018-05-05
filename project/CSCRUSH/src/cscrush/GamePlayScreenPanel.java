@@ -23,7 +23,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
      */
     public GamePlayScreenPanel() {
         initComponents();
-        gameTable = new GameTable();
+        gameTable = new GameTable( this);
         boostersPanel = new BoostersPanel();
         table.add(gameTable);
         boosters.add(boostersPanel);
@@ -53,6 +53,25 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         repaint();
     }
     
+    public void setTargetPoint(String target)
+    {
+        targetPoint.setText(target);
+        validate();
+        repaint();
+    }
+    
+    public void setLevelName(int lev)
+    {
+        levelName.setText("Level " + lev);
+        validate();
+        repaint();
+    }
+    
+    public void gameOver()
+    {
+        gameTable.gameOver();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -70,9 +89,15 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         remainedMovePoint = new javax.swing.JLabel();
         targetPoint = new javax.swing.JLabel();
         currentPoint = new javax.swing.JLabel();
+<<<<<<< HEAD
         backplay = new javax.swing.JLabel();
         setGear = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+=======
+        boosters = new javax.swing.JPanel();
+        table = new javax.swing.JPanel();
+        levelName = new javax.swing.JLabel();
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
 
         setBackground(new java.awt.Color(255, 255, 255));
         setLayout(null);
@@ -155,10 +180,78 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
         add(setGear);
         setGear.setBounds(650, 600, 43, 50);
 
+<<<<<<< HEAD
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Book-Wallpaper-booknerd-40623852-1024-768.jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4);
         jLabel4.setBounds(0, 0, 710, 590);
+=======
+        levelName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        levelName.setText("Level 1");
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(backButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(settingsButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(23, 23, 23)
+                                .addComponent(remainedMovePoint))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(boosters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(targetPoint)
+                            .addComponent(currentPoint))))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(295, 295, 295)
+                .addComponent(levelName)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(levelName)
+                .addGap(43, 43, 43)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(table, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(remainedMovePoint)
+                                .addGap(57, 57, 57)
+                                .addComponent(boosters, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(backButton)
+                            .addComponent(settingsButton)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(15, 15, 15)
+                        .addComponent(targetPoint)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addGap(8, 8, 8)
+                        .addComponent(currentPoint)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+>>>>>>> 5c802e45b91f033479bcc4a77497355f7596d3f4
     }// </editor-fold>//GEN-END:initComponents
 
     private void backplayMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backplayMouseEntered
@@ -211,7 +304,7 @@ public class GamePlayScreenPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel levelName;
     private javax.swing.JLabel remainedMovePoint;
     private javax.swing.JLabel setGear;
     private javax.swing.JPanel table;

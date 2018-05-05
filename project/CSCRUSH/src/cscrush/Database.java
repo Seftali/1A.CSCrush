@@ -22,7 +22,7 @@ public class Database {
     
     static String userName = "cscrush";
     static String password = "";
-    static String serverURL = "jdbc:mysql://139.179.227.212:3306/cscrush";
+    static String serverURL = "jdbc:mysql://139.179.227.119:3306/cscrush";
     static String portNumber = "80";
     private Connection conn;
     
@@ -101,7 +101,17 @@ public class Database {
             int res = stmt.executeUpdate("INSERT INTO users(username, password, email) VALUES ('" + 
                     username + "','" + pass + "','" + mail + "');");
             
+            int res2 = stmt.executeUpdate("INSERT INTO highscores(username, point) VALUES ('" +
+                    username + "','" + 0 + "');");
+            
+            int res3 = stmt.executeUpdate("INSERT INTO level(username, level) VALUES ('" +
+                    username + "','" + 1 + "');");
+            
             if ( res == 0)
+                return null;
+            else if ( res2 == 0)
+                return null;
+            else if ( res3 == 0)
                 return null;
             else
                 return login(username, pass);
@@ -121,7 +131,7 @@ public class Database {
             
             ArrayList<String[]> res = null;
             
-            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores");
+            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores;");
             
             if ( highScore.next())
             {
@@ -164,11 +174,55 @@ public class Database {
             Statement stmt = conn.createStatement();
             
             stmt.executeUpdate("UPDATE highscores SET point=point+" +
-                   point + " WHERE username = '" + GUIManager.user[0] + "'");           
+                   point + " WHERE username = '" + GUIManager.manager.user[1] + "';");           
             
         } catch (SQLException ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public int getLevel()
+    {
+        try {
+            Statement stmt = conn.createStatement();
+            
+            ResultSet level = stmt.executeQuery("SELECT * FROM level WHERE  username='" + GUIManager.manager.user[1] +"';");
+            
+            
+            if ( level.next())
+            {
+                int res = Integer.parseInt(level.getString(2));
+
+                stmt.close();
+                return res;
+            }
+            else
+            {            
+                stmt.close();
+                return 0;
+            }
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return 0;
+    }
+    
+    public void setLevel( int newLevel)
+    {
+        try {
+            Statement stmt = conn.createStatement();
+            
+            stmt.executeUpdate("UPDATE level SET level=" +
+                   newLevel + " WHERE username = '" + GUIManager.manager.user[1] + "';");           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class is implemented to showw boosters of the game
  */
 package cscrush;
 
@@ -43,7 +41,10 @@ public class BoostersPanel extends javax.swing.JPanel {
         }
 
     }
-
+/*
+ * This method is implemented to showthe image of boosters
+ * @param Graphics g  
+ */
         @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -55,25 +56,28 @@ public class BoostersPanel extends javax.swing.JPanel {
         g.drawImage(william,0,200,null);
         
     }
+/*
+ * This method is implemented to get mouse clicks
+ * @param java.awt.event.MouseEvent evt
+ */
     private void formMouseClicked(java.awt.event.MouseEvent evt) {                                  
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        pressedX1 = evt.getX();
-        if (pressedX<= halil.getWidth(this) && pressedY<= halil.getHeight(this)) {
+        if (0<=pressedX && 49>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= eray.getWidth(this) && pressedY<= eray.getHeight(this)) {
-            GUIManager.manager.poweruperay(pressedX,pressedY,pressedX1,pressedY1);
+        if (50<=pressedX && 99>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= robin.getWidth(this) && pressedY<= robin.getHeight(this)) {
-            GUIManager.manager.poweruprobin(pressedX,pressedY);
+        if (100<=pressedX && 149>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= ozcan.getWidth(this) && pressedY<= ozcan.getHeight(this)) {
-            GUIManager.manager.powerupozcan(pressedX,pressedY);
+        if (150<=pressedX && 199>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= william.getWidth(this) && pressedY<= william.getHeight(this)) {
-            GUIManager.manager.powerupwilliam(pressedX,pressedY);
+        if (200<=pressedX && 249>= pressedX && 0<= pressedY && 49>= pressedY) {
+           GUIManager.manager.powerupaltay();
         }
  
        

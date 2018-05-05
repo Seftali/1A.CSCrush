@@ -5,6 +5,7 @@
  */
 package cscrush;
 
+import cscrush.AnimationList.AnimationNode;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -263,12 +264,16 @@ public class GUIManager {
     {        
         System.out.println("swap = " + x1 + ", " + y1 + ", " + x2 + ", " + y2 + "\n");
 
+        AnimationNode head = currentLevel.swap(y1, x1, y2, x2);
         
-        gamePlayScreenPanel.startAnimation(currentLevel.swap(y1, x1, y2, x2));
-        
+        if ( head != null)
+            gamePlayScreenPanel.startAnimation(head);
+        else
+            gamePlayScreenPanel.setGameTable(currentLevel.getSystemCall());
         
         gamePlayScreenPanel.setScore(currentLevel.getScore());
         gamePlayScreenPanel.setRemainedMove(currentLevel.getMovement());
+        
 
     }
     

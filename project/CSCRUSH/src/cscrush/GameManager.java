@@ -157,7 +157,7 @@ public class GameManager {
         return randomBook;
     }
 
-        private int markedBooks(int x,int y){
+    private int markedBooks(int x,int y){
         int countx = x;
         int countxx = 1;
         int county = y;
@@ -329,7 +329,7 @@ public class GameManager {
         for(int i = 0; i < matrixSize; i++){
             for(int j = matrixSize-2; j>=0; j--){
                 int temp = j;
-                while( (!( list[j][i].getMarked())) && temp < matrixSize    ){
+                while( temp < matrixSize ){
                     if(list[temp++][i].getMarked()){
                         count++;
                     }

@@ -33,11 +33,11 @@ public class BoostersPanel extends javax.swing.JPanel {
         initComponents();
         this.parent = parent;
         try {
-            robin = ImageIO.read(new File("src/img/robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            halil = ImageIO.read(new File("src/img/halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            eray = ImageIO.read(new File("src/img/eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            ozcan = ImageIO.read(new File("src/img/ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            william = ImageIO.read(new File("src/img/william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            robin = ImageIO.read(getClass().getResource("/img/robin.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            halil = ImageIO.read(getClass().getResource("/img/halil.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            eray = ImageIO.read(getClass().getResource("/img/eray.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            ozcan = ImageIO.read(getClass().getResource("/img/ozcan.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            william = ImageIO.read(getClass().getResource("/img/william.jpg")).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
              
         } catch (IOException ex) {
             Logger.getLogger(BoostersPanel.class.getName()).log(Level.SEVERE, null, ex);

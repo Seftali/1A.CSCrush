@@ -59,7 +59,7 @@ public class GameTable extends javax.swing.JPanel {
             
             if ( wait >= 50 && (fadeCandies || fallCandies))
             {                                
-                validate();
+                revalidate();
                 repaint();
                                 
             }
@@ -74,39 +74,39 @@ public class GameTable extends javax.swing.JPanel {
         
         bookImages = new Image[16];
         dirBookImages = new String[16];
-        dirBookImages[0] = "src/img/cs102.jpg";
-        dirBookImages[1] = "src/img/cs102Vertical.jpg";
-        dirBookImages[2] = "src/img/cs102Horizontal.jpg";
-        dirBookImages[3] = "src/img/cs201.jpg";
-        dirBookImages[4] = "src/img/cs201Vertical.jpg";
-        dirBookImages[5] = "src/img/cs201Horizontal.jpg";
-        dirBookImages[6] = "src/img/cs224.jpg";
-        dirBookImages[7] = "src/img/cs224Vertical.jpg";
-        dirBookImages[8] = "src/img/cs224Horizontal.jpg";
-        dirBookImages[9] = "src/img/cs342.jpg";
-        dirBookImages[10] = "src/img/cs342Vertical.jpg";
-        dirBookImages[11] = "src/img/cs342Horizontal.jpg";
-        dirBookImages[12] = "src/img/cs476.jpg";
-        dirBookImages[13] = "src/img/cs476Vertical.jpg";
-        dirBookImages[14] = "src/img/cs476Horizontal.jpg";
-        dirBookImages[15] = "src/img/burn.jpg";
+        dirBookImages[0] = "/img/cs102.jpg";
+        dirBookImages[1] = "/img/cs102Vertical.jpg";
+        dirBookImages[2] = "/img/cs102Horizontal.jpg";
+        dirBookImages[3] = "/img/cs201.jpg";
+        dirBookImages[4] = "/img/cs201Vertical.jpg";
+        dirBookImages[5] = "/img/cs201Horizontal.jpg";
+        dirBookImages[6] = "/img/cs224.jpg";
+        dirBookImages[7] = "/img/cs224Vertical.jpg";
+        dirBookImages[8] = "/img/cs224Horizontal.jpg";
+        dirBookImages[9] = "/img/cs342.jpg";
+        dirBookImages[10] = "/img/cs342Vertical.jpg";
+        dirBookImages[11] = "/img/cs342Horizontal.jpg";
+        dirBookImages[12] = "/img/cs476.jpg";
+        dirBookImages[13] = "/img/cs476Vertical.jpg";
+        dirBookImages[14] = "/img/cs476Horizontal.jpg";
+        dirBookImages[15] = "/img/burn.jpg";
         try {
-            bookImages[0] = ImageIO.read(new File(dirBookImages[0])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[1] = ImageIO.read(new File(dirBookImages[1])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[2] = ImageIO.read(new File(dirBookImages[2])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[3] = ImageIO.read(new File(dirBookImages[3])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[4] = ImageIO.read(new File(dirBookImages[4])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[5] = ImageIO.read(new File(dirBookImages[5])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[6] = ImageIO.read(new File(dirBookImages[6])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[7] = ImageIO.read(new File(dirBookImages[7])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[8] = ImageIO.read(new File(dirBookImages[8])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[9] = ImageIO.read(new File(dirBookImages[9])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[10] = ImageIO.read(new File(dirBookImages[10])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[11] = ImageIO.read(new File(dirBookImages[11])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[12] = ImageIO.read(new File(dirBookImages[12])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[13] = ImageIO.read(new File(dirBookImages[13])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[14] = ImageIO.read(new File(dirBookImages[14])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
-            bookImages[15] = ImageIO.read(new File(dirBookImages[15])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[0] = ImageIO.read(getClass().getResource(dirBookImages[0])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[1] = ImageIO.read(getClass().getResource(dirBookImages[1])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[2] = ImageIO.read(getClass().getResource(dirBookImages[2])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[3] = ImageIO.read(getClass().getResource(dirBookImages[3])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[4] = ImageIO.read(getClass().getResource(dirBookImages[4])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[5] = ImageIO.read(getClass().getResource(dirBookImages[5])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[6] = ImageIO.read(getClass().getResource(dirBookImages[6])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[7] = ImageIO.read(getClass().getResource(dirBookImages[7])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[8] = ImageIO.read(getClass().getResource(dirBookImages[8])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[9] = ImageIO.read(getClass().getResource(dirBookImages[9])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[10] = ImageIO.read(getClass().getResource(dirBookImages[10])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[11] = ImageIO.read(getClass().getResource(dirBookImages[11])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[12] = ImageIO.read(getClass().getResource(dirBookImages[12])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[13] = ImageIO.read(getClass().getResource(dirBookImages[13])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[14] = ImageIO.read(getClass().getResource(dirBookImages[14])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
+            bookImages[15] = ImageIO.read(getClass().getResource(dirBookImages[15])).getScaledInstance(50, 50, Image.SCALE_DEFAULT);
         } catch (IOException ex) {
             Logger.getLogger(GameTable.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -178,7 +178,7 @@ public class GameTable extends javax.swing.JPanel {
                     fallCandies = false;
 
                     tableObjects = cur.newBookCandy;
-                    validate();
+                    revalidate();
                     repaint();
                     
                     GUIManager.manager.removeList();
@@ -662,7 +662,7 @@ public class GameTable extends javax.swing.JPanel {
         fadeCandies = false;  
         fallCandies = false;
         this.tableObjects = tableObjects;
-        validate();
+        revalidate();
         repaint();
     }
     

@@ -582,7 +582,7 @@ public class LevelPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel12MouseExited
 
     private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
-        ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.png"));
+        ImageIcon II = new ImageIcon(getClass().getResource("/icons/103.jpg"));
         jLabel12.setIcon(II);         // TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MousePressed
 

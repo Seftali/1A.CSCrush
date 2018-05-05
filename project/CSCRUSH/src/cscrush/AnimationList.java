@@ -17,7 +17,7 @@ public class AnimationList {
         int[][] marked;
         int[][] fall; //How many square will it fall
         BookCandy[][] newBookCandy;
-        
+        int score;
         
     };
 AnimationNode head;

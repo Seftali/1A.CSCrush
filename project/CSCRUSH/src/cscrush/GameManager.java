@@ -40,6 +40,16 @@ public class GameManager {
         rebuild();
     }
     
+    public void removeList()
+    {
+        lists.removeAll();
+    }
+    
+    public Level getLevel()
+    {
+        return level;
+    }
+    
     public void setDifficulty(int difficulty){
         if( ( difficulty < 3 ) || ( difficulty > matrixSize ) )
             return;
@@ -59,8 +69,6 @@ public class GameManager {
     }
     
     public void rebuild(){ 
-        //lists.removeAll();
-        
         
         while(traverselyMarkedBooks() != 0){
             AnimationList.AnimationNode node = lists.new AnimationNode();
@@ -79,6 +87,7 @@ public class GameManager {
 
             
             node.newBookCandy = copyList(list);
+            node.score = getScore();
             lists.add(node);
         }
     }

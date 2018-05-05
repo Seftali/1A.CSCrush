@@ -2,14 +2,19 @@ package cscrush;
 import cscrush.BookCandy;
 import javax.xml.soap.Node;
 
+
 /*
- * This class maintains the connection between GUIManager and GameManager to show animations
+ * @description: This class maintains the connection between GUIManager and GameManager to show animations
+ * @author tanerduzceer
+ *
+ * @property: AnimationNode next
+   @property: BookCandy[][] oldBookCandy
+   @property: int[][] marked
+   @property: int[][] fall
+   @property: BookCandy[][] newBookCandy
+   @property: int score;
  */
 
-/**
- *
- * @author tanerduzceer
- */
 public class AnimationList {
     public class AnimationNode{
         AnimationNode next;

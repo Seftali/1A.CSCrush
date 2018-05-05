@@ -1,12 +1,16 @@
-/*
- * This class implements the sound of the game. They are swapping sound, 
- * destroying sound,vs.
- */
+
 package cscrush;
 
 /**
- *
- * @author TanerMan
+ *  @description: This class implements the sound of the game. They are swapping sound, 
+ *  destroying sound,vs.
+ *  @author TanerMan
+ *  @property: File swap
+    @property: File destroy
+    @property: File end
+    @property: File main
+    @property: File page
+    @property: File theme
  */
 //import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;    
@@ -26,7 +30,7 @@ public class SoundManager {
         try{
         swap = new File("src/sounds/swapSound.wav");
         destroy = new File("src/sounds/battle047.wav");
-        end = new File("src/sounds/youve-been-a-very-good.wav");
+        end = new File("src/sounds/you-got-it-1.wav");
         page = new File("src/sounds/Page Turn Sound Effect.wav");
         main = new File("src/sounds/mainTheme.wav");
         theme = javax.sound.sampled.AudioSystem.getClip();

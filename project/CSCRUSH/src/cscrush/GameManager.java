@@ -5,14 +5,17 @@ import cscrush.AnimationList.AnimationNode;
 
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
+ * @description: This class implements the logic part of the game.This class controls the game ,
+ * logically according to the level. Score, number of movements, minimum destroy number
+ * and animations are executed. 
  * @author Eren Ayture
+ *  @property: BookCandy[][] list;
+    @property: Level level;
+    @property: final int matrixSize = 10;
+    @property: int score;
+    @property: int scoreIncrement;
+    @property: int numberofMarkeds;
+    @property: int minimumDestroyCount;
  */
 public class GameManager {
     
@@ -60,7 +63,11 @@ public class GameManager {
             return;
         scoreIncrement = (difficulty-2)*5*(this.level.getLevel());
     }
-    
+    /*
+    @param: BookCandy[][] temp , take a list 
+    @return: marked 2d int array as 0's and 1's,
+    takes a list  and creates 2d int array to represent marked or not  
+    */
     public int[][] markedMatrix(BookCandy[][] temp){
         int[][] marked = new int[10][10]; 
         for(int i = 0; i < 10; i++){
@@ -72,7 +79,15 @@ public class GameManager {
         }
         return marked;
     }
-    
+    /*
+    @return void
+    @see traverselyMarkedBooks() returns how many book marked
+    @see fall(int y); falls unmarked objects in the same order
+    @see destroyTraversally() destroys marked books
+    @see fillBooks(temp) fills books and updates special books
+    this is a mutual recursive algorythim. after swap , special book destruction or powerups list is updated to inconsecutive state again 
+    and animation list is added according to all positions
+    */
     public void rebuild(){ 
         
         while(traverselyMarkedBooks() != 0){
@@ -96,12 +111,22 @@ public class GameManager {
             lists.add(node);
         }
     }
-    
+    /*
+    @param: int minimumDestroyCount
+    @return: void
+    determines minimum or maximum  number of  consecutive permission
+    */
     public void reconstruct(int minimumDestroyCount){
-        if( ( minimumDestroyCount < 3 ) || ( minimumDestroyCount > matrixSize ) )
+        if( ( minimumDestroyCount < 3 ) || ( minimumDestroyCount > matrixSize ) )//control
             return;
         this.minimumDestroyCount = minimumDestroyCount;
     }
+    /*
+    @param: int x object to be checked
+    @param: int arr[] x in arr to be checked
+    @return: boolean result 
+    it cheks whether a x is in arr[]
+    */
     private boolean notInclude(int x, int arr[]){
         boolean result = true;
         for(int i = 0; i < arr.length; i++){
@@ -110,6 +135,11 @@ public class GameManager {
         }
         return result;
     }
+    /*
+    @param int specialBookCount
+    @return: void
+    fillbooks according to destroy count. destroy count is more than 10 it gives one special book
+    */
     public void fillBooks(int specialBookCount){
         if(specialBookCount == 0 )
             return;
@@ -127,7 +157,7 @@ public class GameManager {
                 else
                     temp = (int)(Math.random() *specialBookCount  + 1);
             }
-        }
+        }//special book places are determined randomly 
         int index = 0;
         int counter = 0;
         BookCandy temp = new BookCandy();
@@ -146,8 +176,14 @@ public class GameManager {
                         break;
             }
             count = 10;
-        }
+        }//books are added to the empty places
     }
+    
+    /*
+    @see Math.random() create random number between 0 and 1
+    @return BookCandy
+    creates random objects with %20 possibilityas sub classes of BookCandy objects as CS102,CS201,CS224,CS342,CS476
+    */
     public BookCandy randomBookGenerator(){
         int book = (int)(Math.random() *5  + 1);
         BookCandy randomBook = new BookCandy();
@@ -170,8 +206,16 @@ public class GameManager {
         }
         return randomBook;
     }
-
-    private int markedBooks(int x,int y){
+        /*
+        @param: int x position x of list
+        @param: int y position y of list
+        @see: setMarked() markes objects true
+        @see: getTypeBar() gets special objects
+        @see: equals() checks speciality
+        @return: result how many marking is done
+        According to minimum destroy count minumum number of same consecutive objects are determined and marked true
+        */
+        private int markedBooks(int x,int y){
         int countx = x;
         int countxx = 1;
         int county = y;
@@ -180,7 +224,7 @@ public class GameManager {
             countxx++;
         while(( county+1 < matrixSize ) && (list[x][county].getType().equals(list[x][++county].getType())) ){
             countyy++;
-        }
+        }//number of consecutives
         int result = 0;   
         if(countxx > minimumDestroyCount-1){
             result += countxx-1;
@@ -195,7 +239,7 @@ public class GameManager {
                         list[x+i][j].setMarked(true);
                 }
             }
-        }
+        }//special books  and consecutives are marked in direction x
         if(countyy > minimumDestroyCount-1){
             result += countyy-1;
             for(int i = 0; i < countyy; i++){
@@ -208,11 +252,15 @@ public class GameManager {
                     for(int j = 0; j <  matrixSize; j++)
                         list[x][j].setMarked(true);
                 }
-            }
-        }
+            } 
+        }//special books  and consecutives are marked in direction y
         return result;
     }
-    
+    /*
+    @see markedBooks()  mark objects according to each index
+    @return: sum return how many marking is done
+    traverse 2d array and consecutive same objects are marked according to the minimum destroy count
+    */
     public int traverselyMarkedBooks(){
         int sum = 0;
         for(int i = 0; i < matrixSize; i++){
@@ -224,7 +272,11 @@ public class GameManager {
         
         return sum;
     }
-    
+    /*
+    @return:int sum return how many destruction is done
+    @see: markedBooks() marks objects
+    travers array and marked objects are destroyed to become mother class BookCandy
+    */
     public int destroyTraversally(){
         int sum = 0;
         for(int i = 0; i < matrixSize; i++){
@@ -238,6 +290,14 @@ public class GameManager {
         }
         return sum;
     }
+    /*
+    @param: int x: Position x of a list
+    @param: int y: Position y of a list
+    @see: getMovement() gets remaining 
+    @see: setMarked() sets true 
+    @return: void
+    test of distruction for special books 
+    */
     public void destroySpecialBook(int x, int y){
         if(list[x][y].getTypeBar().equals("horizontal")){
             if(this.level.getMovement()!= 0){
@@ -277,36 +337,13 @@ public class GameManager {
                 level.setMovement(level.getMovement()-1);
             }
         }
-    }/*
-    public void fall(int y){
-        if(y == matrixSize)
-            return;
-        int i = matrixSize-1;
-        int count = 0;
-        while (i >= 0){
-            if(list[i][y].getMarked())
-                count++;
-            i--;
-        }
-        int countCounter = 0;
-        i = matrixSize-1;
-        int counTemp = 0;
-        while( ( count != 0 ) && ( countCounter != count) && (i >= 0)  ){
-            countCounter = 0;
-            if(list[i][y].getMarked()){
-                counTemp = i;
-                while((counTemp != countCounter) && (counTemp != 0)){
-                    BookCandy temp = list[counTemp][y];
-                    list[counTemp][y] = list[counTemp-1][y];
-                    list[counTemp-1][y] = temp;
-                    counTemp--;
-                }
-                countCounter++;
-            }
-            i--;
-        }
-        fall(y+1); 
     }
+    /*
+    @param: int y, column of list[x][y]
+    @see: setMarkedTrue() sets true
+    @return: void
+    recursive algorythm, segregates marked objets to the begining of column and protects other objects order
+    
     */
     public void fall(int y){
         if(y == matrixSize)
@@ -335,7 +372,11 @@ public class GameManager {
         }
         fall(y+1);
     }
-    
+    /*
+    @see: getMarked() gets marked
+    @return int[][] arr
+    calculate all objects in the array and how many to fall and creates an array for this
+    */
     public int[][] fallAnimate(){
         int arr[][] = new int[matrixSize][matrixSize];
         int count = 0;
@@ -354,12 +395,26 @@ public class GameManager {
         
         return arr;
     }
-    
+    /*
+    @return BookCandy[][] list
+    returns list of an 2d array
+    */
     public BookCandy[][] getSystemCall(){
         return list;
     }
+    /*
+    @param: int x1 list[x1][]
+    @param: int y1 list[][y1]
+    @param: int x2 list[x2][]
+    @param: int y2 list[][y2]
+    @see: getMovement() movement count
+    @see: setMovement() decrement remaining movement with 1
+    @see: rebuild() rebuild the table 
+    @return: AnimationNode
+    swap operation is made and than destruction and fill operations are made and each state Animationlist is updated. 
+    */
     public AnimationNode swap(int x1,int y1, int x2,int y2){
-        if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )
+        if( (x1<0|| y1<0||x2<0||y2<0) || ( x1>=matrixSize || y1>=matrixSize || x2>=matrixSize || y2>=matrixSize ) )//control
             return null;
         if(this.level.getMovement()!= 0)
         {
@@ -373,7 +428,11 @@ public class GameManager {
         }
         return lists.getFirst();
     }
-    
+    /*
+    @param BookCandy[][] list
+    @return BookCandy[][] tempList
+    coppies an array
+    */
     public BookCandy[][] copyList( BookCandy[][] list)
     {
         BookCandy[][] tempList = new BookCandy[10][10];
@@ -386,7 +445,10 @@ public class GameManager {
         
         return tempList;
     }
-    
+    /*
+    @return: void
+    sets five random objects in the table special book:
+    */
     public void PowerUpAltay(){
         if(this.level.getMovement()!= 0){
             lists.removeAll();
@@ -400,6 +462,12 @@ public class GameManager {
             }
         }
     }
+    /*
+    @param: positionX list[positionX][]
+    @param: positionY list[][positionY]
+    @return: void
+    destroys 3x3 matrix in the table
+    */
     public void PowerUpWilliam(int positionX, int positionY){
         if(this.level.getMovement()!= 0){
             lists.removeAll();
@@ -413,6 +481,12 @@ public class GameManager {
             }
         }
     }
+    /*
+    @param: positionX list[positionX][]
+    @param: positionY list[][positionY]
+    @return: void
+    changes one object randomly
+    */
     public void PowerUpRobin(int positionX, int positionY){
         if(this.level.getMovement()!= 0){
             lists.removeAll();
@@ -426,6 +500,12 @@ public class GameManager {
             }
         }
     }
+    /*
+    @param: int positionX
+    @param: int positionY
+    @return: void
+    destroys 1 choosen object
+    */
     public void PowerUpOzcan(int positionX, int positionY){
         if(this.level.getMovement()!= 0){
             lists.removeAll();
@@ -439,6 +519,15 @@ public class GameManager {
             }
         }
     }
+    /*
+    @param: int positionX list[positionX][]
+    @param: int positionY list[][positionY]
+    @param: int  positionX2 list[ positionX2][]
+    @param: int positionY2 list[][positionY2]
+    @see: getMovement() movement count
+    @return: void
+    swaps 2 objects in the list in anyplace
+    */
     public void PowerUpEray(int positionX, int positionY,int positionX2, int positionY2){
         if(this.level.getMovement()!= 0){
             lists.removeAll();
@@ -452,6 +541,10 @@ public class GameManager {
             }
         }
     }
+    /*
+    @return void;
+    display marked array
+    */
     public void displayMarked(){
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
@@ -460,6 +553,10 @@ public class GameManager {
             System.out.println("\n");
         }
     }
+    /*
+    @return: void
+    displays tepe and speciality
+    */
     public void displayType(){
         for(int i = 0; i < matrixSize; i++){
             for(int j = 0; j < matrixSize; j++){
@@ -468,14 +565,26 @@ public class GameManager {
             System.out.println("\n");
         }
     }
-    
+    /*
+    @return int score
+    getter for score
+    */
     public int getScore(){
         return score;
     }
+    /*
+    @param: int val
+    @return: void
+    sets score
+    */
     public void setScore(int val){
         score = val;
     }
-    
+    /*
+    @see getMovement()
+    @return:int  movementcount
+    getter for movement
+    */
     public int getMovement()
     {
         return level.getMovement();

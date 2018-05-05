@@ -1,19 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cscrush;
 
 /**
- *
- * @author User
+ * @description: This class implements the powerup William which destroys the book and its neighbors
+ * @author Eren Ayture
+   @property: BookCandy[][] list
  */
 public class William {
     private BookCandy[][] list;
     public William(BookCandy[][] list){
         this.list = list;
     }
+/*
+ * This method takes the x and y coordinates of a book and destroys the book and its neighbors
+ * @param positionX, positionY
+ * @return list
+ */
     public BookCandy[][] PowerUpWilliam(int positionX, int positionY){
         if( ( positionX < 1 ) || ( positionX > 8 ) || ( positionY < 1 ) || ( positionY > 8 ) )
             return null;

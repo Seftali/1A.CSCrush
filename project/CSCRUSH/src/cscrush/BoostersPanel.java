@@ -64,21 +64,20 @@ public class BoostersPanel extends javax.swing.JPanel {
 
         pressedX = evt.getX();
         pressedY = evt.getY();
-        pressedX1 = evt.getX();
-        if (pressedX<= halil.getWidth(this) && pressedY<= halil.getHeight(this)) {
+        if (0<=pressedX && 49>= pressedX && 0<= pressedY && 49>= pressedY) {
             GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= eray.getWidth(this) && pressedY<= eray.getHeight(this)) {
-            GUIManager.manager.poweruperay(pressedX,pressedY,pressedX1,pressedY1);
+        if (50<=pressedX && 99>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= robin.getWidth(this) && pressedY<= robin.getHeight(this)) {
-            GUIManager.manager.poweruprobin(pressedX,pressedY);
+        if (100<=pressedX && 149>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= ozcan.getWidth(this) && pressedY<= ozcan.getHeight(this)) {
-            GUIManager.manager.powerupozcan(pressedX,pressedY);
+        if (150<=pressedX && 199>= pressedX && 0<= pressedY && 49>= pressedY) {
+            GUIManager.manager.powerupaltay();
         }
-        if (pressedX<= william.getWidth(this) && pressedY<= william.getHeight(this)) {
-            GUIManager.manager.powerupwilliam(pressedX,pressedY);
+        if (200<=pressedX && 249>= pressedX && 0<= pressedY && 49>= pressedY) {
+           GUIManager.manager.powerupaltay();
         }
  
        

@@ -1,12 +1,16 @@
-/*
- * This class implements the sound of the game. They are swapping sound, 
- * destroying sound,vs.
- */
+
 package cscrush;
 
 /**
- *
- * @author TanerMan
+ *  @description: This class implements the sound of the game. They are swapping sound, 
+ *  destroying sound,vs.
+ *  @author TanerMan
+ *  @property: File swap
+    @property: File destroy
+    @property: File end
+    @property: File main
+    @property: File page
+    @property: File theme
  */
 //import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;    

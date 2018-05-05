@@ -1,11 +1,10 @@
-/*
- * This class implements the powerup William which destroys the book and its neighbors
- */
+
 package cscrush;
 
 /**
- *
+ * @description: This class implements the powerup William which destroys the book and its neighbors
  * @author Eren Ayture
+   @property: BookCandy[][] list
  */
 public class William {
     private BookCandy[][] list;

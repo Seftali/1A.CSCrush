@@ -1,11 +1,10 @@
-/*
- * This class implements the powerup Ozcan which destroys a choosen book
- */
+
 package cscrush;
 
 /**
- *
+ * @description:This class implements the powerup Ozcan which destroys a choosen book
  * @author Eren Ayture
+ * @property: BookCandy[][] list
  */
 public class Ozcan {
     private BookCandy[][] list;

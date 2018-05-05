@@ -1,11 +1,11 @@
-/*
- * This class implements the powerup Robin which changes a choosen book with another random book
- */
+
 package cscrush;
 
 /**
- *
- * @author Eren Ayture
+ *  @description:This class implements the powerup Robin which changes a choosen book with another random book
+ *  @author Eren Ayture
+ *  @property: BookCandy[][] list
+ *  @property: GameManager game
  */
 
 public class Robin {

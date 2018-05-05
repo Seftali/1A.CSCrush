@@ -1,13 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package cscrush;
 
 /**
- *
+ * @description:This class changes five random books with special random books
  * @author Eren Ayture
+   @property: BookCandy[][] list;
+   @property: BookCandy[][] list
  */
 public class Altay {
     private BookCandy[][] list;

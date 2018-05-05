@@ -1,12 +1,10 @@
 package cscrush;
-
-/*
- * This class implements the level of game.
- */
-
 /**
- *
- * @author TanerMan
+ *  @description:This class implements the level of game.
+ *  @author TanerMan
+    @property: int level
+    @property: int count
+    @property: int target
  */
 public class Level {
     int lev;

@@ -131,7 +131,7 @@ public class Database {
             
             ArrayList<String[]> res = null;
             
-            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores;");
+            ResultSet highScore = stmt.executeQuery("SELECT * FROM highscores ORDER BY point DESC;");
             
             if ( highScore.next())
             {

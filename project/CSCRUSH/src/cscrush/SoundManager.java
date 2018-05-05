@@ -43,9 +43,9 @@ public class SoundManager {
     public void playSwap(){
         try
         {
-        Clip clip = javax.sound.sampled.AudioSystem.getClip();
-        clip.open(javax.sound.sampled.AudioSystem.getAudioInputStream(swap));
-        clip.start();
+            Clip clip = javax.sound.sampled.AudioSystem.getClip();
+            clip.open(javax.sound.sampled.AudioSystem.getAudioInputStream(swap));
+            clip.start();
         }catch(IOException | LineUnavailableException | UnsupportedAudioFileException e){}
     }
     /*

@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class implements the powerup Ozcan which destroys a choosen book
  */
 package cscrush;
 
@@ -14,7 +12,11 @@ public class Ozcan {
     public Ozcan(BookCandy[][] list){
         this.list = list;
     }
-
+/*
+ * This method takes the x and y coordinates of choosen book and destroys it
+ * @param positionX, positionY
+ * @return list
+ */
     public BookCandy[][] PowerUpOzcan(int positionX, int positionY){
         if( (positionX<0|| positionY<0) || ( positionX>=10 || positionY>=10 ) )
             return null;

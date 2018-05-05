@@ -95,10 +95,16 @@ public class Level {
     public int getMovement(){
         return count;
     }
-    
+/*
+ * This method arranges the target points according to level 
+ */
     public void setTarget(){
         target = target;
     }
+/*
+ * This method arranges the target points according to level 
+ * @return target 
+ */
     public int getTarget(){
         return target;
         

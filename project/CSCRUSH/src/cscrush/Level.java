@@ -7,6 +7,9 @@ package cscrush;
 /**
  *
  * @author TanerMan
+    @property: int level
+    @property: int count
+    @property: int target
  */
 public class Level {
     int lev;

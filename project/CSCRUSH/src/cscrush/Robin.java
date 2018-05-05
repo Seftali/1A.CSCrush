@@ -6,6 +6,8 @@ package cscrush;
 /**
  *
  * @author Eren Ayture
+ *  @property: BookCandy[][] list
+ *  @property: GameManager game
  */
 
 public class Robin {

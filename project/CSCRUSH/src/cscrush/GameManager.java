@@ -5,9 +5,9 @@ import cscrush.AnimationList.AnimationNode;
 
 
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * This class implements the logic part of the game.This class controls the game ,
+ * logically according to the level. Score, number of movements, minimum destroy number
+ * and animations are executed. 
  */
 
 /**

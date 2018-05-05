@@ -6,6 +6,9 @@ package cscrush;
 /**
  *
  * @author Eren Ayture
+ * 
+   @property: BookCandy[][] list
+ 
  */
 public class Eray {
     private BookCandy[][] list;

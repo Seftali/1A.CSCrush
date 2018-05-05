@@ -8,6 +8,8 @@ package cscrush;
 /**
  *
  * @author Eren Ayture
+   @property: BookCandy[][] list;
+   @property: BookCandy[][] list
  */
 public class Altay {
     private BookCandy[][] list;
